@@ -13,59 +13,10 @@
 import { combineReducers } from 'redux-immutable';
 
 import {
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS,
-  LOAD_REPOS_ERROR,
   CLOSE_SIDENAV,
   OPEN_SIDENAV,
   TOGGLE_SIDENAV,
 } from './constants';
-
-function loading(state = false, action) {
-  switch (action.type) {
-    case LOAD_REPOS:
-      return true;
-    case LOAD_REPOS_SUCCESS:
-      return false;
-    case LOAD_REPOS_ERROR:
-      return false;
-    default:
-      return state;
-  }
-}
-
-function error(state = false, action) {
-  switch (action.type) {
-    case LOAD_REPOS:
-      return false;
-    case LOAD_REPOS_SUCCESS:
-      return false;
-    case LOAD_REPOS_ERROR:
-      return action.error;
-    default:
-      return state;
-  }
-}
-
-function currentUser(state = false, action) {
-  switch (action.type) {
-    case LOAD_REPOS_SUCCESS:
-      return action.username;
-    default:
-      return state;
-  }
-}
-
-function repositories(state = false, action) {
-  switch (action.type) {
-    case LOAD_REPOS:
-      return false;
-    case LOAD_REPOS_SUCCESS:
-      return action.repos;
-    default:
-      return state;
-  }
-}
 
 function layout(state = false, action) {
   switch (action.type) {
@@ -81,11 +32,5 @@ function layout(state = false, action) {
 }
 
 export default combineReducers({
-  loading,
-  error,
-  currentUser,
-  userData: combineReducers({
-    repositories,
-  }),
   layout,
 });

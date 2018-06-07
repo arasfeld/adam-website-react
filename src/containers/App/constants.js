@@ -9,9 +9,6 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
-export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
-export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 export const CLOSE_SIDENAV = 'boilerplate/App/CLOSE_SIDENAV';
 export const OPEN_SIDENAV = 'boilerplate/App/OPEN_SIDENAV';
 export const TOGGLE_SIDENAV = 'boilerplate/App/TOGGLE_SIDENAV';
