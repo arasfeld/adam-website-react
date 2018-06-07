@@ -18,6 +18,7 @@ import { withStyles } from '@material-ui/core/styles';
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import ResumePage from 'containers/ResumePage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import SideNav from 'components/SideNav';
@@ -63,6 +64,7 @@ function App(props) {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/features" component={FeaturePage} />
+          <Route path="/resume" component={ResumePage} />
           <Route path="" component={NotFoundPage} />
         </Switch>
         <Footer />

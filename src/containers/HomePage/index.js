@@ -19,7 +19,7 @@ function HomePage() {
         <meta name="description" content="A React.js Boilerplate application homepage" />
       </Helmet>
       <div>
-        <Typography variant="display1" gutterBottom>
+        <Typography variant="display2" gutterBottom>
           <FormattedMessage {...messages.header} />
         </Typography>
       </div>

@@ -4,6 +4,7 @@
   "app.components.Header.title": "React.js Boilerplate",
   "app.components.SideNav.features": "Features",
   "app.components.SideNav.home": "Home",
+  "app.components.SideNav.resume": "Résumé",
   "app.containers.FeaturePage.css.header": "Features",
   "app.containers.FeaturePage.css.message": "Next generation CSS",
   "app.containers.FeaturePage.feedback.header": "Instant feedback",

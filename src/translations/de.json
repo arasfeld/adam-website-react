@@ -4,6 +4,7 @@
   "app.components.Header.title": "React.js Textplatte",
   "app.components.SideNav.features": "Eigenschaften",
   "app.components.SideNav.home": "Startseite",
+  "app.components.SideNav.resume": "Lebenslauf",
   "app.containers.FeaturePage.css.header": "",
   "app.containers.FeaturePage.css.message": "Die nächste Generation von CSS",
   "app.containers.FeaturePage.feedback.header": "Sofortiges Feedback",
