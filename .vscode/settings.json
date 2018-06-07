@@ -1,0 +1,27 @@
+{
+    "eslint.autoFixOnSave": true,
+    "eslint.enable": true,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/.history/**": true
+    },
+    "files.watcherExclude": {
+      "**/.history/**": true,
+      "**/dist/**": true,
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true
+    },
+    "search.exclude": {
+      "**/.history/**": true,
+      "**/dist/**": true,
+      "**/node_modules": true,
+      "**/bower_components": true
+    },
+    "editor.tabSize": 2
+  }
+  

@@ -1,0 +1,186 @@
+{
+  "name": "adam-website-react",
+  "version": "0.0.0",
+  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+  },
+  "engines": {
+    "npm": ">=5",
+    "node": ">=6"
+  },
+  "author": "Adam Rasfeld",
+  "license": "MIT",
+  "scripts": {
+    "precommit": "npm run lint:staged",
+    "analyze:clean": "rimraf stats.json",
+    "preanalyze": "npm run analyze:clean",
+    "analyze": "node ./internals/scripts/analyze.js",
+    "npmcheckversion": "node ./internals/scripts/npmcheckversion.js",
+    "preinstall": "npm run npmcheckversion",
+    "postinstall": "npm run build:dll",
+    "prebuild": "npm run build:clean",
+    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
+    "build:clean": "rimraf ./build",
+    "build:dll": "node ./internals/scripts/dependencies.js",
+    "start": "cross-env NODE_ENV=development node server",
+    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
+    "start:production": "npm run test && npm run build && npm run start:prod",
+    "start:prod": "cross-env NODE_ENV=production node server",
+    "clean:all": "npm run analyze:clean && npm run test:clean && npm run build:clean",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --fix",
+    "lint:js": "npm run lint:eslint -- . ",
+    "lint:staged": "lint-staged",
+    "pretest": "npm run test:clean && npm run lint",
+    "test:clean": "rimraf ./coverage",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:dev": "cross-env NODE_ENV=test jest --watch",
+    "test:watch": "cross-env NODE_ENV=test jest --watchAll",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "moduleRoots": "src",
+  "lint-staged": {
+    "*.js": [
+      "lint:eslint"
+    ]
+  },
+  "dllPlugin": {
+    "path": "node_modules/app-dlls",
+    "exclude": [
+      "chalk",
+      "compression",
+      "cross-env",
+      "express",
+      "ip",
+      "minimist"
+    ],
+    "include": [
+      "core-js",
+      "lodash",
+      "eventsource-polyfill"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/**/*.test.{js,jsx}",
+      "!src/app.js",
+      "!src/*/*/Loadable.{js,jsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/image.js"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/test-bundler.js",
+    "setupFiles": [
+      "raf/polyfill",
+      "<rootDir>/internals/testing/enzyme-setup.js"
+    ],
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
+  "dependencies": {
+    "@material-ui/core": "1.2.0",
+    "@material-ui/icons": "1.1.0",
+    "babel-polyfill": "6.26.0",
+    "chalk": "^2.4.1",
+    "compression": "1.7.2",
+    "cross-env": "5.1.6",
+    "express": "4.16.3",
+    "fontfaceobserver": "2.0.13",
+    "history": "4.7.2",
+    "hoist-non-react-statics": "2.5.0",
+    "immutable": "3.8.2",
+    "intl": "1.2.5",
+    "invariant": "2.2.4",
+    "ip": "1.1.5",
+    "lodash": "4.17.5",
+    "minimist": "1.2.0",
+    "prop-types": "15.6.1",
+    "react": "16.4.0",
+    "react-dom": "16.4.0",
+    "react-helmet": "5.2.0",
+    "react-intl": "2.4.0",
+    "react-loadable": "5.3.1",
+    "react-redux": "5.0.7",
+    "react-router-dom": "4.2.2",
+    "react-router-redux": "5.0.0-alpha.9",
+    "redux": "3.7.2",
+    "redux-immutable": "4.0.0",
+    "redux-saga": "0.16.0",
+    "reselect": "3.0.1",
+    "warning": "3.0.0",
+    "whatwg-fetch": "2.0.4"
+  },
+  "devDependencies": {
+    "add-asset-html-webpack-plugin": "2.1.3",
+    "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-eslint": "7.2.3",
+    "babel-loader": "7.1.4",
+    "babel-plugin-dynamic-import-node": "1.0.2",
+    "babel-plugin-react-intl": "2.3.1",
+    "babel-plugin-react-transform": "2.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-jsx-source": "6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.5",
+    "babel-preset-env": "1.5.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "circular-dependency-plugin": "3.0.0",
+    "coveralls": "2.13.1",
+    "css-loader": "0.28.11",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "15.0.1",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-import-resolver-webpack": "0.8.4",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.0.1",
+    "eslint-plugin-redux-saga": "0.3.0",
+    "eventsource-polyfill": "0.9.6",
+    "exports-loader": "0.7.0",
+    "file-loader": "1.1.11",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.0.6",
+    "husky": "0.14.3",
+    "image-webpack-loader": "4.2.0",
+    "imports-loader": "0.8.0",
+    "jest-cli": "20.0.4",
+    "lint-staged": "3.5.1",
+    "ngrok": "2.2.9",
+    "node-plop": "0.7.0",
+    "null-loader": "0.1.1",
+    "offline-plugin": "4.9.0",
+    "plop": "1.8.0",
+    "raf": "3.4.0",
+    "react-test-renderer": "16.2.0",
+    "rimraf": "2.6.2",
+    "shelljs": "^0.7.7",
+    "style-loader": "0.20.3",
+    "svg-url-loader": "^2.3.2",
+    "url-loader": "1.0.1",
+    "webpack": "4.11.1",
+    "webpack-cli": "2.1.4",
+    "webpack-dev-middleware": "3.1.3",
+    "webpack-hot-middleware": "2.22.2",
+    "webpack-pwa-manifest": "3.6.2"
+  }
+}
