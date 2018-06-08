@@ -18,7 +18,7 @@ describe('<NotFound />', () => {
     expect(renderedComponent.contains(
       <Typography variant="display2" gutterBottom>
         <FormattedMessage
-          id="adam-website-react.containers.NotFoundPage.header"
+          id="app.containers.NotFoundPage.header"
           defaultMessage={'Page not found.'}
         />
       </Typography>)).toEqual(true);

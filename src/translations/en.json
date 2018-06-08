@@ -3,7 +3,9 @@
   "app.components.Footer.license.message": "This project is licensed under the MIT license.",
   "app.components.Header.title": "Adam Rasfeld",
   "app.components.SideNav.features": "Features",
+  "app.components.SideNav.github": "GitHub",
   "app.components.SideNav.home": "Home",
+  "app.components.SideNav.music": "Music",
   "app.components.SideNav.resume": "Résumé",
   "app.containers.FeaturePage.css.header": "Features",
   "app.containers.FeaturePage.css.message": "Next generation CSS",
@@ -25,5 +27,7 @@
   "app.containers.HomePage.header": "Home",
   "app.containers.LocaleToggle.de": "de",
   "app.containers.LocaleToggle.en": "en",
-  "app.containers.NotFoundPage.header": "Page not found."
+  "app.containers.MusicPage.header": "Music",
+  "app.containers.NotFoundPage.header": "Page not found.",
+  "app.containers.ResumePage.header": "Résumé"
 }

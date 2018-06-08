@@ -16,6 +16,10 @@ export default defineMessages({
     id: `${scope}.features`,
     defaultMessage: 'Features',
   },
+  music: {
+    id: `${scope}.music`,
+    defaultMessage: 'Music',
+  },
   resume: {
     id: `${scope}.resume`,
     defaultMessage: 'Résumé',
