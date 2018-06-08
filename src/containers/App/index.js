@@ -47,10 +47,10 @@ function App(props) {
   return (
     <div className={classes.root}>
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="%s - Adam Rasfeld"
+        defaultTitle="Adam Rasfeld"
       >
-        <meta name="description" content="A React.js Boilerplate application" />
+        <meta name="description" content="My personal website written with React.js" />
       </Helmet>
       <Header toggleSideNav={onToggleSideNav} />
       <SideNav

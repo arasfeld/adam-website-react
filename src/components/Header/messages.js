@@ -10,6 +10,6 @@ const scope = 'app.components.Header';
 export default defineMessages({
   title: {
     id: `${scope}.title`,
-    defaultMessage: 'React.js Boilerplate',
+    defaultMessage: 'Adam Rasfeld',
   },
 });

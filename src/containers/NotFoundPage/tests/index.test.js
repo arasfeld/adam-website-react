@@ -6,7 +6,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
 
-import H1 from 'components/H1';
+import Typography from '@material-ui/core/Typography';
+
 import NotFound from '../index';
 
 describe('<NotFound />', () => {
@@ -15,11 +16,11 @@ describe('<NotFound />', () => {
       <NotFound />
     );
     expect(renderedComponent.contains(
-      <H1>
+      <Typography variant="display2" gutterBottom>
         <FormattedMessage
-          id="boilerplate.containers.NotFoundPage.header"
+          id="adam-website-react.containers.NotFoundPage.header"
           defaultMessage={'Page not found.'}
         />
-      </H1>)).toEqual(true);
+      </Typography>)).toEqual(true);
   });
 });

@@ -1,7 +1,7 @@
 {
   "app.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "app.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
-  "app.components.Header.title": "React.js Textplatte",
+  "app.components.Header.title": "",
   "app.components.SideNav.features": "Eigenschaften",
   "app.components.SideNav.home": "Startseite",
   "app.components.SideNav.resume": "Lebenslauf",

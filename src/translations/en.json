@@ -1,7 +1,7 @@
 {
   "app.components.Footer.author.message": "Made with love by {author}.",
   "app.components.Footer.license.message": "This project is licensed under the MIT license.",
-  "app.components.Header.title": "React.js Boilerplate",
+  "app.components.Header.title": "Adam Rasfeld",
   "app.components.SideNav.features": "Features",
   "app.components.SideNav.home": "Home",
   "app.components.SideNav.resume": "Résumé",

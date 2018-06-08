@@ -16,7 +16,7 @@ function HomePage() {
     <article>
       <Helmet>
         <title>Home Page</title>
-        <meta name="description" content="A React.js Boilerplate application homepage" />
+        <meta name="description" content="Home page of Adam Rasfeld's website" />
       </Helmet>
       <div>
         <Typography variant="display2" gutterBottom>

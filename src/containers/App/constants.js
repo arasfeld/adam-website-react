@@ -9,7 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const CLOSE_SIDENAV = 'boilerplate/App/CLOSE_SIDENAV';
-export const OPEN_SIDENAV = 'boilerplate/App/OPEN_SIDENAV';
-export const TOGGLE_SIDENAV = 'boilerplate/App/TOGGLE_SIDENAV';
+export const CLOSE_SIDENAV = 'adam-website-react/App/CLOSE_SIDENAV';
+export const OPEN_SIDENAV = 'adam-website-react/App/OPEN_SIDENAV';
+export const TOGGLE_SIDENAV = 'adam-website-react/App/TOGGLE_SIDENAV';
 export const DEFAULT_LOCALE = 'en';

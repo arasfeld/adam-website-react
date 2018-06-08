@@ -3,7 +3,7 @@ const pullAll = require('lodash/pullAll');
 const uniq = require('lodash/uniq');
 
 const App = {
-  // This refers to the react-boilerplate version this project is based on.
+  // This refers to the app version this project is based on.
   version: '0.0.0',
 
   /**
