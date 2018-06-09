@@ -16,3 +16,7 @@ export const LOAD_ALBUMS_ERROR = 'app/Music/LOAD_ALBUMS_ERROR';
 export const LOAD_ARTISTS = 'app/Music/LOAD_ARTISTS';
 export const LOAD_ARTISTS_SUCCESS = 'app/Music/LOAD_ARTISTS_SUCCESS';
 export const LOAD_ARTISTS_ERROR = 'app/Music/LOAD_ARTISTS_ERROR';
+
+export const LOAD_LAST_TRACK = 'app/Music/LOAD_LAST_TRACK';
+export const LOAD_LAST_TRACK_SUCCESS = 'app/Music/LOAD_LAST_TRACK_SUCCESS';
+export const LOAD_LAST_TRACK_ERROR = 'app/Music/LOAD_LAST_TRACK_ERROR';

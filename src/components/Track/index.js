@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { FormattedMessage } from 'react-intl';
 import { withStyles } from '@material-ui/core/styles';
 
 import Card from '@material-ui/core/Card';
@@ -18,44 +19,44 @@ const styles = (theme) => ({
     },
   },
   cover: {
-    width: 125,
-    height: 125,
+    width: 200,
+    height: 200,
   },
 });
 
-function Artist(props) {
-  const { classes, image, name, rank } = props;
+function Track(props) {
+  const { classes, album, artist, image, name } = props;
 
   return (
     <Card className={classes.card}>
       <CardMedia
         className={classes.cover}
-        title={name}
+        title={album}
         image={image}
       />
       <CardContent>
-        <Grid container spacing={16}>
-          <Grid item>
-            <Typography variant="display2">
-              {rank}
-            </Typography>
-          </Grid>
+        <Grid container direction="column" justify="space-between" spacing={8}>
           <Grid item>
             <Typography variant="headline">
               {name}
             </Typography>
+            <Typography variant="subheading" color="textSecondary">
+              {artist}
+            </Typography>
           </Grid>
+          <Grid item>test</Grid>
         </Grid>
       </CardContent>
     </Card>
   );
 }
 
-Artist.propTypes = {
+Track.propTypes = {
   classes: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
+  album: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  rank: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(Artist);
+export default withStyles(styles)(Track);

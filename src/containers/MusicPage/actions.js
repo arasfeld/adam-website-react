@@ -22,6 +22,9 @@ import {
   LOAD_ARTISTS,
   LOAD_ARTISTS_SUCCESS,
   LOAD_ARTISTS_ERROR,
+  LOAD_LAST_TRACK,
+  LOAD_LAST_TRACK_SUCCESS,
+  LOAD_LAST_TRACK_ERROR,
 } from './constants';
 
 /**
@@ -98,6 +101,45 @@ export function artistsLoaded(artists) {
 export function artistLoadingError(error) {
   return {
     type: LOAD_ARTISTS_ERROR,
+    error,
+  };
+}
+
+/**
+ * Load the last played track, this action starts the request saga
+ *
+ * @return {object} An action object with a type of LOAD_LAST_TRACK
+ */
+export function loadLastTrack() {
+  return {
+    type: LOAD_LAST_TRACK,
+  };
+}
+
+/**
+ * Dispatched when the track is loaded by the request saga
+ *
+ * @param  {array} track The track data
+ *
+ * @return {object}      An action object with a type of LOAD_LAST_TRACK_SUCCESS passing the track
+ */
+export function lastTrackLoaded(track) {
+  return {
+    type: LOAD_LAST_TRACK_SUCCESS,
+    track,
+  };
+}
+
+/**
+ * Dispatched when loading the track fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of LOAD_LAST_TRACK_ERROR passing the error
+ */
+export function lastTrackLoadingError(error) {
+  return {
+    type: LOAD_LAST_TRACK_ERROR,
     error,
   };
 }

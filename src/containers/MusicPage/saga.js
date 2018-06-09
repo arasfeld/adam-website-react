@@ -6,8 +6,19 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
 
-import { LOAD_ALBUMS, LOAD_ARTISTS } from './constants';
-import { albumsLoaded, albumLoadingError, artistsLoaded, artistLoadingError } from './actions';
+import {
+  LOAD_ALBUMS,
+  LOAD_ARTISTS,
+  LOAD_LAST_TRACK,
+} from './constants';
+import {
+  albumsLoaded,
+  albumLoadingError,
+  artistsLoaded,
+  artistLoadingError,
+  lastTrackLoaded,
+  lastTrackLoadingError,
+} from './actions';
 
 const lastFmUsername = 'arazzy';
 const lastFmApiKey = 'API_KEY';
@@ -39,6 +50,21 @@ export function* getTopArtists() {
     yield put(artistsLoaded(response.topartists.artist));
   } catch (err) {
     yield put(artistLoadingError(err));
+  }
+}
+
+/**
+ * Last.fm last played track request/response handler
+ */
+export function* getLastTrack() {
+  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=1&format=json`;
+
+  try {
+    // Call our request helper (see 'utils/request')
+    const response = yield call(request, requestURL);
+    yield put(lastTrackLoaded(response.recenttracks.track[0]));
+  } catch (err) {
+    yield put(lastTrackLoadingError(err));
   }
 }
 

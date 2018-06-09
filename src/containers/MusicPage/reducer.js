@@ -19,36 +19,45 @@ import {
   LOAD_ARTISTS,
   LOAD_ARTISTS_SUCCESS,
   LOAD_ARTISTS_ERROR,
+  LOAD_LAST_TRACK,
+  LOAD_LAST_TRACK_SUCCESS,
+  LOAD_LAST_TRACK_ERROR,
 } from './constants';
 
-// TODO: fix this to account for both albums and artists
+// TODO: fix this to account for albums, artists, and last played track
 function loading(state = false, action) {
   switch (action.type) {
     case LOAD_ALBUMS:
     case LOAD_ARTISTS:
+    case LOAD_LAST_TRACK:
       return true;
     case LOAD_ALBUMS_SUCCESS:
     case LOAD_ARTISTS_SUCCESS:
+    case LOAD_LAST_TRACK_SUCCESS:
       return false;
     case LOAD_ALBUMS_ERROR:
     case LOAD_ARTISTS_ERROR:
+    case LOAD_LAST_TRACK_ERROR:
       return false;
     default:
       return state;
   }
 }
 
-// TODO: fix this to account for both albums and artists
+// TODO: fix this to account for albums, artists, and last played track
 function error(state = false, action) {
   switch (action.type) {
     case LOAD_ALBUMS:
     case LOAD_ARTISTS:
+    case LOAD_LAST_TRACK:
       return false;
     case LOAD_ALBUMS_SUCCESS:
     case LOAD_ARTISTS_SUCCESS:
+    case LOAD_LAST_TRACK_SUCCESS:
       return false;
     case LOAD_ALBUMS_ERROR:
     case LOAD_ARTISTS_ERROR:
+    case LOAD_LAST_TRACK_ERROR:
       return action.error;
     default:
       return state;
@@ -77,9 +86,21 @@ function artists(state = false, action) {
   }
 }
 
+function lastTrack(state = false, action) {
+  switch (action.type) {
+    case LOAD_LAST_TRACK:
+      return false;
+    case LOAD_LAST_TRACK_SUCCESS:
+      return action.track;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   loading,
   error,
   albums,
   artists,
+  lastTrack,
 });

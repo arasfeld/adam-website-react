@@ -26,10 +26,16 @@ const makeSelectArtists = () => createSelector(
   (musicState) => musicState.get('artists')
 );
 
+const makeSelectLastTrack = () => createSelector(
+  selectMusic,
+  (musicState) => musicState.get('lastTrack')
+);
+
 export {
   selectMusic,
   makeSelectLoading,
   makeSelectError,
   makeSelectAlbums,
   makeSelectArtists,
+  makeSelectLastTrack,
 };

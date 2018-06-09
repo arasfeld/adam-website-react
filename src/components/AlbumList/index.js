@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import Album from 'components/Album';
 import LoadingIndicator from 'components/LoadingIndicator';
+import messages from './messages';
 
 function AlbumList({ loading, error, albums }) {
   if (loading) {
@@ -17,9 +19,22 @@ function AlbumList({ loading, error, albums }) {
   }
 
   if (albums !== false) {
-    return albums.map((album) => (
-      <Album key={`album-${album['@attr'].rank}`} rank={album['@attr'].rank} title={album.name} artist={album.artist.name} image={album.image[2]['#text']} />
-    ));
+    return (
+      <div>
+        <Typography variant="headline" gutterBottom>
+          <FormattedMessage {...messages.header} />
+        </Typography>
+        {albums.map((album) => (
+          <Album
+            key={`album-${album['@attr'].rank}`}
+            rank={album['@attr'].rank}
+            title={album.name}
+            artist={album.artist.name}
+            image={album.image[2]['#text']}
+          />
+        ))}
+      </div>
+    );
   }
 
   return null;

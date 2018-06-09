@@ -17,11 +17,12 @@ import Typography from '@material-ui/core/Typography';
 
 import AlbumList from 'components/AlbumList';
 import ArtistList from 'components/ArtistList';
+import Track from 'components/Track';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import messages from './messages';
-import { loadAlbums, loadArtists } from './actions';
-import { makeSelectAlbums, makeSelectArtists, makeSelectLoading, makeSelectError } from './selectors';
+import { loadAlbums, loadArtists, loadLastTrack } from './actions';
+import { makeSelectAlbums, makeSelectArtists, makeSelectLastTrack, makeSelectLoading, makeSelectError } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -31,7 +32,7 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
   }
 
   render() {
-    const { loading, error, albums, artists } = this.props;
+    const { loading, error, albums, artists, lastTrack } = this.props;
     const albumListProps = { loading, error, albums };
     const artistListProps = { loading, error, artists };
 
@@ -46,6 +47,14 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
             <FormattedMessage {...messages.header} />
           </Typography>
         </div>
+        <Grid container>
+          <Grid item lg={3}></Grid>
+          <Grid item lg={6}>
+            {lastTrack && <Track album={lastTrack.album['#text']} artist={lastTrack.artist['#text']} image={lastTrack.image[2]['#text']} name={lastTrack.name} />}
+          </Grid>
+          <Grid item lg={3}></Grid>
+        </Grid>
+
         <Grid container>
           <Grid item xs={12} lg={6}>
             <AlbumList {...albumListProps} />
@@ -73,6 +82,10 @@ MusicPage.propTypes = {
     PropTypes.array,
     PropTypes.bool,
   ]),
+  lastTrack: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.bool,
+  ]),
   onLoad: PropTypes.func,
 };
 
@@ -81,6 +94,7 @@ export function mapDispatchToProps(dispatch) {
     onLoad: () => {
       dispatch(loadAlbums());
       dispatch(loadArtists());
+      dispatch(loadLastTrack());
     },
   };
 }
@@ -88,6 +102,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   albums: makeSelectAlbums(),
   artists: makeSelectArtists(),
+  lastTrack: makeSelectLastTrack(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
