@@ -26,9 +26,9 @@ const makeSelectArtists = () => createSelector(
   (musicState) => musicState.get('artists')
 );
 
-const makeSelectLastTrack = () => createSelector(
+const makeSelectRecentTracks = () => createSelector(
   selectMusic,
-  (musicState) => musicState.get('lastTrack')
+  (musicState) => musicState.get('recentTracks')
 );
 
 export {
@@ -37,5 +37,5 @@ export {
   makeSelectError,
   makeSelectAlbums,
   makeSelectArtists,
-  makeSelectLastTrack,
+  makeSelectRecentTracks,
 };

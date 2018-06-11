@@ -7,22 +7,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
 import AlbumList from 'components/AlbumList';
 import ArtistList from 'components/ArtistList';
-import Track from 'components/Track';
+import TrackList from 'components/TrackList';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import messages from './messages';
-import { loadAlbums, loadArtists, loadLastTrack } from './actions';
-import { makeSelectAlbums, makeSelectArtists, makeSelectLastTrack, makeSelectLoading, makeSelectError } from './selectors';
+import { loadAlbums, loadArtists, loadRecentTracks } from './actions';
+import { makeSelectAlbums, makeSelectArtists, makeSelectRecentTracks, makeSelectLoading, makeSelectError } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -32,9 +29,10 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
   }
 
   render() {
-    const { loading, error, albums, artists, lastTrack } = this.props;
+    const { loading, error, albums, artists, recentTracks } = this.props;
     const albumListProps = { loading, error, albums };
     const artistListProps = { loading, error, artists };
+    const trackListProps = { loading, error, recentTracks };
 
     return (
       <article>
@@ -42,24 +40,15 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
           <title>Music</title>
           <meta name="description" content="Music page of Adam Rasfeld's website" />
         </Helmet>
-        <div>
-          <Typography variant="display2" gutterBottom>
-            <FormattedMessage {...messages.header} />
-          </Typography>
-        </div>
-        <Grid container>
-          <Grid item lg={3}></Grid>
-          <Grid item lg={6}>
-            {lastTrack && <Track album={lastTrack.album['#text']} artist={lastTrack.artist['#text']} image={lastTrack.image[2]['#text']} name={lastTrack.name} />}
-          </Grid>
-          <Grid item lg={3}></Grid>
-        </Grid>
 
-        <Grid container>
-          <Grid item xs={12} lg={6}>
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
+            <TrackList tracks={trackListProps.recentTracks} {...trackListProps} />
+          </Grid>
+          <Grid item xs={12}>
             <AlbumList {...albumListProps} />
           </Grid>
-          <Grid item xs={12} lg={6}>
+          <Grid item xs={12}>
             <ArtistList {...artistListProps} />
           </Grid>
         </Grid>
@@ -82,8 +71,8 @@ MusicPage.propTypes = {
     PropTypes.array,
     PropTypes.bool,
   ]),
-  lastTrack: PropTypes.oneOfType([
-    PropTypes.object,
+  recentTracks: PropTypes.oneOfType([
+    PropTypes.array,
     PropTypes.bool,
   ]),
   onLoad: PropTypes.func,
@@ -94,7 +83,7 @@ export function mapDispatchToProps(dispatch) {
     onLoad: () => {
       dispatch(loadAlbums());
       dispatch(loadArtists());
-      dispatch(loadLastTrack());
+      dispatch(loadRecentTracks());
     },
   };
 }
@@ -102,7 +91,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   albums: makeSelectAlbums(),
   artists: makeSelectArtists(),
-  lastTrack: makeSelectLastTrack(),
+  recentTracks: makeSelectRecentTracks(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });

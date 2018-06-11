@@ -22,9 +22,9 @@ import {
   LOAD_ARTISTS,
   LOAD_ARTISTS_SUCCESS,
   LOAD_ARTISTS_ERROR,
-  LOAD_LAST_TRACK,
-  LOAD_LAST_TRACK_SUCCESS,
-  LOAD_LAST_TRACK_ERROR,
+  LOAD_RECENT_TRACKS,
+  LOAD_RECENT_TRACKS_SUCCESS,
+  LOAD_RECENT_TRACKS_ERROR,
 } from './constants';
 
 /**
@@ -106,40 +106,40 @@ export function artistLoadingError(error) {
 }
 
 /**
- * Load the last played track, this action starts the request saga
+ * Load the last 10 recently played tracks, this action starts the request saga
  *
- * @return {object} An action object with a type of LOAD_LAST_TRACK
+ * @return {object} An action object with a type of LOAD_RECENT_TRACKS
  */
-export function loadLastTrack() {
+export function loadRecentTracks() {
   return {
-    type: LOAD_LAST_TRACK,
+    type: LOAD_RECENT_TRACKS,
   };
 }
 
 /**
- * Dispatched when the track is loaded by the request saga
+ * Dispatched when the tracks are loaded by the request saga
  *
- * @param  {array} track The track data
+ * @param  {array} tracks The recently played tracks data
  *
- * @return {object}      An action object with a type of LOAD_LAST_TRACK_SUCCESS passing the track
+ * @return {object}      An action object with a type of LOAD_RECENT_TRACKS_SUCCESS passing the tracks
  */
-export function lastTrackLoaded(track) {
+export function recentTracksLoaded(tracks) {
   return {
-    type: LOAD_LAST_TRACK_SUCCESS,
-    track,
+    type: LOAD_RECENT_TRACKS_SUCCESS,
+    tracks,
   };
 }
 
 /**
- * Dispatched when loading the track fails
+ * Dispatched when loading the tracks fails
  *
  * @param  {object} error The error
  *
- * @return {object}       An action object with a type of LOAD_LAST_TRACK_ERROR passing the error
+ * @return {object}       An action object with a type of LOAD_RECENT_TRACKS_ERROR passing the error
  */
-export function lastTrackLoadingError(error) {
+export function recentTrackLoadingError(error) {
   return {
-    type: LOAD_LAST_TRACK_ERROR,
+    type: LOAD_RECENT_TRACKS_ERROR,
     error,
   };
 }

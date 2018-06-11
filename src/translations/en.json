@@ -1,4 +1,6 @@
 {
+  "app.components.AlbumList.header": "Top Albums",
+  "app.components.ArtistList.header": "Top Artists",
   "app.components.Footer.author.message": "Made with love by {author}.",
   "app.components.Footer.license.message": "This project is licensed under the MIT license.",
   "app.components.Header.title": "Adam Rasfeld",
@@ -7,6 +9,7 @@
   "app.components.SideNav.home": "Home",
   "app.components.SideNav.music": "Music",
   "app.components.SideNav.resume": "Résumé",
+  "app.components.TrackList.header": "Recent Tracks",
   "app.containers.FeaturePage.css.header": "Features",
   "app.containers.FeaturePage.css.message": "Next generation CSS",
   "app.containers.FeaturePage.feedback.header": "Instant feedback",

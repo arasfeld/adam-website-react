@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import GridList from '@material-ui/core/GridList';
+import Card from '@material-ui/core/Card';
+import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 
-import Album from 'components/Album';
+import Track from 'components/Track';
 import LoadingIndicator from 'components/LoadingIndicator';
 import messages from './messages';
 
-function AlbumList({ loading, error, albums }) {
+function TrackList({ loading, error, tracks }) {
   if (loading) {
     return <LoadingIndicator />;
   }
@@ -18,20 +19,22 @@ function AlbumList({ loading, error, albums }) {
     return <Typography>Something went wrong!</Typography>;
   }
 
-  if (albums !== false) {
+  if (tracks !== false) {
     return (
       <div>
         <Typography variant="headline" gutterBottom>
           <FormattedMessage {...messages.header} />
         </Typography>
-        <GridList>
-          {albums.map((album) => (
-            <Album
-              key={album.key}
-              {...album}
-            />
-          ))}
-        </GridList>
+        <Card>
+          <List dense>
+            {tracks.map((track) => (
+              <Track
+                key={track.key}
+                {...track}
+              />
+            ))}
+          </List>
+        </Card>
       </div>
     );
   }
@@ -39,10 +42,13 @@ function AlbumList({ loading, error, albums }) {
   return null;
 }
 
-AlbumList.propTypes = {
+TrackList.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.any,
-  albums: PropTypes.any,
+  tracks: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.bool,
+  ]),
 };
 
-export default AlbumList;
+export default TrackList;

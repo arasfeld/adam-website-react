@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-// import Grid from '@material-ui/core/Grid';
+import GridList from '@material-ui/core/GridList';
 import Typography from '@material-ui/core/Typography';
 
 import Artist from 'components/Artist';
@@ -24,14 +24,14 @@ function ArtistList({ loading, error, artists }) {
         <Typography variant="headline" gutterBottom>
           <FormattedMessage {...messages.header} />
         </Typography>
-        {artists.map((artist) => (
-          <Artist
-            key={`artist-${artist.name}`}
-            rank={artist['@attr'].rank}
-            name={artist.name}
-            image={artist.image[2]['#text']}
-          />
-        ))}
+        <GridList>
+          {artists.map((artist) => (
+            <Artist
+              key={artist.key}
+              {...artist}
+            />
+          ))}
+        </GridList>
       </div>
     );
   }
