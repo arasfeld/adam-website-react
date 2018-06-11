@@ -19,17 +19,25 @@ function Track(props) {
     </Avatar>
   );
 
+  const timestamp = date ? (
+    <Typography>
+      <FormattedDate value={date} />
+      &nbsp;
+      <FormattedTime value={date} />
+    </Typography>
+  ) : (
+    <Typography>
+      Now Playing
+    </Typography>
+  );
+
   return (
     <ListItem>
       {icon}
       <ListItemText>
         {`${artist} - ${name}`}
       </ListItemText>
-      <Typography>
-        <FormattedDate value={date} />
-        &nbsp;
-        <FormattedTime value={date} />
-      </Typography>
+      {timestamp}
     </ListItem>
   );
 }

@@ -88,7 +88,7 @@ export function* getRecentTracks() {
         artist: track.artist['#text'],
         album: track.album['#text'],
         image: track.image[2]['#text'],
-        date: new Date(track.date['#text']),
+        date: track.date ? new Date(track.date['#text']) : null,
       }
     ));
     yield put(recentTracksLoaded(tracks));
