@@ -16,7 +16,6 @@ import { createStructuredSelector } from 'reselect';
 import { withStyles } from '@material-ui/core/styles';
 
 import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
 import MusicPage from 'containers/MusicPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ResumePage from 'containers/ResumePage/Loadable';
@@ -64,7 +63,6 @@ function App(props) {
         <div className={classes.toolbar} />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/features" component={FeaturePage} />
           <Route path="/music" component={MusicPage} />
           <Route path="/resume" component={ResumePage} />
           <Route path="" component={NotFoundPage} />

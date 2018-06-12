@@ -31,7 +31,6 @@ function SideNav(props) {
   const sideNavContent = (
     <List component="nav">
       <SideNavItem href="/" message={messages.home} active={currentPage === '/'} onClick={onClose} />
-      <SideNavItem href="/features" message={messages.features} active={currentPage === '/features'} onClick={onClose} />
       <SideNavItem href="/music" message={messages.music} active={currentPage === '/music'} onClick={onClose} />
       <SideNavItem href="/resume" message={messages.resume} active={currentPage === '/resume'} onClick={onClose} />
     </List>
