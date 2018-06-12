@@ -5,6 +5,7 @@ import { injectIntl, intlShape } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Button from '@material-ui/core/Button';
 
 const styles = (theme) => ({
@@ -42,11 +43,23 @@ class SideNavItem extends React.Component {
       classes,
       active,
       href,
+      icon,
       onClick,
       message,
       intl,
       ...other
     } = this.props;
+
+    const IconComponent = icon;
+    const iconComponent = IconComponent ? (
+      <ListItemIcon>
+        <IconComponent
+          className={classNames({
+            [classes.active]: active,
+          })}
+        />
+      </ListItemIcon>
+    ) : null;
 
     return (
       <ListItem className={classes.item} disableGutters {...other}>
@@ -59,6 +72,7 @@ class SideNavItem extends React.Component {
           onClick={onClick}
           to={href}
         >
+          {iconComponent}
           {message ? intl.formatMessage(message) : href}
         </Button>
       </ListItem>
@@ -71,6 +85,7 @@ SideNavItem.propTypes = {
   active: PropTypes.bool,
   href: PropTypes.string,
   message: PropTypes.object,
+  icon: PropTypes.element,
   onClick: PropTypes.func,
   intl: intlShape.isRequired,
 };
