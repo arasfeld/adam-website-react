@@ -6,12 +6,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import HomeIcon from '@material-ui/icons/Home';
-import MusicNoteIcon from '@material-ui/icons/MusicNote';
-
 import SideNavItem from 'components/SideNavItem';
-import messages from './messages';
+import routes from 'routes';
 
 const styles = (theme) => ({
   drawerPaper: {
@@ -34,27 +30,17 @@ function SideNav(props) {
 
   const sideNavContent = (
     <List component="nav">
-      <SideNavItem
-        href="/"
-        message={messages.home}
-        active={currentPage === '/'}
-        icon={HomeIcon}
-        onClick={onClose}
-      />
-      <SideNavItem
-        href="/music"
-        message={messages.music}
-        active={currentPage === '/music'}
-        icon={MusicNoteIcon}
-        onClick={onClose}
-      />
-      <SideNavItem
-        href="/resume"
-        message={messages.resume}
-        active={currentPage === '/resume'}
-        icon={AssignmentIndIcon}
-        onClick={onClose}
-      />
+      {routes
+        .filter((route) => route.includeInSidenav)
+        .map((route) => (
+          <SideNavItem
+            href={route.path}
+            message={route.message}
+            icon={route.icon}
+            active={currentPage === route.path}
+            onClick={onClose}
+          />
+        ))}
     </List>
   );
 

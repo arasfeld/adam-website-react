@@ -15,13 +15,10 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { withStyles } from '@material-ui/core/styles';
 
-import HomePage from 'containers/HomePage/Loadable';
-import MusicPage from 'containers/MusicPage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import ResumePage from 'containers/ResumePage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import SideNav from 'components/SideNav';
+import routes from 'routes';
 import { closeSideNav, openSideNav, toggleSideNav } from './actions';
 import { makeSelectPathname, makeSelectLayout } from './selectors';
 
@@ -62,10 +59,13 @@ function App(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/music" component={MusicPage} />
-          <Route path="/resume" component={ResumePage} />
-          <Route path="" component={NotFoundPage} />
+          {routes.map((route) => (
+            <Route
+              exact={route.exact}
+              path={route.path}
+              component={route.component}
+            />
+          ))}
         </Switch>
         <Footer />
       </main>
