@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import { FormattedDate, FormattedTime } from 'react-intl';
 
 import ListItem from '@material-ui/core/ListItem';
@@ -8,8 +9,19 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
+import EqualizerIcon from 'components/EqualizerIcon';
+
+const styles = (theme) => ({
+  playingContainer: {
+    display: 'flex',
+  },
+  playingIcon: {
+    marginRight: theme.spacing.unit,
+  },
+});
+
 function Track(props) {
-  const { album, artist, date, image, name } = props;
+  const { classes, album, artist, date, image, name } = props;
 
   const icon = image ? (
     <Avatar alt={album} src={image} />
@@ -26,9 +38,12 @@ function Track(props) {
       <FormattedTime value={date} />
     </Typography>
   ) : (
-    <Typography>
-      Now Playing
-    </Typography>
+    <div className={classes.playingContainer}>
+      <EqualizerIcon className={classes.playingIcon} color="primary" />
+      <Typography>
+        Now Playing
+      </Typography>
+    </div>
   );
 
   return (
@@ -43,11 +58,12 @@ function Track(props) {
 }
 
 Track.propTypes = {
+  classes: PropTypes.object.isRequired,
   album: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
-  date: PropTypes.object.isRequired,
+  date: PropTypes.object,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
 
-export default Track;
+export default withStyles(styles)(Track);

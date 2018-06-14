@@ -85,7 +85,7 @@ SideNavItem.propTypes = {
   active: PropTypes.bool,
   href: PropTypes.string,
   message: PropTypes.object,
-  icon: PropTypes.element,
+  icon: PropTypes.any,
   onClick: PropTypes.func,
   intl: intlShape.isRequired,
 };
