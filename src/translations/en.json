@@ -1,6 +1,10 @@
 {
   "app.components.AlbumList.header": "Top Albums",
   "app.components.ArtistList.header": "Top Artists",
+  "app.components.ContactForm.email": "Email",
+  "app.components.ContactForm.message": "Message",
+  "app.components.ContactForm.name": "Name",
+  "app.components.ContactForm.send": "Send",
   "app.components.Footer.author.message": "Made with love by {author}.",
   "app.components.Footer.license.message": "This project is licensed under the MIT license.",
   "app.components.Header.title": "Adam Rasfeld",
@@ -9,6 +13,7 @@
   "app.components.SideNav.music": "Music",
   "app.components.SideNav.resume": "Résumé",
   "app.components.TrackList.header": "Recent Tracks",
+  "app.containers.ContactPage.header": "Contact Me",
   "app.containers.HomePage.header": "Home",
   "app.containers.LocaleToggle.de": "de",
   "app.containers.LocaleToggle.en": "en",

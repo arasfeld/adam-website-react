@@ -1,6 +1,10 @@
 {
   "app.components.AlbumList.header": "Topalben",
   "app.components.ArtistList.header": "Topkünstler",
+  "app.components.ContactForm.email": "Email",
+  "app.components.ContactForm.message": "Botschaft",
+  "app.components.ContactForm.name": "Name",
+  "app.components.ContactForm.send": "Senden",
   "app.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "app.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "app.components.Header.title": "",
@@ -9,6 +13,7 @@
   "app.components.SideNav.music": "Musik",
   "app.components.SideNav.resume": "Lebenslauf",
   "app.components.TrackList.header": "Jüngste Lieder",
+  "app.containers.ContactPage.header": "Kontaktiere Mich",
   "app.containers.HomePage.header": "Startseite",
   "app.containers.LocaleToggle.de": "",
   "app.containers.LocaleToggle.en": "",
