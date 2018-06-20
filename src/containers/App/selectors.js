@@ -8,24 +8,18 @@ const selectGlobal = (state) => state.get('global');
 
 const selectRoute = (state) => state.get('route');
 
-const makeSelectLayout = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('layout')
-);
-
 const makeSelectLocation = () => createSelector(
   selectRoute,
-  (routeState) => routeState.get('location').toJS()
+  (routeState) => routeState.get('location')
 );
 
-const makeSelectPathname = () => createSelector(
-  selectRoute,
-  (routeState) => routeState.get('location').pathname
+const makeSelectMobileSideNav = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('mobileSideNav')
 );
 
 export {
   selectGlobal,
-  makeSelectLayout,
   makeSelectLocation,
-  makeSelectPathname,
+  makeSelectMobileSideNav,
 };

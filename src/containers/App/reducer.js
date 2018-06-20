@@ -18,7 +18,7 @@ import {
   TOGGLE_SIDENAV,
 } from './constants';
 
-function layout(state = false, action) {
+function mobileSideNav(state = false, action) {
   switch (action.type) {
     case CLOSE_SIDENAV:
       return false;
@@ -32,5 +32,5 @@ function layout(state = false, action) {
 }
 
 export default combineReducers({
-  layout,
+  mobileSideNav,
 });

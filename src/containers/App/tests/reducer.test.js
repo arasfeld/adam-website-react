@@ -5,7 +5,9 @@ import appReducer from '../reducer';
 describe('appReducer', () => {
   let state;
   beforeEach(() => {
-    state = fromJS({});
+    state = fromJS({
+      mobileSideNav: false,
+    });
   });
 
   it('should return the initial state', () => {

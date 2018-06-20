@@ -3,6 +3,7 @@ import { fromJS } from 'immutable';
 import {
   selectGlobal,
   makeSelectLocation,
+  makeSelectMobileSideNav,
 } from '../selectors';
 
 describe('selectGlobal', () => {
@@ -25,5 +26,18 @@ describe('makeSelectLocation', () => {
       route,
     });
     expect(locationStateSelector(mockedState)).toEqual(route.get('location').toJS());
+  });
+});
+
+describe('makeSelectMobileSideNav', () => {
+  const mobileSideNavStateSelector = makeSelectMobileSideNav();
+  it('should select the mobile sidenav state', () => {
+    const globalState = fromJS({
+      mobileSideNav: false,
+    });
+    const mockedState = fromJS({
+      global: globalState,
+    });
+    expect(mobileSideNavStateSelector(mockedState)).toEqual(globalState.get('mobileSideNav'));
   });
 });

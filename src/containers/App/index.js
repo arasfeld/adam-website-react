@@ -20,7 +20,7 @@ import Footer from 'components/Footer';
 import SideNav from 'components/SideNav';
 import routes from 'routes';
 import { closeSideNav, openSideNav, toggleSideNav } from './actions';
-import { makeSelectPathname, makeSelectLayout } from './selectors';
+import { makeSelectLocation, makeSelectMobileSideNav } from './selectors';
 
 const styles = (theme) => ({
   root: {
@@ -39,7 +39,7 @@ const styles = (theme) => ({
 });
 
 function App(props) {
-  const { classes, mobileOpen, onCloseSideNav, onOpenSideNav, onToggleSideNav, pathname } = props;
+  const { classes, location, mobileOpen, onCloseSideNav, onOpenSideNav, onToggleSideNav } = props;
 
   return (
     <div className={classes.root}>
@@ -51,7 +51,7 @@ function App(props) {
       </Helmet>
       <Header toggleSideNav={onToggleSideNav} />
       <SideNav
-        currentPage={pathname}
+        currentPage={location.pathname}
         mobileOpen={mobileOpen}
         onClose={onCloseSideNav}
         onOpen={onOpenSideNav}
@@ -76,7 +76,9 @@ function App(props) {
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,
-  pathname: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   mobileOpen: PropTypes.bool.isRequired,
   onCloseSideNav: PropTypes.func.isRequired,
   onOpenSideNav: PropTypes.func.isRequired,
@@ -92,8 +94,8 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  pathname: makeSelectPathname(),
-  mobileOpen: makeSelectLayout(),
+  location: makeSelectLocation(),
+  mobileOpen: makeSelectMobileSideNav(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
