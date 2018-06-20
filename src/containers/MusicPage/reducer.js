@@ -66,7 +66,7 @@ function artists(state = false, action) {
   }
 }
 
-function recentTracks(state = false, action) {
+function tracks(state = false, action) {
   switch (action.type) {
     case LOAD_MUSIC:
       return false;
@@ -82,5 +82,5 @@ export default combineReducers({
   error,
   albums,
   artists,
-  recentTracks,
+  tracks,
 });

@@ -37,7 +37,7 @@ export function loadMusic() {
  *
  * @param  {array} albums The album data
  * @param  {array} artists The artist data
- * @param  {array} tracks The recent track data
+ * @param  {array} tracks The track data
  *
  * @return {object}      An action object with a type of LOAD_MUSIC_SUCCESS passing the music data
  */

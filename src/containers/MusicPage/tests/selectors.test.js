@@ -6,7 +6,7 @@ import {
   makeSelectError,
   makeSelectAlbums,
   makeSelectArtists,
-  makeSelectRecentTracks,
+  makeSelectTracks,
 } from '../selectors';
 
 describe('selectMusic', () => {
@@ -71,15 +71,15 @@ describe('makeSelectArtists', () => {
   });
 });
 
-describe('makeSelectRecentTracks', () => {
-  const recentTracksSelector = makeSelectRecentTracks();
-  it('should select the recent tracks', () => {
-    const recentTracks = fromJS({});
+describe('makeSelectTracks', () => {
+  const tracksSelector = makeSelectTracks();
+  it('should select the tracks', () => {
+    const tracks = fromJS({});
     const mockedState = fromJS({
       music: {
-        recentTracks,
+        tracks,
       },
     });
-    expect(recentTracksSelector(mockedState)).toEqual(recentTracks);
+    expect(tracksSelector(mockedState)).toEqual(tracks);
   });
 });

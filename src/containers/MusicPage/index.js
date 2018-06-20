@@ -21,7 +21,7 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import { loadMusic } from './actions';
-import { makeSelectAlbums, makeSelectArtists, makeSelectRecentTracks, makeSelectLoading, makeSelectError } from './selectors';
+import { makeSelectAlbums, makeSelectArtists, makeSelectTracks, makeSelectLoading, makeSelectError } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -31,7 +31,7 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
   }
 
   render() {
-    const { loading, error, albums, artists, recentTracks } = this.props;
+    const { loading, error, albums, artists, tracks } = this.props;
 
     let content;
     if (loading) {
@@ -42,7 +42,7 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
       content = (
         <Grid container spacing={16}>
           <Grid item xs={12}>
-            <TrackList tracks={recentTracks} />
+            <TrackList tracks={tracks} />
           </Grid>
           <Grid item xs={12}>
             <AlbumList albums={albums} />
@@ -81,7 +81,7 @@ MusicPage.propTypes = {
     PropTypes.array,
     PropTypes.bool,
   ]),
-  recentTracks: PropTypes.oneOfType([
+  tracks: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.bool,
   ]),
@@ -97,7 +97,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   albums: makeSelectAlbums(),
   artists: makeSelectArtists(),
-  recentTracks: makeSelectRecentTracks(),
+  tracks: makeSelectTracks(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });

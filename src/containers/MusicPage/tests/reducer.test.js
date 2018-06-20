@@ -15,7 +15,7 @@ describe('musicReducer', () => {
       error: false,
       albums: false,
       artists: false,
-      recentTracks: false,
+      tracks: false,
     });
   });
 
@@ -30,7 +30,7 @@ describe('musicReducer', () => {
       .set('error', false)
       .set('albums', false)
       .set('artists', false)
-      .set('recentTracks', false);
+      .set('tracks', false);
 
     expect(musicReducer(state, loadMusic())).toEqual(expectedResult);
   });
