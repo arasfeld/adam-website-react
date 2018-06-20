@@ -12,13 +12,15 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 import AlbumList from 'components/AlbumList';
 import ArtistList from 'components/ArtistList';
 import TrackList from 'components/TrackList';
+import LoadingIndicator from 'components/LoadingIndicator';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import { loadAlbums, loadArtists, loadRecentTracks } from './actions';
+import { loadMusic } from './actions';
 import { makeSelectAlbums, makeSelectArtists, makeSelectRecentTracks, makeSelectLoading, makeSelectError } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -30,9 +32,28 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
 
   render() {
     const { loading, error, albums, artists, recentTracks } = this.props;
-    const albumListProps = { loading, error, albums };
-    const artistListProps = { loading, error, artists };
-    const trackListProps = { loading, error, recentTracks };
+    console.log(this.props);
+
+    let content;
+    if (loading) {
+      content = <LoadingIndicator />;
+    } else if (error !== false) {
+      content = <Typography>Something went wrong!</Typography>;
+    } else {
+      content = (
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
+            <TrackList tracks={recentTracks} />
+          </Grid>
+          <Grid item xs={12}>
+            <AlbumList albums={albums} />
+          </Grid>
+          <Grid item xs={12}>
+            <ArtistList artists={artists} />
+          </Grid>
+        </Grid>
+      );
+    }
 
     return (
       <article>
@@ -41,17 +62,7 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
           <meta name="description" content="Music page of Adam Rasfeld's website" />
         </Helmet>
 
-        <Grid container spacing={16}>
-          <Grid item xs={12}>
-            <TrackList tracks={trackListProps.recentTracks} {...trackListProps} />
-          </Grid>
-          <Grid item xs={12}>
-            <AlbumList {...albumListProps} />
-          </Grid>
-          <Grid item xs={12}>
-            <ArtistList {...artistListProps} />
-          </Grid>
-        </Grid>
+        {content}
       </article>
     );
   }
@@ -80,11 +91,7 @@ MusicPage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onLoad: () => {
-      dispatch(loadAlbums());
-      dispatch(loadArtists());
-      dispatch(loadRecentTracks());
-    },
+    onLoad: () => dispatch(loadMusic()),
   };
 }
 

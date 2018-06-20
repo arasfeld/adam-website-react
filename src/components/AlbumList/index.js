@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { withStyles } from '@material-ui/core/styles';
 
 import GridList from '@material-ui/core/GridList';
 import Typography from '@material-ui/core/Typography';
 
 import Album from 'components/Album';
-import LoadingIndicator from 'components/LoadingIndicator';
 import messages from './messages';
 
-function AlbumList({ loading, error, albums }) {
-  if (loading) {
-    return <LoadingIndicator />;
-  }
+const styles = () => ({
+  album: {
+    width: 175,
+  },
+});
 
-  if (error !== false) {
-    return <Typography>Something went wrong!</Typography>;
-  }
-
-  if (albums !== false) {
+function AlbumList({ classes, albums }) {
+  if (albums) {
     return (
       <div>
         <Typography variant="headline" gutterBottom>
@@ -28,6 +26,7 @@ function AlbumList({ loading, error, albums }) {
           {albums.map((album) => (
             <Album
               key={album.key}
+              className={classes.album}
               {...album}
             />
           ))}
@@ -40,9 +39,8 @@ function AlbumList({ loading, error, albums }) {
 }
 
 AlbumList.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.any,
+  classes: PropTypes.object.isRequired,
   albums: PropTypes.any,
 };
 
-export default AlbumList;
+export default withStyles(styles)(AlbumList);

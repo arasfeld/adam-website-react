@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { withStyles } from '@material-ui/core/styles';
 
 import GridList from '@material-ui/core/GridList';
 import Typography from '@material-ui/core/Typography';
 
 import Artist from 'components/Artist';
-import LoadingIndicator from 'components/LoadingIndicator';
 import messages from './messages';
 
-function ArtistList({ loading, error, artists }) {
-  if (loading) {
-    return <LoadingIndicator />;
-  }
+const styles = () => ({
+  artist: {
+    width: 175,
+  },
+});
 
-  if (error !== false) {
-    return <Typography>Something went wrong!</Typography>;
-  }
-
-  if (artists !== false) {
+function ArtistList({ classes, artists }) {
+  if (artists) {
     return (
       <div>
         <Typography variant="headline" gutterBottom>
@@ -28,6 +26,7 @@ function ArtistList({ loading, error, artists }) {
           {artists.map((artist) => (
             <Artist
               key={artist.key}
+              className={classes.artist}
               {...artist}
             />
           ))}
@@ -40,9 +39,8 @@ function ArtistList({ loading, error, artists }) {
 }
 
 ArtistList.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.any,
+  classes: PropTypes.object.isRequired,
   artists: PropTypes.any,
 };
 
-export default ArtistList;
+export default withStyles(styles)(ArtistList);

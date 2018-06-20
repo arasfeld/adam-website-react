@@ -2,110 +2,89 @@
  * Gets the repositories of the user from Github
  */
 
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
 
 import {
-  LOAD_ALBUMS,
-  LOAD_ARTISTS,
-  LOAD_RECENT_TRACKS,
+  LOAD_MUSIC,
 } from './constants';
 import {
-  albumsLoaded,
-  albumLoadingError,
-  artistsLoaded,
-  artistLoadingError,
-  recentTracksLoaded,
-  recentTrackLoadingError,
+  musicLoaded,
+  musicLoadingError,
 } from './actions';
 
 const lastFmUsername = 'arazzy';
 const lastFmApiKey = 'API_KEY';
 
-/**
- * Last.fm top 50 albums request/response handler
- */
-export function* getTopAlbums() {
-  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
+// TODO: make this a lot prettier... separate into functions for each call if possible?
+export function* getMusic() {
+  const albumRequestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
+  const artistRequestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
+  const trackRequestURL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=10&format=json`;
 
   try {
     // Call our request helper (see 'utils/request')
-    const response = yield call(request, requestURL);
-    const albums = response.topalbums.album.map((album, i) => (
-      {
-        key: `album-${i}`,
-        rank: album['@attr'].rank,
-        name: album.name,
-        artist: album.artist.name,
-        image: album.image[2]['#text'],
-        playcount: album.playcount,
-      }
-    ));
-    yield put(albumsLoaded(albums));
+    const [albums, artists, tracks] = yield all([
+      call(request, albumRequestURL),
+      call(request, artistRequestURL),
+      call(request, trackRequestURL),
+    ]);
+    const mappedAlbums = mapAlbums(albums);
+    const mappedArtists = mapArtists(artists);
+    const mappedTracks = mapTracks(tracks);
+
+    yield put(musicLoaded(mappedAlbums, mappedArtists, mappedTracks));
   } catch (err) {
-    yield put(albumLoadingError(err));
+    yield put(musicLoadingError(err));
   }
 }
 
-/**
- * Last.fm top 20 artists request/response handler
- */
-export function* getTopArtists() {
-  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
-
-  try {
-    // Call our request helper (see 'utils/request')
-    const response = yield call(request, requestURL);
-    const artists = response.topartists.artist.map((artist, i) => (
-      {
-        key: `artist-${i}`,
-        rank: artist['@attr'].rank,
-        name: artist.name,
-        image: artist.image[2]['#text'],
-        playcount: artist.playcount,
-      }
-    ));
-    yield put(artistsLoaded(artists));
-  } catch (err) {
-    yield put(artistLoadingError(err));
-  }
+function mapAlbums(response) {
+  return response.topalbums.album.map((album, i) => (
+    {
+      key: `album-${i}`,
+      rank: album['@attr'].rank,
+      name: album.name,
+      artist: album.artist.name,
+      image: album.image[2]['#text'],
+      playcount: album.playcount,
+    }
+  ));
 }
 
-/**
- * Last.fm recently played tracks request/response handler
- */
-export function* getRecentTracks() {
-  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=10&format=json`;
+function mapArtists(response) {
+  return response.topartists.artist.map((artist, i) => (
+    {
+      key: `artist-${i}`,
+      rank: artist['@attr'].rank,
+      name: artist.name,
+      image: artist.image[2]['#text'],
+      playcount: artist.playcount,
+    }
+  ));
+}
 
-  try {
-    // Call our request helper (see 'utils/request')
-    const response = yield call(request, requestURL);
-    const tracks = response.recenttracks.track.map((track, i) => (
-      {
-        key: `track-${i}`,
-        name: track.name,
-        artist: track.artist['#text'],
-        album: track.album['#text'],
-        image: track.image[2]['#text'],
-        date: track.date ? new Date(track.date['#text']) : null,
-      }
-    ));
-    yield put(recentTracksLoaded(tracks));
-  } catch (err) {
-    yield put(recentTrackLoadingError(err));
-  }
+function mapTracks(response) {
+  return response.recenttracks.track.map((track, i) => (
+    {
+      key: `track-${i}`,
+      name: track.name,
+      artist: track.artist['#text'],
+      album: track.album['#text'],
+      image: track.image[2]['#text'],
+      date: track.date ? new Date(track.date['#text']) : null,
+    }
+  ));
 }
 
 /**
  * Root saga manages watcher lifecycle
  */
 export default function* lastFmData() {
-  // Watches for LOAD_ALBUMS and LOAD_ARTISTS actions and calls getAlbums when one
-  // comes in. By using `takeLatest` only the result of the latest API call is applied.
+  // Watches for LOAD_MUSIC actions and calls getMusic when one comes in.
+  // By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
-  yield takeLatest(LOAD_ALBUMS, getTopAlbums);
-  yield takeLatest(LOAD_ARTISTS, getTopArtists);
-  yield takeLatest(LOAD_RECENT_TRACKS, getRecentTracks);
+  yield takeLatest(LOAD_MUSIC, getMusic);
 }

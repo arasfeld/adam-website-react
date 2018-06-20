@@ -9,14 +9,6 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const LOAD_ALBUMS = 'app/Music/LOAD_ALBUMS';
-export const LOAD_ALBUMS_SUCCESS = 'app/Music/LOAD_ALBUMS_SUCCESS';
-export const LOAD_ALBUMS_ERROR = 'app/Music/LOAD_ALBUMS_ERROR';
-
-export const LOAD_ARTISTS = 'app/Music/LOAD_ARTISTS';
-export const LOAD_ARTISTS_SUCCESS = 'app/Music/LOAD_ARTISTS_SUCCESS';
-export const LOAD_ARTISTS_ERROR = 'app/Music/LOAD_ARTISTS_ERROR';
-
-export const LOAD_RECENT_TRACKS = 'app/Music/LOAD_RECENT_TRACKS';
-export const LOAD_RECENT_TRACKS_SUCCESS = 'app/Music/LOAD_RECENT_TRACKS_SUCCESS';
-export const LOAD_RECENT_TRACKS_ERROR = 'app/Music/LOAD_RECENT_TRACKS_ERROR';
+export const LOAD_MUSIC = 'app/Music/LOAD_MUSIC';
+export const LOAD_MUSIC_SUCCESS = 'app/Music/LOAD_MUSIC_SUCCESS';
+export const LOAD_MUSIC_ERROR = 'app/Music/LOAD_MUSIC_ERROR';

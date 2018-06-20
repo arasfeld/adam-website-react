@@ -16,130 +16,50 @@
  */
 
 import {
-  LOAD_ALBUMS,
-  LOAD_ALBUMS_SUCCESS,
-  LOAD_ALBUMS_ERROR,
-  LOAD_ARTISTS,
-  LOAD_ARTISTS_SUCCESS,
-  LOAD_ARTISTS_ERROR,
-  LOAD_RECENT_TRACKS,
-  LOAD_RECENT_TRACKS_SUCCESS,
-  LOAD_RECENT_TRACKS_ERROR,
+  LOAD_MUSIC,
+  LOAD_MUSIC_SUCCESS,
+  LOAD_MUSIC_ERROR,
 } from './constants';
 
 /**
- * Load the albums, this action starts the request saga
+ * Load the music data, this action starts the request saga
  *
- * @return {object} An action object with a type of LOAD_ALBUMS
+ * @return {object} An action object with a type of LOAD_MUSIC
  */
-export function loadAlbums() {
+export function loadMusic() {
   return {
-    type: LOAD_ALBUMS,
+    type: LOAD_MUSIC,
   };
 }
 
 /**
- * Dispatched when the albums are loaded by the request saga
+ * Dispatched when the music data is loaded by the request saga
  *
  * @param  {array} albums The album data
+ * @param  {array} artists The artist data
+ * @param  {array} tracks The recent track data
  *
- * @return {object}      An action object with a type of LOAD_ALBUMS_SUCCESS passing the albums
+ * @return {object}      An action object with a type of LOAD_MUSIC_SUCCESS passing the music data
  */
-export function albumsLoaded(albums) {
+export function musicLoaded(albums, artists, tracks) {
   return {
-    type: LOAD_ALBUMS_SUCCESS,
+    type: LOAD_MUSIC_SUCCESS,
     albums,
-  };
-}
-
-/**
- * Dispatched when loading the albums fails
- *
- * @param  {object} error The error
- *
- * @return {object}       An action object with a type of LOAD_ALBUMS_ERROR passing the error
- */
-export function albumLoadingError(error) {
-  return {
-    type: LOAD_ALBUMS_ERROR,
-    error,
-  };
-}
-
-/**
- * Load the artists, this action starts the request saga
- *
- * @return {object} An action object with a type of LOAD_ARTISTS
- */
-export function loadArtists() {
-  return {
-    type: LOAD_ARTISTS,
-  };
-}
-
-/**
- * Dispatched when the artists are loaded by the request saga
- *
- * @param  {array} artists The album data
- *
- * @return {object}      An action object with a type of LOAD_ARTISTS_SUCCESS passing the artists
- */
-export function artistsLoaded(artists) {
-  return {
-    type: LOAD_ARTISTS_SUCCESS,
     artists,
-  };
-}
-
-/**
- * Dispatched when loading the artists fails
- *
- * @param  {object} error The error
- *
- * @return {object}       An action object with a type of LOAD_ARTISTS_ERROR passing the error
- */
-export function artistLoadingError(error) {
-  return {
-    type: LOAD_ARTISTS_ERROR,
-    error,
-  };
-}
-
-/**
- * Load the last 10 recently played tracks, this action starts the request saga
- *
- * @return {object} An action object with a type of LOAD_RECENT_TRACKS
- */
-export function loadRecentTracks() {
-  return {
-    type: LOAD_RECENT_TRACKS,
-  };
-}
-
-/**
- * Dispatched when the tracks are loaded by the request saga
- *
- * @param  {array} tracks The recently played tracks data
- *
- * @return {object}      An action object with a type of LOAD_RECENT_TRACKS_SUCCESS passing the tracks
- */
-export function recentTracksLoaded(tracks) {
-  return {
-    type: LOAD_RECENT_TRACKS_SUCCESS,
     tracks,
   };
 }
 
 /**
- * Dispatched when loading the tracks fails
+ * Dispatched when loading the music data fails
  *
  * @param  {object} error The error
  *
- * @return {object}       An action object with a type of LOAD_RECENT_TRACKS_ERROR passing the error
+ * @return {object}       An action object with a type of LOAD_MUSIC_ERROR passing the error
  */
-export function recentTrackLoadingError(error) {
+export function musicLoadingError(error) {
   return {
-    type: LOAD_RECENT_TRACKS_ERROR,
+    type: LOAD_MUSIC_ERROR,
     error,
   };
 }

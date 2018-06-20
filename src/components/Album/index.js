@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 
-function Album({ artist, image, name }) {
+function Album({ className, artist, image, name }) {
   return (
-    <GridListTile>
+    <GridListTile className={className}>
       <img src={image} alt={name} />
       <GridListTileBar
         title={name}
@@ -17,6 +17,7 @@ function Album({ artist, image, name }) {
 }
 
 Album.propTypes = {
+  className: PropTypes.string,
   artist: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

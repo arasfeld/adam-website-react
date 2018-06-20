@@ -7,19 +7,10 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 
 import Track from 'components/Track';
-import LoadingIndicator from 'components/LoadingIndicator';
 import messages from './messages';
 
-function TrackList({ loading, error, tracks }) {
-  if (loading) {
-    return <LoadingIndicator />;
-  }
-
-  if (error !== false) {
-    return <Typography>Something went wrong!</Typography>;
-  }
-
-  if (tracks !== false) {
+function TrackList({ tracks }) {
+  if (tracks) {
     return (
       <div>
         <Typography variant="headline" gutterBottom>
@@ -43,8 +34,6 @@ function TrackList({ loading, error, tracks }) {
 }
 
 TrackList.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.any,
   tracks: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.bool,
