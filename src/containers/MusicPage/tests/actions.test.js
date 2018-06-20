@@ -23,15 +23,18 @@ describe('Music Actions', () => {
 
   describe('musicLoaded', () => {
     it('should return the correct type and the passed albums, artists, and tracks', () => {
-      const fixture = ['Test'];
+      const albumsFixture = ['Test'];
+      const artistsFixture = ['Test'];
+      const tracksFixture = ['Test'];
+
       const expectedResult = {
         type: LOAD_MUSIC_SUCCESS,
-        albums: fixture,
-        artists: fixture,
-        tracks: fixture,
+        albums: albumsFixture,
+        artists: artistsFixture,
+        tracks: tracksFixture,
       };
 
-      expect(musicLoaded(fixture)).toEqual(expectedResult);
+      expect(musicLoaded(albumsFixture, artistsFixture, tracksFixture)).toEqual(expectedResult);
     });
   });
 

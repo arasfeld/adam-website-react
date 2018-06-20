@@ -36,16 +36,17 @@ describe('musicReducer', () => {
   });
 
   it('should handle the musicLoaded action correctly', () => {
-    const fixture = [{
-      name: 'Test',
-    }];
+    const albumsFixture = [{ name: 'Test' }];
+    const artistsFixture = [{ name: 'Test' }];
+    const tracksFixture = [{ name: 'Test' }];
+
     const expectedResult = state
-      .set('albums', fixture)
-      .set('artists', fixture)
-      .set('tracks', fixture)
+      .set('albums', albumsFixture)
+      .set('artists', artistsFixture)
+      .set('tracks', tracksFixture)
       .set('loading', false);
 
-    expect(musicReducer(state, musicLoaded(fixture))).toEqual(expectedResult);
+    expect(musicReducer(state, musicLoaded(albumsFixture, artistsFixture, tracksFixture))).toEqual(expectedResult);
   });
 
   it('should handle the musicLoadingError action correctly', () => {

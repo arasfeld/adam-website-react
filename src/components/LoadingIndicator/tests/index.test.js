@@ -1,14 +1,15 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { shallow } from 'enzyme';
+
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import LoadingIndicator from '../index';
 
 describe('<LoadingIndicator />', () => {
-  it('should render 12 child divs', () => {
-    const renderedComponent = render(
+  it('should render a LinearProgress', () => {
+    const renderedComponent = shallow(
       <LoadingIndicator />
     );
-    // find all child divs
-    expect(renderedComponent.find('div').length).toBe(12);
+    expect(renderedComponent.find(LinearProgress).length).toBe(1);
   });
 });

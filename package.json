@@ -32,6 +32,7 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --fix",
     "lint:js": "npm run lint:eslint -- . ",
+    "lint:css": "stylelint \"./src/**/*.css\"",
     "lint:staged": "lint-staged",
     "pretest": "npm run test:clean && npm run lint",
     "test:clean": "rimraf ./coverage",
@@ -44,6 +45,9 @@
   "lint-staged": {
     "*.js": [
       "lint:eslint"
+    ],
+    "*.css": [
+      "stylelint"
     ]
   },
   "dllPlugin": {
@@ -175,6 +179,8 @@
     "rimraf": "2.6.2",
     "shelljs": "^0.7.7",
     "style-loader": "0.21.0",
+    "stylelint": "8.3.1",
+    "stylelint-config-standard": "18.2.0",
     "svg-url-loader": "^2.3.2",
     "url-loader": "1.0.1",
     "webpack": "4.12.0",

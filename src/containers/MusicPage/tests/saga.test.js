@@ -24,13 +24,13 @@ describe('getMusic Saga', () => {
       tracks: [],
     };
     const putDescriptor = getMusicGenerator.next(response).value;
-    expect(putDescriptor).toEqual(put(musicLoaded(response)));
+    expect(putDescriptor).toEqual(put(musicLoaded(response))); // eslint-disable-line redux-saga/yield-effects
   });
 
   it('should dispatch the musicLoadingError action if the response errors', () => {
     const response = new Error('Some error');
     const putDescriptor = getMusicGenerator.throw(response).value;
-    expect(putDescriptor).toEqual(put(musicLoadingError(response)));
+    expect(putDescriptor).toEqual(put(musicLoadingError(response))); // eslint-disable-line redux-saga/yield-effects
   });
 });
 
@@ -39,6 +39,6 @@ describe('lastFmData Saga', () => {
 
   it('should start task to watch for LOAD_MUSIC actions', () => {
     const takeLatestLoadMusicDescriptor = lastFmDataSaga.next().value;
-    expect(takeLatestLoadMusicDescriptor).toEqual(takeLatest(LOAD_MUSIC, getMusic));
+    expect(takeLatestLoadMusicDescriptor).toEqual(takeLatest(LOAD_MUSIC, getMusic)); // eslint-disable-line redux-saga/yield-effects
   });
 });
