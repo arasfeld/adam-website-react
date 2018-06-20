@@ -19,28 +19,26 @@ const lastFmApiKey = 'API_KEY';
 
 // TODO: make this a lot prettier... separate into functions for each call if possible?
 export function* getMusic() {
-  const albumRequestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
-  const artistRequestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
-  const trackRequestURL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=10&format=json`;
-
   try {
     // Call our request helper (see 'utils/request')
     const [albums, artists, tracks] = yield all([
-      call(request, albumRequestURL),
-      call(request, artistRequestURL),
-      call(request, trackRequestURL),
+      getAlbums(),
+      getArtists(),
+      getTracks(),
     ]);
-    const mappedAlbums = mapAlbums(albums);
-    const mappedArtists = mapArtists(artists);
-    const mappedTracks = mapTracks(tracks);
 
-    yield put(musicLoaded(mappedAlbums, mappedArtists, mappedTracks));
+    yield put(musicLoaded(albums, artists, tracks));
   } catch (err) {
     yield put(musicLoadingError(err));
   }
 }
 
-function mapAlbums(response) {
+export function* getAlbums() {
+  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
+
+  // Call our request helper (see 'utils/request')
+  const response = yield call(request, requestURL);
+  // Map response to array of albums
   return response.topalbums.album.map((album, i) => (
     {
       key: `album-${i}`,
@@ -53,7 +51,12 @@ function mapAlbums(response) {
   ));
 }
 
-function mapArtists(response) {
+export function* getArtists() {
+  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=21&format=json`;
+
+  // Call our request helper (see 'utils/request')
+  const response = yield call(request, requestURL);
+  // Map response to array of artists
   return response.topartists.artist.map((artist, i) => (
     {
       key: `artist-${i}`,
@@ -65,7 +68,12 @@ function mapArtists(response) {
   ));
 }
 
-function mapTracks(response) {
+export function* getTracks() {
+  const requestURL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastFmUsername}&api_key=${lastFmApiKey}&limit=10&format=json`;
+
+  // Call our request helper (see 'utils/request')
+  const response = yield call(request, requestURL);
+  // Map response to array of tracks
   return response.recenttracks.track.map((track, i) => (
     {
       key: `track-${i}`,

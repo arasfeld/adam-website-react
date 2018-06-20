@@ -2,12 +2,9 @@ import { fromJS } from 'immutable';
 
 import musicReducer from '../reducer';
 import {
-  loadAlbums,
-  albumsLoaded,
-  albumLoadingError,
-  loadArtists,
-  artistsLoaded,
-  artistLoadingError,
+  loadMusic,
+  musicLoaded,
+  musicLoadingError,
 } from '../actions';
 
 describe('musicReducer', () => {
@@ -18,6 +15,7 @@ describe('musicReducer', () => {
       error: false,
       albums: false,
       artists: false,
+      recentTracks: false,
     });
   });
 
@@ -26,58 +24,31 @@ describe('musicReducer', () => {
     expect(musicReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  it('should handle the loadAlbums action correctly', () => {
+  it('should handle the loadMusic action correctly', () => {
     const expectedResult = state
       .set('loading', true)
       .set('error', false)
-      .set('albums', false);
+      .set('albums', false)
+      .set('artists', false)
+      .set('recentTracks', false);
 
-    expect(musicReducer(state, loadAlbums())).toEqual(expectedResult);
+    expect(musicReducer(state, loadMusic())).toEqual(expectedResult);
   });
 
-  it('should handle the albumsLoaded action correctly', () => {
+  it('should handle the musicLoaded action correctly', () => {
     const fixture = [{
-      name: 'My Album',
+      name: 'Test',
     }];
     const expectedResult = state
       .set('albums', fixture)
-      .set('loading', false);
-
-    expect(musicReducer(state, albumsLoaded(fixture))).toEqual(expectedResult);
-  });
-
-  it('should handle the albumLoadingError action correctly', () => {
-    const fixture = [{
-      msg: 'Not found',
-    }];
-    const expectedResult = state
-      .set('error', fixture)
-      .set('loading', false);
-
-    expect(musicReducer(state, albumLoadingError(fixture))).toEqual(expectedResult);
-  });
-
-  it('should handle the loadArtists action correctly', () => {
-    const expectedResult = state
-      .set('loading', true)
-      .set('error', false)
-      .set('artists', false);
-
-    expect(musicReducer(state, loadArtists())).toEqual(expectedResult);
-  });
-
-  it('should handle the artistsLoaded action correctly', () => {
-    const fixture = [{
-      name: 'My Artist',
-    }];
-    const expectedResult = state
       .set('artists', fixture)
+      .set('tracks', fixture)
       .set('loading', false);
 
-    expect(musicReducer(state, artistsLoaded(fixture))).toEqual(expectedResult);
+    expect(musicReducer(state, musicLoaded(fixture))).toEqual(expectedResult);
   });
 
-  it('should handle the artistLoadingError action correctly', () => {
+  it('should handle the musicLoadingError action correctly', () => {
     const fixture = [{
       msg: 'Not found',
     }];
@@ -85,6 +56,6 @@ describe('musicReducer', () => {
       .set('error', fixture)
       .set('loading', false);
 
-    expect(musicReducer(state, artistLoadingError(fixture))).toEqual(expectedResult);
+    expect(musicReducer(state, musicLoadingError(fixture))).toEqual(expectedResult);
   });
 });

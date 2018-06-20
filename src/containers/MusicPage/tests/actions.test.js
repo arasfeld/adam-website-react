@@ -1,91 +1,51 @@
 import {
-  LOAD_ALBUMS,
-  LOAD_ALBUMS_SUCCESS,
-  LOAD_ALBUMS_ERROR,
-  LOAD_ARTISTS,
-  LOAD_ARTISTS_SUCCESS,
-  LOAD_ARTISTS_ERROR,
+  LOAD_MUSIC,
+  LOAD_MUSIC_SUCCESS,
+  LOAD_MUSIC_ERROR,
 } from '../constants';
 
 import {
-  loadAlbums,
-  albumsLoaded,
-  albumLoadingError,
-  loadArtists,
-  artistsLoaded,
-  artistLoadingError,
+  loadMusic,
+  musicLoaded,
+  musicLoadingError,
 } from '../actions';
 
 describe('Music Actions', () => {
-  describe('loadAlbums', () => {
+  describe('loadMusic', () => {
     it('should return the correct type', () => {
       const expectedResult = {
-        type: LOAD_ALBUMS,
+        type: LOAD_MUSIC,
       };
 
-      expect(loadAlbums()).toEqual(expectedResult);
+      expect(loadMusic()).toEqual(expectedResult);
     });
   });
 
-  describe('albumsLoaded', () => {
-    it('should return the correct type and the passed albums', () => {
+  describe('musicLoaded', () => {
+    it('should return the correct type and the passed albums, artists, and tracks', () => {
       const fixture = ['Test'];
       const expectedResult = {
-        type: LOAD_ALBUMS_SUCCESS,
+        type: LOAD_MUSIC_SUCCESS,
         albums: fixture,
-      };
-
-      expect(albumsLoaded(fixture)).toEqual(expectedResult);
-    });
-  });
-
-  describe('albumLoadingError', () => {
-    it('should return the correct type and the error', () => {
-      const fixture = {
-        msg: 'Something went wrong!',
-      };
-      const expectedResult = {
-        type: LOAD_ALBUMS_ERROR,
-        error: fixture,
-      };
-
-      expect(albumLoadingError(fixture)).toEqual(expectedResult);
-    });
-  });
-
-  describe('loadArtists', () => {
-    it('should return the correct type', () => {
-      const expectedResult = {
-        type: LOAD_ARTISTS,
-      };
-
-      expect(loadArtists()).toEqual(expectedResult);
-    });
-  });
-
-  describe('artistsLoaded', () => {
-    it('should return the correct type and the passed artists', () => {
-      const fixture = ['Test'];
-      const expectedResult = {
-        type: LOAD_ARTISTS_SUCCESS,
         artists: fixture,
+        tracks: fixture,
       };
 
-      expect(artistsLoaded(fixture)).toEqual(expectedResult);
+      expect(musicLoaded(fixture)).toEqual(expectedResult);
     });
   });
 
-  describe('artistLoadingError', () => {
+  describe('musicLoadingError', () => {
     it('should return the correct type and the error', () => {
       const fixture = {
         msg: 'Something went wrong!',
       };
       const expectedResult = {
-        type: LOAD_ARTISTS_ERROR,
+        type: LOAD_MUSIC_ERROR,
         error: fixture,
       };
 
-      expect(artistLoadingError(fixture)).toEqual(expectedResult);
+      expect(musicLoadingError(fixture)).toEqual(expectedResult);
     });
   });
 });
