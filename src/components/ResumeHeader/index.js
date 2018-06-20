@@ -13,8 +13,8 @@ const styles = (theme) => ({
   },
   avatar: {
     background: theme.palette.grey[600],
-    width: 151,
-    height: 151,
+    width: 150,
+    height: 150,
   },
   content: {
     display: 'flex',
@@ -22,10 +22,11 @@ const styles = (theme) => ({
     flexDirection: 'column',
     margin: '10px',
   },
-  name: {
+  firstName: {
     ...theme.typography.display1,
   },
   lastName: {
+    ...theme.typography.display1,
     fontWeight: theme.typography.fontWeightLight,
   },
 });
@@ -36,11 +37,10 @@ function ResumeHeader({ classes }) {
       <Avatar
         className={classes.avatar}
         src={Me}
-        title="Live from space album cover"
       />
       <div className={classes.content}>
-        <div className={classes.name}>
-          <span>ADAM</span>
+        <div>
+          <span className={classes.firstName}>ADAM</span>
           &nbsp;
           <span className={classes.lastName}>RASFELD</span>
         </div>

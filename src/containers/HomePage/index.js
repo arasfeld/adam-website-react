@@ -15,7 +15,7 @@ function HomePage() {
   return (
     <article>
       <Helmet>
-        <title>Home Page</title>
+        <title>Home</title>
         <meta name="description" content="Home page of Adam Rasfeld's website" />
       </Helmet>
       <div>

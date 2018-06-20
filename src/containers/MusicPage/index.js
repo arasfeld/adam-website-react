@@ -32,7 +32,6 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
 
   render() {
     const { loading, error, albums, artists, recentTracks } = this.props;
-    console.log(this.props);
 
     let content;
     if (loading) {

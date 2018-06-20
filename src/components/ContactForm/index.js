@@ -67,7 +67,7 @@ class ContactForm extends React.Component {
   }
 
   render() {
-    const { classes, onSubmit } = this.props;
+    const { classes } = this.props;
     const { valid } = this.state;
 
     return (
@@ -149,7 +149,7 @@ class ContactForm extends React.Component {
           variant="contained"
           color="primary"
           disabled={!valid}
-          onClick={onSubmit}
+          onClick={this.submit}
         >
           <SendIcon className={classes.sendIcon} />
           <FormattedMessage {...messages.send} />
