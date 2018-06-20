@@ -34,6 +34,7 @@ function SideNav(props) {
         .filter((route) => route.includeInSidenav)
         .map((route) => (
           <SideNavItem
+            key={route.path}
             href={route.path}
             message={route.message}
             icon={route.icon}

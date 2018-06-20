@@ -12,4 +12,16 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Résumé',
   },
+  skillsHeader: {
+    id: `${scope}.skills.header`,
+    defaultMessage: 'Professional Skills',
+  },
+  educationHeader: {
+    id: `${scope}.education.header`,
+    defaultMessage: 'Education',
+  },
+  experienceHeader: {
+    id: `${scope}.experience.header`,
+    defaultMessage: 'Experience',
+  },
 });
