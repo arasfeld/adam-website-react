@@ -8,10 +8,6 @@ import { defineMessages } from 'react-intl';
 const scope = 'app.containers.ResumePage';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'Résumé',
-  },
   skillsHeader: {
     id: `${scope}.skills.header`,
     defaultMessage: 'Professional Skills',

@@ -18,7 +18,7 @@ const styles = (theme) => ({
   },
   content: {
     display: 'flex',
-    flex: '1 0 auto',
+    flex: '1 auto',
     flexDirection: 'column',
     margin: '10px',
   },

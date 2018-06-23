@@ -20,6 +20,5 @@
   "app.containers.MusicPage.header": "Musik",
   "app.containers.NotFoundPage.header": "Seite nicht gefunden.",
   "app.containers.ResumePage.experience.header": "Erfahrung",
-  "app.containers.ResumePage.header": "Lebenslauf",
   "app.containers.ResumePage.skills.header": "Kompetenzen"
 }

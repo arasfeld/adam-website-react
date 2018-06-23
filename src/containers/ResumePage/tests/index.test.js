@@ -1,22 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormattedMessage } from 'react-intl';
 
-import Typography from '@material-ui/core/Typography';
-
-import messages from '../messages';
+import ResumeHeader from 'components/ResumeHeader';
 import ResumePage from '../index';
 
 describe('<ResumePage />', () => {
-  it('should render its heading', () => {
+  it('should render a ResumeHeader', () => {
     const renderedComponent = shallow(
       <ResumePage />
     );
-    expect(renderedComponent.contains(
-      <Typography variant="display2" gutterBottom>
-        <FormattedMessage {...messages.header} />
-      </Typography>
-    )).toBe(true);
+    expect(renderedComponent.find(ResumeHeader).length).toEqual(1);
   });
 
   it('should never re-render the component', () => {
