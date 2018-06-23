@@ -25,15 +25,25 @@ import { makeSelectLocation, makeSelectMobileSideNav } from './selectors';
 const styles = (theme) => ({
   root: {
     display: 'flex',
-    minHeight: '100vh',
+    height: '100vh',
     width: '100%',
   },
   content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    height: '100vh',
+    display: 'flex',
+    flexDirection: 'row',
+    maxHeight: '100vh',
+    width: '100%',
+  },
+  main: {
+    display: 'flex',
+    flex: '1 auto',
+    flexDirection: 'column',
+    maxHeight: '100vh',
     overflowY: 'auto',
-    padding: theme.spacing.unit * 3,
+  },
+  page: {
+    flex: '1 auto',
+    margin: theme.spacing.unit * 3,
   },
   toolbar: theme.mixins.toolbar,
 });
@@ -49,27 +59,35 @@ function App(props) {
       >
         <meta name="description" content="My personal website written with React.js" />
       </Helmet>
-      <Header toggleSideNav={onToggleSideNav} />
-      <SideNav
-        currentPage={location.pathname}
-        mobileOpen={mobileOpen}
-        onClose={onCloseSideNav}
-        onOpen={onOpenSideNav}
-      />
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Switch>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              exact={route.exact}
-              path={route.path}
-              component={route.component}
-            />
-          ))}
-        </Switch>
-        <Footer />
-      </main>
+      <header>
+        <Header toggleSideNav={onToggleSideNav} />
+      </header>
+      <div className={classes.content}>
+        <SideNav
+          currentPage={location.pathname}
+          mobileOpen={mobileOpen}
+          onClose={onCloseSideNav}
+          onOpen={onOpenSideNav}
+        />
+        <main className={classes.main}>
+          <div className={classes.page}>
+            <div className={classes.toolbar} />
+            <Switch>
+              {routes.map((route) => (
+                <Route
+                  key={route.path}
+                  exact={route.exact}
+                  path={route.path}
+                  component={route.component}
+                />
+              ))}
+            </Switch>
+          </div>
+          <footer>
+            <Footer />
+          </footer>
+        </main>
+      </div>
     </div>
   );
 }

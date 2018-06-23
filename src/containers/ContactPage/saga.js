@@ -23,7 +23,7 @@ const mailgunDomainName = 'domain-name.mailgun.org';
 export function* sendMessage(message) {
   const requestURL = `https://api.mailgun.net/v3/${mailgunDomainName}/messages`;
   const requestOptions = {
-    method: 'post',
+    method: 'POST',
     headers: {
       Authorization: `Basic api:${btoa(mailgunApiKey)}`,
     },
