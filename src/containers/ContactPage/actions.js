@@ -24,13 +24,17 @@ import {
 /**
  * Send the message, this action starts the request saga
  *
- * @param  {object} message The message containing name, email, and message
+ * @param  {string} name The name of the person sending the message
+ * @param  {string} email The email address that the message will come from
+ * @param  {string} message The message to send
  *
  * @return {object} An action object with a type of SEND_MESSAGE passing the message
  */
-export function sendMessage(message) {
+export function sendMessage(name, email, message) {
   return {
     type: SEND_MESSAGE,
+    name,
+    email,
     message,
   };
 }

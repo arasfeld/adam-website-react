@@ -13,17 +13,18 @@ import {
 describe('Contact Actions', () => {
   describe('sendMessage', () => {
     it('should return the correct type and the passed message', () => {
-      const fixture = {
-        name: 'Test',
-        email: 'test@test.com',
-        message: 'Test',
-      };
+      const name = 'Test';
+      const email = 'test@test.com';
+      const message = 'Test';
+
       const expectedResult = {
         type: SEND_MESSAGE,
-        fixture,
+        name,
+        email,
+        message,
       };
 
-      expect(sendMessage(fixture)).toEqual(expectedResult);
+      expect(sendMessage(name, email, message)).toEqual(expectedResult);
     });
   });
 

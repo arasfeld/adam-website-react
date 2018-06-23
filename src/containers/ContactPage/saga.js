@@ -14,15 +14,30 @@ import {
   messageSendingError,
 } from './actions';
 
+const mailgunApiKey = 'API_KEY';
+const mailgunDomainName = 'domain-name.mailgun.org';
+
 /**
  * Mailgun request/response handler
  */
-export function* sendMessage() {
-  const requestURL = '';
+export function* sendMessage(message) {
+  const requestURL = `https://api.mailgun.net/v3/${mailgunDomainName}/messages`;
+  const requestOptions = {
+    method: 'post',
+    headers: {
+      Authorization: `Basic api:${btoa(mailgunApiKey)}`,
+    },
+    body: JSON.stringify({
+      to: 'arasfeld@gmail.com',
+      from: `${message.name} <${message.email}>`,
+      subject: `Message from ${message.name}`,
+      text: message.text,
+    }),
+  };
 
   try {
     // Call our request helper (see 'utils/request')
-    yield call(request, requestURL);
+    yield call(request, requestURL, requestOptions);
     yield put(messageSent());
   } catch (err) {
     yield put(messageSendingError(err));
@@ -32,7 +47,7 @@ export function* sendMessage() {
 /**
  * Root saga manages watcher lifecycle
  */
-export default function* mailGunData() {
+export default function* mailgunData() {
   // Watches for LOAD_ALBUMS aactions and calls sendMessage when one
   // comes in. By using `takeLatest` only the result of the latest API call is applied.
   // It returns task descriptor (just like fork) so we can continue execution

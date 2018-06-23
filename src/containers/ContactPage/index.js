@@ -60,7 +60,7 @@ ContactPage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onSubmit: (message) => dispatch(sendMessage(message)),
+    onSubmit: (name, email, message) => dispatch(sendMessage(name, email, message)),
   };
 }
 
