@@ -14,7 +14,7 @@ import {
   musicLoadingError,
 } from './actions';
 
-const lastFmUsername = 'arazzy';
+const lastFmUsername = 'USERNAME';
 const lastFmApiKey = 'API_KEY';
 
 // TODO: make this a lot prettier... separate into functions for each call if possible?
