@@ -6,16 +6,11 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
 
-import {
-  SEND_MESSAGE,
-} from './constants';
-import {
-  messageSent,
-  messageSendingError,
-} from './actions';
+import { SEND_MESSAGE } from './constants';
+import { messageSent, messageSendingError } from './actions';
 
-const mailgunApiKey = 'API_KEY';
-const mailgunDomainName = 'domain-name.mailgun.org';
+const mailgunApiKey = 'key-7bc103963bf06d7f753ce7594b628d32';
+const mailgunDomainName = 'sandbox67df0bed88a847f9b38dc8b845034618.mailgun.org';
 
 /**
  * Mailgun request/response handler

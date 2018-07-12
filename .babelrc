@@ -10,15 +10,6 @@
     "stage-0"
   ],
   "env": {
-    "development": {
-      "only": [
-        "src",
-        "internals/scripts"
-      ],
-      "plugins": [
-        "transform-react-jsx-source"
-      ]
-    },
     "production": {
       "only": [
         "src"

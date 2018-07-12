@@ -17,17 +17,23 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import { loadCharacter } from './actions';
-import { makeSelectCharacter, makeSelectLoading, makeSelectError } from './selectors';
+import {
+  makeSelectCharacter,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export class WarcraftPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class WarcraftPage extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.onLoad();
   }
 
   render() {
     const { loading, error, character } = this.props;
+    console.log(character);
 
     let content;
     if (loading) {
@@ -35,16 +41,17 @@ export class WarcraftPage extends React.PureComponent { // eslint-disable-line r
     } else if (error !== false) {
       content = <Typography>Something went wrong!</Typography>;
     } else {
-      content = (
-        <img alt="char" src={`http://render-us.worldofwarcraft.com/character/${character.thumbnail}`} />
-      );
+      content = null;
     }
 
     return (
       <article>
         <Helmet>
           <title>Warcraft</title>
-          <meta name="description" content="Warcraft page of Adam Rasfeld's website" />
+          <meta
+            name="description"
+            content="Warcraft page of Adam Rasfeld's website"
+          />
         </Helmet>
 
         {content}
@@ -55,14 +62,8 @@ export class WarcraftPage extends React.PureComponent { // eslint-disable-line r
 
 WarcraftPage.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
-  character: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  character: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   onLoad: PropTypes.func,
 };
 
@@ -78,7 +79,10 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
 
 const withReducer = injectReducer({ key: 'warcraft', reducer });
 const withSaga = injectSaga({ key: 'warcraft', saga });

@@ -25,7 +25,9 @@ describe('makeSelectLocation', () => {
     const mockedState = fromJS({
       route,
     });
-    expect(locationStateSelector(mockedState)).toEqual(route.get('location').toJS());
+    expect(locationStateSelector(mockedState)).toEqual(
+      route.get('location').toJS(),
+    );
   });
 });
 
@@ -38,6 +40,8 @@ describe('makeSelectMobileSideNav', () => {
     const mockedState = fromJS({
       global: globalState,
     });
-    expect(mobileSideNavStateSelector(mockedState)).toEqual(globalState.get('mobileSideNav'));
+    expect(mobileSideNavStateSelector(mockedState)).toEqual(
+      globalState.get('mobileSideNav'),
+    );
   });
 });

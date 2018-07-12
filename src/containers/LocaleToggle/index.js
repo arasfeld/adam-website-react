@@ -16,13 +16,20 @@ import { appLocales } from '../../i18n';
 import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
 
-export class LocaleToggle extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class LocaleToggle extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Select native value={this.props.locale} onChange={this.props.onLocaleToggle}>
-        {appLocales.map((appLocale) => (
+      <Select
+        native
+        value={this.props.locale}
+        onChange={this.props.onLocaleToggle}
+      >
+        {appLocales.map(appLocale => (
           <option key={appLocale} value={appLocale}>
-            {messages[appLocale] ? this.props.intl.formatMessage(messages[appLocale]) : appLocale}
+            {messages[appLocale]
+              ? this.props.intl.formatMessage(messages[appLocale])
+              : appLocale}
           </option>
         ))}
       </Select>
@@ -36,16 +43,18 @@ LocaleToggle.propTypes = {
   intl: intlShape.isRequired,
 };
 
-const mapStateToProps = createSelector(
-  makeSelectLocale(),
-  (locale) => ({ locale })
-);
+const mapStateToProps = createSelector(makeSelectLocale(), locale => ({
+  locale,
+}));
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onLocaleToggle: (evt) => dispatch(changeLocale(evt.target.value)),
+    onLocaleToggle: evt => dispatch(changeLocale(evt.target.value)),
     dispatch,
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(LocaleToggle));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(injectIntl(LocaleToggle));

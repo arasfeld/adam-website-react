@@ -22,7 +22,7 @@ import routes from 'routes';
 import { closeSideNav, openSideNav, toggleSideNav } from './actions';
 import { makeSelectLocation, makeSelectMobileSideNav } from './selectors';
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
     display: 'flex',
     height: '100vh',
@@ -49,15 +49,22 @@ const styles = (theme) => ({
 });
 
 function App(props) {
-  const { classes, location, mobileOpen, onCloseSideNav, onOpenSideNav, onToggleSideNav } = props;
+  const {
+    classes,
+    location,
+    mobileOpen,
+    onCloseSideNav,
+    onOpenSideNav,
+    onToggleSideNav,
+  } = props;
 
   return (
     <div className={classes.root}>
-      <Helmet
-        titleTemplate="%s - Adam Rasfeld"
-        defaultTitle="Adam Rasfeld"
-      >
-        <meta name="description" content="My personal website written with React.js" />
+      <Helmet titleTemplate="%s - Adam Rasfeld" defaultTitle="Adam Rasfeld">
+        <meta
+          name="description"
+          content="My personal website written with React.js"
+        />
       </Helmet>
       <header>
         <Header toggleSideNav={onToggleSideNav} />
@@ -73,7 +80,7 @@ function App(props) {
           <div className={classes.page}>
             <div className={classes.toolbar} />
             <Switch>
-              {routes.map((route) => (
+              {routes.map(route => (
                 <Route
                   key={route.path}
                   exact={route.exact}
@@ -116,7 +123,10 @@ const mapStateToProps = createStructuredSelector({
   mobileOpen: makeSelectMobileSideNav(),
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
 
 export default compose(
   withConnect,

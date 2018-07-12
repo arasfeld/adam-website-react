@@ -9,7 +9,7 @@ import List from '@material-ui/core/List';
 import SideNavItem from 'components/SideNavItem';
 import routes from 'routes';
 
-const styles = (theme) => ({
+const styles = theme => ({
   drawerPaper: {
     backgroundColor: theme.palette.background.paper,
     width: 250,
@@ -26,13 +26,20 @@ const styles = (theme) => ({
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 function SideNav(props) {
-  const { classes, className, currentPage, mobileOpen, onClose, onOpen } = props;
+  const {
+    classes,
+    className,
+    currentPage,
+    mobileOpen,
+    onClose,
+    onOpen,
+  } = props;
 
   const sideNavContent = (
     <List component="nav">
       {routes
-        .filter((route) => route.includeInSidenav)
-        .map((route) => (
+        .filter(route => route.includeInSidenav)
+        .map(route => (
           <SideNavItem
             key={route.path}
             href={route.path}
@@ -47,7 +54,7 @@ function SideNav(props) {
 
   return (
     <div className={className}>
-      <Hidden lgUp>
+      <Hidden mdUp>
         <SwipeableDrawer
           classes={{
             paper: classes.drawerPaper,
@@ -64,7 +71,7 @@ function SideNav(props) {
           {sideNavContent}
         </SwipeableDrawer>
       </Hidden>
-      <Hidden mdDown implementation="css">
+      <Hidden smDown implementation="css">
         <Drawer
           classes={{
             paper: classes.drawerPaper,

@@ -21,11 +21,18 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import { loadMusic } from './actions';
-import { makeSelectAlbums, makeSelectArtists, makeSelectTracks, makeSelectLoading, makeSelectError } from './selectors';
+import {
+  makeSelectAlbums,
+  makeSelectArtists,
+  makeSelectTracks,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export class MusicPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class MusicPage extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.onLoad();
   }
@@ -58,7 +65,10 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
       <article>
         <Helmet>
           <title>Music</title>
-          <meta name="description" content="Music page of Adam Rasfeld's website" />
+          <meta
+            name="description"
+            content="Music page of Adam Rasfeld's website"
+          />
         </Helmet>
 
         {content}
@@ -69,22 +79,10 @@ export class MusicPage extends React.PureComponent { // eslint-disable-line reac
 
 MusicPage.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
-  albums: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.bool,
-  ]),
-  artists: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.bool,
-  ]),
-  tracks: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.bool,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  albums: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  artists: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  tracks: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onLoad: PropTypes.func,
 };
 
@@ -102,7 +100,10 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
 
 const withReducer = injectReducer({ key: 'music', reducer });
 const withSaga = injectSaga({ key: 'music', saga });

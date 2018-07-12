@@ -15,11 +15,7 @@
  *    }
  */
 
-import {
-  CLOSE_SIDENAV,
-  OPEN_SIDENAV,
-  TOGGLE_SIDENAV,
-} from './constants';
+import { CLOSE_SIDENAV, OPEN_SIDENAV, TOGGLE_SIDENAV } from './constants';
 
 /**
  * Closes the sidenav on mobile, dispatched after...

@@ -15,11 +15,7 @@
  *    }
  */
 
-import {
-  LOAD_MUSIC,
-  LOAD_MUSIC_SUCCESS,
-  LOAD_MUSIC_ERROR,
-} from './constants';
+import { LOAD_MUSIC, LOAD_MUSIC_SUCCESS, LOAD_MUSIC_ERROR } from './constants';
 
 /**
  * Load the music data, this action starts the request saga

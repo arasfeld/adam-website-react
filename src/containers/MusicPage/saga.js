@@ -6,16 +6,11 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
 
-import {
-  LOAD_MUSIC,
-} from './constants';
-import {
-  musicLoaded,
-  musicLoadingError,
-} from './actions';
+import { LOAD_MUSIC } from './constants';
+import { musicLoaded, musicLoadingError } from './actions';
 
-const lastFmUsername = 'USERNAME';
-const lastFmApiKey = 'API_KEY';
+const lastFmUsername = 'arazzy';
+const lastFmApiKey = '67398e0ca4dd50eca0cc9b2461cf9be8';
 
 // TODO: make this a lot prettier... separate into functions for each call if possible?
 export function* getMusic() {
@@ -39,16 +34,14 @@ export function* getAlbums() {
   // Call our request helper (see 'utils/request')
   const response = yield call(request, requestURL);
   // Map response to array of albums
-  return response.topalbums.album.map((album, i) => (
-    {
-      key: `album-${i}`,
-      rank: album['@attr'].rank,
-      name: album.name,
-      artist: album.artist.name,
-      image: album.image[2]['#text'],
-      playcount: album.playcount,
-    }
-  ));
+  return response.topalbums.album.map((album, i) => ({
+    key: `album-${i}`,
+    rank: album['@attr'].rank,
+    name: album.name,
+    artist: album.artist.name,
+    image: album.image[2]['#text'],
+    playcount: album.playcount,
+  }));
 }
 
 export function* getArtists() {
@@ -57,15 +50,13 @@ export function* getArtists() {
   // Call our request helper (see 'utils/request')
   const response = yield call(request, requestURL);
   // Map response to array of artists
-  return response.topartists.artist.map((artist, i) => (
-    {
-      key: `artist-${i}`,
-      rank: artist['@attr'].rank,
-      name: artist.name,
-      image: artist.image[2]['#text'],
-      playcount: artist.playcount,
-    }
-  ));
+  return response.topartists.artist.map((artist, i) => ({
+    key: `artist-${i}`,
+    rank: artist['@attr'].rank,
+    name: artist.name,
+    image: artist.image[2]['#text'],
+    playcount: artist.playcount,
+  }));
 }
 
 export function* getTracks() {
@@ -74,16 +65,14 @@ export function* getTracks() {
   // Call our request helper (see 'utils/request')
   const response = yield call(request, requestURL);
   // Map response to array of tracks
-  return response.recenttracks.track.map((track, i) => (
-    {
-      key: `track-${i}`,
-      name: track.name,
-      artist: track.artist['#text'],
-      album: track.album['#text'],
-      image: track.image[2]['#text'],
-      date: track.date ? new Date(track.date['#text']) : null,
-    }
-  ));
+  return response.recenttracks.track.map((track, i) => ({
+    key: `track-${i}`,
+    name: track.name,
+    artist: track.artist['#text'],
+    album: track.album['#text'],
+    image: track.image[2]['#text'],
+    date: track.date ? new Date(track.date['#text']) : null,
+  }));
 }
 
 /**

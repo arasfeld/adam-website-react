@@ -10,7 +10,7 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import { combineReducers } from 'redux-immutable';
+import { fromJS } from 'immutable';
 
 import {
   LOAD_CHARACTER,
@@ -18,45 +18,29 @@ import {
   LOAD_CHARACTER_ERROR,
 } from './constants';
 
-function loading(state = false, action) {
-  switch (action.type) {
-    case LOAD_CHARACTER:
-      return true;
-    case LOAD_CHARACTER_SUCCESS:
-      return false;
-    case LOAD_CHARACTER_ERROR:
-      return false;
-    default:
-      return state;
-  }
-}
-
-function error(state = false, action) {
-  switch (action.type) {
-    case LOAD_CHARACTER:
-      return false;
-    case LOAD_CHARACTER_SUCCESS:
-      return false;
-    case LOAD_CHARACTER_ERROR:
-      return action.error;
-    default:
-      return state;
-  }
-}
-
-function character(state = false, action) {
-  switch (action.type) {
-    case LOAD_CHARACTER:
-      return false;
-    case LOAD_CHARACTER_SUCCESS:
-      return action.character;
-    default:
-      return state;
-  }
-}
-
-export default combineReducers({
-  loading,
-  error,
-  character,
+export const initialState = fromJS({
+  loading: false,
+  error: false,
+  character: false,
 });
+
+function warcraftReducer(state = initialState, action) {
+  switch (action.type) {
+    case LOAD_CHARACTER:
+      return state
+        .set('loading', true)
+        .set('error', false)
+        .set('character', false);
+    case LOAD_CHARACTER_SUCCESS:
+      return state
+        .set('loading', false)
+        .set('error', false)
+        .set('character', action.character);
+    case LOAD_CHARACTER_ERROR:
+      return state.set('loading', false).set('error', action.error);
+    default:
+      return state;
+  }
+}
+
+export default warcraftReducer;

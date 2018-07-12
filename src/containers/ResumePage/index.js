@@ -18,7 +18,7 @@ import ResumeSkills from 'components/ResumeSkills';
 import messages from './messages';
 import resume from './resume';
 
-const styles = (theme) => ({
+const styles = theme => ({
   card: {
     margin: theme.spacing.unit,
   },
@@ -28,47 +28,61 @@ const styles = (theme) => ({
   },
 });
 
-function ResumePage(props) {
-  const { classes } = props;
+class ResumePage extends React.Component {
+  // Since state and props are static,
+  // there's no need to re-render this component
+  shouldComponentUpdate() {
+    return false;
+  }
 
-  return (
-    <div>
-      <Helmet>
-        <title>Résumé</title>
-        <meta name="description" content="Résumé page of Adam Rasfeld's website" />
-      </Helmet>
+  render() {
+    const { classes } = this.props;
 
-      <Card className={classes.card} color="primary">
-        <CardContent>
-          <ResumeHeader />
-        </CardContent>
-      </Card>
+    return (
+      <div>
+        <Helmet>
+          <title>Resume</title>
+          <meta
+            name="description"
+            content="Résumé page of Adam Rasfeld's website"
+          />
+        </Helmet>
 
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="headline" gutterBottom>
-            <FormattedMessage {...messages.experienceHeader} />
-          </Typography>
-          <Timeline events={resume.experience} />
-        </CardContent>
-      </Card>
+        <Card className={classes.card} color="primary">
+          <CardContent>
+            <ResumeHeader />
+          </CardContent>
+        </Card>
 
-      <Card className={classes.card}>
-        <CardContent>
-          <ResumeSkills professional={resume.skills.professional} soft={resume.skills.soft} />
-        </CardContent>
-      </Card>
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="headline" gutterBottom>
+              <FormattedMessage {...messages.experienceHeader} />
+            </Typography>
+            <Timeline events={resume.experience} />
+          </CardContent>
+        </Card>
 
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="headline" gutterBottom>
-            <FormattedMessage {...messages.educationHeader} />
-          </Typography>
-          <Timeline events={resume.education} />
-        </CardContent>
-      </Card>
-    </div>
-  );
+        <Card className={classes.card}>
+          <CardContent>
+            <ResumeSkills
+              professional={resume.skills.professional}
+              soft={resume.skills.soft}
+            />
+          </CardContent>
+        </Card>
+
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="headline" gutterBottom>
+              <FormattedMessage {...messages.educationHeader} />
+            </Typography>
+            <Timeline events={resume.education} />
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 }
 
 ResumePage.propTypes = {

@@ -6,21 +6,19 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
 
-import {
-  LOAD_CHARACTER,
-} from './constants';
-import {
-  characterLoaded,
-  characterLoadingError,
-} from './actions';
+import { LOAD_CHARACTER } from './constants';
+import { characterLoaded, characterLoadingError } from './actions';
 
-const wowRealmName = 'REALM_NAME';
-const wowCharacterName = 'CHARACTER_NAME';
-const blizzardApiKey = 'API_KEY';
+const wowRealmName = 'illidan';
+const wowCharacterName = 'syrix';
+const wowCharacterFields = ['feed', 'items', 'professions', 'stats'];
+const blizzardApiKey = 'sw4ux23aea64dupppbsxrkn8nfdsfnve';
 
 export function* getCharacter() {
   try {
-    const requestURL = `https://us.api.battle.net/wow/character/${wowRealmName}/${wowCharacterName}?locale=en_US&apikey=${blizzardApiKey}`;
+    const requestURL = `https://us.api.battle.net/wow/character/${wowRealmName}/${wowCharacterName}?fields=${wowCharacterFields.join(
+      ',',
+    )}&locale=en_US&apikey=${blizzardApiKey}`;
 
     // Call our request helper (see 'utils/request')
     const response = yield call(request, requestURL);

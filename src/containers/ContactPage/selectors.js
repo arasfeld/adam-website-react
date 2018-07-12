@@ -3,21 +3,17 @@
  */
 
 import { createSelector } from 'reselect';
+import { initialState } from './reducer';
 
-const selectContact = (state) => state.get('contact');
+const selectContact = state => state.get('contact', initialState);
 
-const makeSelectLoading = () => createSelector(
-  selectContact,
-  (contactState) => contactState.get('loading')
-);
+const makeSelectLoading = () =>
+  createSelector(selectContact, contactState => contactState.get('loading'));
 
-const makeSelectError = () => createSelector(
-  selectContact,
-  (contactState) => contactState.get('error')
-);
+const makeSelectError = () =>
+  createSelector(selectContact, contactState => contactState.get('error'));
 
-export {
-  selectContact,
-  makeSelectLoading,
-  makeSelectError,
-};
+const makeSelectMessage = () =>
+  createSelector(selectContact, contactState => contactState.get('message'));
+
+export { selectContact, makeSelectLoading, makeSelectError, makeSelectMessage };

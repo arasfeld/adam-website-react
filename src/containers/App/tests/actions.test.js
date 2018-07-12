@@ -1,14 +1,6 @@
-import {
-  CLOSE_SIDENAV,
-  OPEN_SIDENAV,
-  TOGGLE_SIDENAV,
-} from '../constants';
+import { CLOSE_SIDENAV, OPEN_SIDENAV, TOGGLE_SIDENAV } from '../constants';
 
-import {
-  closeSideNav,
-  openSideNav,
-  toggleSideNav,
-} from '../actions';
+import { closeSideNav, openSideNav, toggleSideNav } from '../actions';
 
 describe('App Actions', () => {
   describe('closeSideNav', () => {

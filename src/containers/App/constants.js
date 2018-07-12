@@ -12,4 +12,3 @@
 export const CLOSE_SIDENAV = 'app/App/CLOSE_SIDENAV';
 export const OPEN_SIDENAV = 'app/App/OPEN_SIDENAV';
 export const TOGGLE_SIDENAV = 'app/App/TOGGLE_SIDENAV';
-export const DEFAULT_LOCALE = 'en';

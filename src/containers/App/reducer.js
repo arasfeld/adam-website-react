@@ -10,27 +10,25 @@
  *   return state.set('yourStateVariable', true);
  */
 
-import { combineReducers } from 'redux-immutable';
+import { fromJS } from 'immutable';
 
-import {
-  CLOSE_SIDENAV,
-  OPEN_SIDENAV,
-  TOGGLE_SIDENAV,
-} from './constants';
+import { CLOSE_SIDENAV, OPEN_SIDENAV, TOGGLE_SIDENAV } from './constants';
 
-function mobileSideNav(state = false, action) {
+export const initialState = fromJS({
+  mobileSideNav: false,
+});
+
+function appReducer(state = initialState, action) {
   switch (action.type) {
     case CLOSE_SIDENAV:
-      return false;
+      return state.set('mobileSideNav', false);
     case OPEN_SIDENAV:
-      return true;
+      return state.set('mobileSideNav', true);
     case TOGGLE_SIDENAV:
-      return !state;
+      return state.set('mobileSideNav', !state.mobileSideNav);
     default:
       return state;
   }
 }
 
-export default combineReducers({
-  mobileSideNav,
-});
+export default appReducer;
