@@ -1,30 +1,41 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import GridListTile from '@material-ui/core/GridListTile';
+import { createShallow } from '@material-ui/core/test-utils';
 
 import Album from '../index';
 
 describe('<Album />', () => {
-  it('should render a GridListTile', () => {
-    const renderedComponent = shallow(
-      <Album />
-    );
-    expect(renderedComponent.find(GridListTile).length).toEqual(1);
-  });
+  let shallow;
 
-  it('should not have a className attribute', () => {
-    const renderedComponent = shallow(
-      <Album />
-    );
-    expect(renderedComponent.prop('className')).toBeUndefined();
+  beforeAll(() => {
+    shallow = createShallow({ dive: true });
   });
 
   it('should adopt a className attribute', () => {
-    const className = 'test';
-    const renderedComponent = shallow(
-      <Album className={className} />
-    );
-    expect(renderedComponent.hasClass(className)).toBe(true);
+    const props = {
+      className: 'test',
+      artist: 'Test Artist',
+      image: '',
+      name: 'Test name',
+    };
+    const renderedComponent = shallow(<Album {...props} />);
+    expect(renderedComponent.hasClass(props.className)).toBe(true);
+  });
+
+  it('should render image', () => {
+    const props = { artist: 'Test Artist', image: '', name: 'Test name' };
+    const renderedComponent = shallow(<Album {...props} />);
+    expect(renderedComponent.find('img')).toHaveLength(1);
+  });
+
+  it('should render album name', () => {
+    const props = { artist: 'Test Artist', image: '', name: 'Test name' };
+    const renderedComponent = shallow(<Album {...props} />);
+    expect(renderedComponent.text()).toContain(props.name);
+  });
+
+  it('should render artist name', () => {
+    const props = { artist: 'Test Artist', image: '', name: 'Test name' };
+    const renderedComponent = shallow(<Album {...props} />);
+    expect(renderedComponent.text()).toContain(props.artist);
   });
 });
