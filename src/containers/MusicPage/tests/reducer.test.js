@@ -1,11 +1,7 @@
 import { fromJS } from 'immutable';
 
 import musicReducer from '../reducer';
-import {
-  loadMusic,
-  musicLoaded,
-  musicLoadingError,
-} from '../actions';
+import { loadMusic, musicLoaded, musicLoadingError } from '../actions';
 
 describe('musicReducer', () => {
   let state;
@@ -46,17 +42,24 @@ describe('musicReducer', () => {
       .set('tracks', tracksFixture)
       .set('loading', false);
 
-    expect(musicReducer(state, musicLoaded(albumsFixture, artistsFixture, tracksFixture))).toEqual(expectedResult);
+    expect(
+      musicReducer(
+        state,
+        musicLoaded(albumsFixture, artistsFixture, tracksFixture),
+      ),
+    ).toEqual(expectedResult);
   });
 
   it('should handle the musicLoadingError action correctly', () => {
-    const fixture = [{
-      msg: 'Not found',
-    }];
-    const expectedResult = state
-      .set('error', fixture)
-      .set('loading', false);
+    const fixture = [
+      {
+        msg: 'Not found',
+      },
+    ];
+    const expectedResult = state.set('error', fixture).set('loading', false);
 
-    expect(musicReducer(state, musicLoadingError(fixture))).toEqual(expectedResult);
+    expect(musicReducer(state, musicLoadingError(fixture))).toEqual(
+      expectedResult,
+    );
   });
 });

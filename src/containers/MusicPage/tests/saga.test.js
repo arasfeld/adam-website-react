@@ -5,6 +5,7 @@ import { musicLoaded, musicLoadingError } from '../actions';
 
 import lastFmData, { getMusic } from '../saga';
 
+/* eslint-disable redux-saga/yield-effects */
 describe('getMusic Saga', () => {
   let getMusicGenerator;
 
@@ -13,24 +14,25 @@ describe('getMusic Saga', () => {
   beforeEach(() => {
     getMusicGenerator = getMusic();
 
-    const callDescriptor = getMusicGenerator.next().value;
-    expect(callDescriptor).toMatchSnapshot();
+    const allDescriptor = getMusicGenerator.next().value;
+    allDescriptor.ALL.forEach(saga => {
+      const callDescriptor = saga.next().value;
+      expect(callDescriptor).toMatchSnapshot();
+    });
   });
 
   it('should dispatch the musicLoaded action if it requests the data successfully', () => {
-    const response = {
-      albums: [],
-      artists: [],
-      tracks: [],
-    };
+    const response = [[], [], []];
     const putDescriptor = getMusicGenerator.next(response).value;
-    expect(putDescriptor).toEqual(put(musicLoaded(response))); // eslint-disable-line redux-saga/yield-effects
+    expect(putDescriptor).toEqual(
+      put(musicLoaded(response[0], response[1], response[2])),
+    );
   });
 
   it('should dispatch the musicLoadingError action if the response errors', () => {
     const response = new Error('Some error');
     const putDescriptor = getMusicGenerator.throw(response).value;
-    expect(putDescriptor).toEqual(put(musicLoadingError(response))); // eslint-disable-line redux-saga/yield-effects
+    expect(putDescriptor).toEqual(put(musicLoadingError(response)));
   });
 });
 
@@ -39,6 +41,8 @@ describe('lastFmData Saga', () => {
 
   it('should start task to watch for LOAD_MUSIC actions', () => {
     const takeLatestLoadMusicDescriptor = lastFmDataSaga.next().value;
-    expect(takeLatestLoadMusicDescriptor).toEqual(takeLatest(LOAD_MUSIC, getMusic)); // eslint-disable-line redux-saga/yield-effects
+    expect(takeLatestLoadMusicDescriptor).toEqual(
+      takeLatest(LOAD_MUSIC, getMusic),
+    );
   });
 });

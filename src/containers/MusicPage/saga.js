@@ -12,7 +12,6 @@ import { musicLoaded, musicLoadingError } from './actions';
 const lastFmUsername = 'arazzy';
 const lastFmApiKey = '67398e0ca4dd50eca0cc9b2461cf9be8';
 
-// TODO: make this a lot prettier... separate into functions for each call if possible?
 export function* getMusic() {
   try {
     // Call our request helper (see 'utils/request')
@@ -33,6 +32,12 @@ export function* getAlbums() {
 
   // Call our request helper (see 'utils/request')
   const response = yield call(request, requestURL);
+
+  // Validate response format
+  if (!response || !response.topalbums || !response.topalbums.album) {
+    return [];
+  }
+
   // Map response to array of albums
   return response.topalbums.album.map((album, i) => ({
     key: `album-${i}`,
@@ -49,6 +54,12 @@ export function* getArtists() {
 
   // Call our request helper (see 'utils/request')
   const response = yield call(request, requestURL);
+
+  // Validate response format
+  if (!response || !response.topartists || !response.topartists.artist) {
+    return [];
+  }
+
   // Map response to array of artists
   return response.topartists.artist.map((artist, i) => ({
     key: `artist-${i}`,
@@ -64,6 +75,12 @@ export function* getTracks() {
 
   // Call our request helper (see 'utils/request')
   const response = yield call(request, requestURL);
+
+  // Validate response format
+  if (!response || !response.recenttracks || !response.recenttracks.track) {
+    return [];
+  }
+
   // Map response to array of tracks
   return response.recenttracks.track.map((track, i) => ({
     key: `track-${i}`,
