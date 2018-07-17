@@ -18,6 +18,16 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "vscode-jest-tests",
+      "program": "${workspaceFolder}/node_modules/jest-cli/bin/jest",
+      "args": ["--runInBand"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Jest All",
       "program": "${workspaceFolder}/node_modules/jest-cli/bin/jest",
       "args": ["--runInBand"],
