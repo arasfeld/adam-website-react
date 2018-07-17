@@ -9,16 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import LocaleToggle from 'containers/LocaleToggle';
 import messages from './messages';
 
-const styles = (theme) => ({
+const styles = theme => ({
   link: {
     color: theme.palette.primary.main,
     fontWeight: theme.typography.fontWeightMedium,
   },
 });
 
-function Footer(props) {
-  const { classes } = props;
-
+function Footer({ classes }) {
   return (
     <Grid container justify="space-between">
       <Grid item>
@@ -34,7 +32,11 @@ function Footer(props) {
           <FormattedMessage
             {...messages.authorMessage}
             values={{
-              author: <a className={classes.link} href="https://github.com/arasfeld">Adam Rasfeld</a>,
+              author: (
+                <a className={classes.link} href="https://github.com/arasfeld">
+                  Adam Rasfeld
+                </a>
+              ),
             }}
           />
         </Typography>

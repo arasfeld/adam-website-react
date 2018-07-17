@@ -15,7 +15,7 @@ function ResumeSkills({ professional, soft }) {
         <Typography variant="headline" gutterBottom>
           <FormattedMessage {...messages.professionalHeader} />
         </Typography>
-        {professional.map((skill) => (
+        {professional.map(skill => (
           <Meter
             key={`professional-skill-${skill.name}`}
             name={skill.name}
@@ -27,7 +27,7 @@ function ResumeSkills({ professional, soft }) {
         <Typography variant="headline" gutterBottom>
           <FormattedMessage {...messages.softHeader} />
         </Typography>
-        {soft.map((skill) => (
+        {soft.map(skill => (
           <Meter
             key={`soft-skill-${skill.name}`}
             name={skill.name}

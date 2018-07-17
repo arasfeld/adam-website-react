@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
     paddingBottom: theme.spacing.unit,
     paddingTop: theme.spacing.unit,

@@ -10,39 +10,35 @@ import Typography from '@material-ui/core/Typography';
 
 import messages from './messages';
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
     zIndex: theme.zIndex.drawer + 1,
   },
   navIconHide: {
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
   },
 });
 
-class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    const { classes, toggleSideNav } = this.props;
-
-    return (
-      <AppBar position="absolute" className={classes.root}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Menu"
-            className={classes.navIconHide}
-            onClick={toggleSideNav}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="title" color="inherit" noWrap>
-            <FormattedMessage {...messages.title} />
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    );
-  }
+function Header({ classes, toggleSideNav }) {
+  return (
+    <AppBar position="absolute" className={classes.root}>
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="Menu"
+          className={classes.navIconHide}
+          onClick={toggleSideNav}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="title" color="inherit" noWrap>
+          <FormattedMessage {...messages.title} />
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
 Header.propTypes = {

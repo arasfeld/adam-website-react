@@ -7,7 +7,7 @@ import EventIcon from '@material-ui/icons/Event';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
-const styles = (theme) => ({
+const styles = theme => ({
   container: {
     display: 'flex',
   },
@@ -52,7 +52,11 @@ function TimelineEvent(props) {
       </div>
       <div className={classes.event}>
         <div className={classes.container}>
-          <Typography className={classes.title} variant="subheading" gutterBottom>
+          <Typography
+            className={classes.title}
+            variant="subheading"
+            gutterBottom
+          >
             {name}
           </Typography>
           <Typography variant="body2" gutterBottom>

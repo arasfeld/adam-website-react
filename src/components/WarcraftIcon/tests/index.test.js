@@ -7,9 +7,7 @@ import WarcraftIcon from '../index';
 
 describe('<WarcraftIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(
-      <WarcraftIcon />
-    );
+    const renderedComponent = shallow(<WarcraftIcon />);
     expect(renderedComponent.find(SvgIcon).length).toBe(1);
   });
 });

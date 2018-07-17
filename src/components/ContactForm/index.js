@@ -20,7 +20,7 @@ import messages from './messages';
 
 const EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
 
-const styles = (theme) => ({
+const styles = theme => ({
   formControl: {
     margin: theme.spacing.unit,
   },
@@ -40,23 +40,41 @@ class ContactForm extends React.Component {
     };
   }
 
-  updateField = (event) => { // eslint-disable-line
+  updateField = event => {
+    // eslint-disable-line
     const field = event.target;
-    this.setState({ [field.name]: { ...this.state[field.name], value: field.value } });
-  }
+    this.setState({
+      [field.name]: { ...this.state[field.name], value: field.value },
+    });
+  };
 
-  validateField = (event) => { // eslint-disable-line
+  validateField = event => {
+    // eslint-disable-line
     const field = event.target;
-    if (field.required && (field.value == null || field.value.match(/^ *$/) !== null)) {
+    if (
+      field.required &&
+      (field.value == null || field.value.match(/^ *$/) !== null)
+    ) {
       this.setState({
-        [field.name]: { ...this.state[field.name], error: 'Field is required', valid: false },
+        [field.name]: {
+          ...this.state[field.name],
+          error: 'Field is required',
+          valid: false,
+        },
         valid: false,
       });
       return;
     }
-    if (field.type === 'email' && !EMAIL_REGEXP.test(field.value.toLowerCase())) {
+    if (
+      field.type === 'email' &&
+      !EMAIL_REGEXP.test(field.value.toLowerCase())
+    ) {
       this.setState({
-        [field.name]: { ...this.state[field.name], error: 'Invalid email', valid: false },
+        [field.name]: {
+          ...this.state[field.name],
+          error: 'Invalid email',
+          valid: false,
+        },
         valid: false,
       });
       return;
@@ -64,7 +82,7 @@ class ContactForm extends React.Component {
     this.setState({
       [field.name]: { ...this.state[field.name], error: '', valid: true },
     });
-  }
+  };
 
   render() {
     const { classes } = this.props;
@@ -72,7 +90,6 @@ class ContactForm extends React.Component {
 
     return (
       <FormGroup>
-
         <FormControl
           required
           className={classes.formControl}
@@ -93,7 +110,9 @@ class ContactForm extends React.Component {
               </InputAdornment>
             }
           />
-          <FormHelperText id="name-error-text">{this.state.name.error}</FormHelperText>
+          <FormHelperText id="name-error-text">
+            {this.state.name.error}
+          </FormHelperText>
         </FormControl>
 
         <FormControl
@@ -117,7 +136,9 @@ class ContactForm extends React.Component {
               </InputAdornment>
             }
           />
-          <FormHelperText id="email-error-text">{this.state.email.error}</FormHelperText>
+          <FormHelperText id="email-error-text">
+            {this.state.email.error}
+          </FormHelperText>
         </FormControl>
 
         <FormControl
@@ -142,7 +163,9 @@ class ContactForm extends React.Component {
               </InputAdornment>
             }
           />
-          <FormHelperText id="message-error-text">{this.state.message.error}</FormHelperText>
+          <FormHelperText id="message-error-text">
+            {this.state.message.error}
+          </FormHelperText>
         </FormControl>
 
         <Button

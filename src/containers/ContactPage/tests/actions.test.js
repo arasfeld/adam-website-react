@@ -4,11 +4,7 @@ import {
   SEND_MESSAGE_ERROR,
 } from '../constants';
 
-import {
-  sendMessage,
-  messageSent,
-  messageSendingError,
-} from '../actions';
+import { sendMessage, messageSent, messageSendingError } from '../actions';
 
 describe('Contact Actions', () => {
   describe('sendMessage', () => {

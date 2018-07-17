@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 import SideNavItem from 'components/SideNavItem';
 import routes from 'routes';

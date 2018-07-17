@@ -11,7 +11,7 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
 import EqualizerIcon from 'components/EqualizerIcon';
 
-const styles = (theme) => ({
+const styles = theme => ({
   playingContainer: {
     display: 'flex',
   },
@@ -40,18 +40,14 @@ function Track(props) {
   ) : (
     <div className={classes.playingContainer}>
       <EqualizerIcon className={classes.playingIcon} color="primary" />
-      <Typography>
-        Now Playing
-      </Typography>
+      <Typography>Now Playing</Typography>
     </div>
   );
 
   return (
     <ListItem>
       {icon}
-      <ListItemText>
-        {`${artist} - ${name}`}
-      </ListItemText>
+      <ListItemText>{`${artist} - ${name}`}</ListItemText>
       {timestamp}
     </ListItem>
   );

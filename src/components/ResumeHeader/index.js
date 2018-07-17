@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Me from './me.png';
 
-const styles = (theme) => ({
+const styles = theme => ({
   container: {
     display: 'flex',
   },
@@ -34,10 +34,7 @@ const styles = (theme) => ({
 function ResumeHeader({ classes }) {
   return (
     <div className={classes.container}>
-      <Avatar
-        className={classes.avatar}
-        src={Me}
-      />
+      <Avatar className={classes.avatar} src={Me} />
       <div className={classes.content}>
         <div>
           <span className={classes.firstName}>ADAM</span>
@@ -48,7 +45,13 @@ function ResumeHeader({ classes }) {
           Web Developer
         </Typography>
         <Typography variant="body1" paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </Typography>
       </div>
     </div>

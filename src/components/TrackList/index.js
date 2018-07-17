@@ -18,12 +18,7 @@ function TrackList({ tracks }) {
         </Typography>
         <Card>
           <List dense>
-            {tracks.map((track) => (
-              <Track
-                key={track.key}
-                {...track}
-              />
-            ))}
+            {tracks.map(track => <Track key={track.key} {...track} />)}
           </List>
         </Card>
       </div>
@@ -34,10 +29,7 @@ function TrackList({ tracks }) {
 }
 
 TrackList.propTypes = {
-  tracks: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.bool,
-  ]),
+  tracks: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
 };
 
 export default TrackList;

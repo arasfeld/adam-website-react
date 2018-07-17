@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Button from '@material-ui/core/Button';
 
-const styles = (theme) => ({
+const styles = theme => ({
   item: {
     display: 'flex',
     paddingTop: 0,
@@ -32,7 +32,9 @@ const styles = (theme) => ({
 class SideNavItem extends React.Component {
   componentDidMount() {
     // Center the selected item in the list container.
-    const activeElement = document.querySelector(`.${this.props.classes.active}`);
+    const activeElement = document.querySelector(
+      `.${this.props.classes.active}`,
+    );
     if (activeElement && activeElement.scrollIntoView) {
       activeElement.scrollIntoView({});
     }

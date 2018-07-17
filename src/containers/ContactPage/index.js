@@ -32,7 +32,10 @@ function ContactPage(props) {
     <article>
       <Helmet>
         <title>Contact Me</title>
-        <meta name="description" content="Contact page of Adam Rasfeld's website" />
+        <meta
+          name="description"
+          content="Contact page of Adam Rasfeld's website"
+        />
       </Helmet>
       <div>
         <Typography variant="display2" gutterBottom>
@@ -51,16 +54,14 @@ function ContactPage(props) {
 
 ContactPage.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   onSubmit: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onSubmit: (name, email, message) => dispatch(sendMessage(name, email, message)),
+    onSubmit: (name, email, message) =>
+      dispatch(sendMessage(name, email, message)),
   };
 }
 
@@ -69,7 +70,10 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
 
 const withReducer = injectReducer({ key: 'contact', reducer });
 const withSaga = injectSaga({ key: 'contact', saga });

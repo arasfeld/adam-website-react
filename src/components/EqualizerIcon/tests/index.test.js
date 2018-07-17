@@ -7,9 +7,7 @@ import EqualizerIcon from '../index';
 
 describe('<EqualizerIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(
-      <EqualizerIcon />
-    );
+    const renderedComponent = shallow(<EqualizerIcon />);
     expect(renderedComponent.find(SvgIcon).length).toBe(1);
   });
 });
