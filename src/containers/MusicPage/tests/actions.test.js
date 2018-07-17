@@ -1,14 +1,6 @@
-import {
-  LOAD_MUSIC,
-  LOAD_MUSIC_SUCCESS,
-  LOAD_MUSIC_ERROR,
-} from '../constants';
+import { LOAD_MUSIC, LOAD_MUSIC_SUCCESS, LOAD_MUSIC_ERROR } from '../constants';
 
-import {
-  loadMusic,
-  musicLoaded,
-  musicLoadingError,
-} from '../actions';
+import { loadMusic, musicLoaded, musicLoadingError } from '../actions';
 
 describe('Music Actions', () => {
   describe('loadMusic', () => {
@@ -34,7 +26,9 @@ describe('Music Actions', () => {
         tracks: tracksFixture,
       };
 
-      expect(musicLoaded(albumsFixture, artistsFixture, tracksFixture)).toEqual(expectedResult);
+      expect(musicLoaded(albumsFixture, artistsFixture, tracksFixture)).toEqual(
+        expectedResult,
+      );
     });
   });
 
