@@ -9,24 +9,29 @@ import request from 'utils/request';
 import { SEND_MESSAGE } from './constants';
 import { messageSent, messageSendingError } from './actions';
 
-const mailgunApiKey = 'API_KEY';
-const mailgunDomainName = 'DOMAIN_NAME';
+const emailjsServiceId = 'SERVICE_ID';
+const emailjsTemplateId = 'TEMPLATE_ID';
+const emailjsUserId = 'USER_ID';
 
 /**
  * Mailgun request/response handler
  */
-export function* sendMessage(message) {
-  const requestURL = `https://api.mailgun.net/v3/${mailgunDomainName}/messages`;
+export function* sendMessage({ message }) {
+  const requestURL = `https://api.emailjs.com/api/v1.0/email/send`;
   const requestOptions = {
     method: 'POST',
     headers: {
-      Authorization: `Basic api:${btoa(mailgunApiKey)}`,
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      to: 'arasfeld@gmail.com',
-      from: `${message.name} <${message.email}>`,
-      subject: `Message from ${message.name}`,
-      text: message.text,
+      service_id: emailjsServiceId,
+      template_id: emailjsTemplateId,
+      user_id: emailjsUserId,
+      template_params: {
+        from_name: message.name,
+        from_email: message.email,
+        message_text: message.text,
+      },
     }),
   };
 

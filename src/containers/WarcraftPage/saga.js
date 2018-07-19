@@ -12,7 +12,7 @@ import { characterLoaded, characterLoadingError } from './actions';
 const wowRealmName = 'illidan';
 const wowCharacterName = 'syrix';
 const wowCharacterFields = ['feed', 'items', 'professions', 'stats'];
-const blizzardApiKey = 'sw4ux23aea64dupppbsxrkn8nfdsfnve';
+const blizzardApiKey = 'API_KEY';
 
 export function* getCharacter() {
   try {

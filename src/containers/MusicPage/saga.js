@@ -10,7 +10,7 @@ import { LOAD_MUSIC } from './constants';
 import { musicLoaded, musicLoadingError } from './actions';
 
 const lastFmUsername = 'arazzy';
-const lastFmApiKey = '67398e0ca4dd50eca0cc9b2461cf9be8';
+const lastFmApiKey = 'API_KEY';
 
 export function* getMusic() {
   try {

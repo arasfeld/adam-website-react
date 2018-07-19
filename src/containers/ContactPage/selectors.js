@@ -13,7 +13,20 @@ const makeSelectLoading = () =>
 const makeSelectError = () =>
   createSelector(selectContact, contactState => contactState.get('error'));
 
-const makeSelectMessage = () =>
-  createSelector(selectContact, contactState => contactState.get('message'));
+const makeSelectEmail = () =>
+  createSelector(selectContact, contactState => contactState.get('email'));
 
-export { selectContact, makeSelectLoading, makeSelectError, makeSelectMessage };
+const makeSelectName = () =>
+  createSelector(selectContact, contactState => contactState.get('name'));
+
+const makeSelectText = () =>
+  createSelector(selectContact, contactState => contactState.get('text'));
+
+export {
+  selectContact,
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectEmail,
+  makeSelectName,
+  makeSelectText,
+};

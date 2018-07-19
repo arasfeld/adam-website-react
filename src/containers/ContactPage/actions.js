@@ -16,25 +16,66 @@
  */
 
 import {
+  CHANGE_EMAIL,
+  CHANGE_NAME,
+  CHANGE_TEXT,
   SEND_MESSAGE,
   SEND_MESSAGE_SUCCESS,
   SEND_MESSAGE_ERROR,
 } from './constants';
 
 /**
+ * Changes the message input field of the form
+ *
+ * @param {object} email The new text of the message input field
+ *
+ * @return {object}    An action object with a type of CHANGE_MESSAGE
+ */
+export function changeEmail(email) {
+  return {
+    type: CHANGE_EMAIL,
+    email,
+  };
+}
+
+/**
+ * Changes the message input field of the form
+ *
+ * @param {object} name The new text of the message input field
+ *
+ * @return {object}    An action object with a type of CHANGE_MESSAGE
+ */
+export function changeName(name) {
+  return {
+    type: CHANGE_NAME,
+    name,
+  };
+}
+
+/**
+ * Changes the message input field of the form
+ *
+ * @param {object} text The new text of the message input field
+ *
+ * @return {object}    An action object with a type of CHANGE_MESSAGE
+ */
+export function changeText(text) {
+  return {
+    type: CHANGE_TEXT,
+    text,
+  };
+}
+
+/**
  * Send the message, this action starts the request saga
  *
- * @param  {string} name The name of the person sending the message
- * @param  {string} email The email address that the message will come from
- * @param  {string} message The message to send
+ * @param  {object} message The message to send
  *
  * @return {object} An action object with a type of SEND_MESSAGE passing the message
  */
-export function sendMessage(name, email, message) {
+export function sendMessage(message) {
   return {
     type: SEND_MESSAGE,
-    name,
-    email,
     message,
   };
 }

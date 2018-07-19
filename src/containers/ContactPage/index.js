@@ -19,15 +19,19 @@ import Typography from '@material-ui/core/Typography';
 import ContactForm from 'components/ContactForm';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import { sendMessage } from './actions';
-import { makeSelectLoading, makeSelectError } from './selectors';
+import { changeEmail, changeName, changeText, sendMessage } from './actions';
+import {
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectEmail,
+  makeSelectName,
+  makeSelectText,
+} from './selectors';
 import messages from './messages';
 import reducer from './reducer';
 import saga from './saga';
 
 function ContactPage(props) {
-  const { onSubmit } = props;
-
   return (
     <article>
       <Helmet>
@@ -44,7 +48,7 @@ function ContactPage(props) {
 
         <Card>
           <CardContent>
-            <ContactForm onSubmit={onSubmit} />
+            <ContactForm {...props} />
           </CardContent>
         </Card>
       </div>
@@ -55,19 +59,30 @@ function ContactPage(props) {
 ContactPage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  email: PropTypes.object,
+  name: PropTypes.object,
+  text: PropTypes.object,
+  onChangeEmail: PropTypes.func,
+  onChangeName: PropTypes.func,
+  onChangeText: PropTypes.func,
   onSubmit: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onSubmit: (name, email, message) =>
-      dispatch(sendMessage(name, email, message)),
+    onChangeEmail: email => dispatch(changeEmail(email)),
+    onChangeName: name => dispatch(changeName(name)),
+    onChangeText: text => dispatch(changeText(text)),
+    onSubmit: message => dispatch(sendMessage(message)),
   };
 }
 
 const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   error: makeSelectError(),
+  email: makeSelectEmail(),
+  name: makeSelectName(),
+  text: makeSelectText(),
 });
 
 const withConnect = connect(
