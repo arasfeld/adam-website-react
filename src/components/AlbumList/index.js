@@ -15,7 +15,7 @@ function AlbumList({ albums }) {
         <Typography variant="headline" gutterBottom>
           <FormattedMessage {...messages.header} />
         </Typography>
-        <Grid container justify="space-around" spacing={8} wrap>
+        <Grid container justify="space-around" spacing={8} wrap="wrap">
           {albums.map(album => (
             <Grid key={album.key} item>
               <Album {...album} />

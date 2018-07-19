@@ -15,7 +15,7 @@ function ArtistList({ artists }) {
         <Typography variant="headline" gutterBottom>
           <FormattedMessage {...messages.header} />
         </Typography>
-        <Grid container justify="space-around" spacing={8} wrap>
+        <Grid container justify="space-around" spacing={8} wrap="wrap">
           {artists.map(artist => (
             <Grid key={artist.key} item>
               <Artist {...artist} />

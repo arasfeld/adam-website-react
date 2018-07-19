@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { withStyles } from '@material-ui/core/styles';
 
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 import Me from './me.png';
+import messages from './messages';
 
 const styles = theme => ({
   container: {
@@ -42,7 +44,7 @@ function ResumeHeader({ classes }) {
           <span className={classes.lastName}>RASFELD</span>
         </div>
         <Typography variant="subheading" gutterBottom>
-          Web Developer
+          <FormattedMessage {...messages.title} />
         </Typography>
         <Typography variant="body1" paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

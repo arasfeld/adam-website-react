@@ -42,29 +42,29 @@ export default {
     professional: [
       {
         name: 'React',
-        value: 95,
+        value: 9,
       },
       {
         name: 'Angular',
-        value: 90,
+        value: 9,
       },
       {
         name: 'C#.NET',
-        value: 85,
+        value: 8,
       },
     ],
     soft: [
       {
         name: 'Problem Solving',
-        value: 95,
+        value: 9,
       },
       {
         name: 'Communication',
-        value: 90,
+        value: 8,
       },
       {
         name: 'Teamwork',
-        value: 85,
+        value: 8,
       },
     ],
   },

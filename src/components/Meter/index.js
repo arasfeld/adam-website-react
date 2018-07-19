@@ -28,7 +28,7 @@ function Meter({ classes, name, value, maxValue }) {
           </Typography>
         </Grid>
       </Grid>
-      <LinearProgress variant="determinate" value={value} />
+      <LinearProgress variant="determinate" value={(value / maxValue) * 100} />
     </div>
   );
 }
@@ -43,7 +43,7 @@ Meter.propTypes = {
 Meter.defaultProps = {
   name: '',
   value: 0,
-  maxValue: 100,
+  maxValue: 10,
 };
 
 export default withStyles(styles)(Meter);

@@ -1,11 +1,11 @@
 /*
  * WarcraftPage Messages
  *
- * This contains all the text for the MusicPage component.
+ * This contains all the text for the WarcraftPage component.
  */
 import { defineMessages } from 'react-intl';
 
-const scope = 'app.containers.WacraftPage';
+const scope = 'app.containers.WarcraftPage';
 
 export default defineMessages({
   header: {
