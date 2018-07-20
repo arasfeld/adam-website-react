@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { FormattedDate, FormattedTime } from 'react-intl';
+import { FormattedDate, FormattedMessage, FormattedTime } from 'react-intl';
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
 import EqualizerIcon from 'components/EqualizerIcon';
+import messages from './messages';
 
 const styles = theme => ({
   playingContainer: {
@@ -20,9 +21,7 @@ const styles = theme => ({
   },
 });
 
-function Track(props) {
-  const { classes, album, artist, date, image, name } = props;
-
+function Track({ classes, album, artist, date, image, name }) {
   const icon = image ? (
     <Avatar alt={album} src={image} />
   ) : (
@@ -40,14 +39,16 @@ function Track(props) {
   ) : (
     <div className={classes.playingContainer}>
       <EqualizerIcon className={classes.playingIcon} color="primary" />
-      <Typography>Now Playing</Typography>
+      <Typography>
+        <FormattedMessage {...messages.playing} />
+      </Typography>
     </div>
   );
 
   return (
     <ListItem>
       {icon}
-      <ListItemText>{`${artist} - ${name}`}</ListItemText>
+      <ListItemText primary={`${artist} - ${name}`} />
       {timestamp}
     </ListItem>
   );

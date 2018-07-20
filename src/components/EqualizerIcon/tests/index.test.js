@@ -8,6 +8,6 @@ import EqualizerIcon from '../index';
 describe('<EqualizerIcon />', () => {
   it('should render an SvgIcon', () => {
     const renderedComponent = shallow(<EqualizerIcon />);
-    expect(renderedComponent.find(SvgIcon).length).toBe(1);
+    expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });

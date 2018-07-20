@@ -8,6 +8,6 @@ import LoadingIndicator from '../index';
 describe('<LoadingIndicator />', () => {
   it('should render a LinearProgress', () => {
     const renderedComponent = shallow(<LoadingIndicator />);
-    expect(renderedComponent.find(LinearProgress).length).toBe(1);
+    expect(renderedComponent.find(LinearProgress)).toHaveLength(1);
   });
 });
