@@ -60,6 +60,7 @@ class ContactForm extends React.Component {
         />
 
         <Button
+          className="contact-form-submit"
           variant="contained"
           color="primary"
           disabled={!valid}
@@ -82,6 +83,21 @@ ContactForm.propTypes = {
   email: PropTypes.object,
   name: PropTypes.object,
   text: PropTypes.object,
+};
+
+ContactForm.defaultProps = {
+  email: {
+    value: '',
+    error: null,
+  },
+  name: {
+    value: '',
+    error: null,
+  },
+  text: {
+    value: '',
+    error: null,
+  },
 };
 
 export default withStyles(styles)(ContactForm);
