@@ -8,14 +8,14 @@ import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import WarcraftIcon from 'components/WarcraftIcon';
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 
 import ContactPage from 'containers/ContactPage/Loadable';
+import GamesPage from 'containers/GamesPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import MusicPage from 'containers/MusicPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ResumePage from 'containers/ResumePage/Loadable';
-import WarcraftPage from 'containers/WarcraftPage/Loadable';
 
 const scope = 'app.components.SideNav';
 
@@ -42,13 +42,13 @@ export default [
     }),
   },
   {
-    path: '/warcraft',
-    icon: WarcraftIcon,
-    component: WarcraftPage,
+    path: '/games',
+    icon: VideogameAssetIcon,
+    component: GamesPage,
     includeInSidenav: true,
     message: defineMessages({
-      id: `${scope}.warcraft`,
-      defaultMessage: 'Warcraft',
+      id: `${scope}.games`,
+      defaultMessage: 'Games',
     }),
   },
   {
