@@ -5,40 +5,18 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
-import { withStyles } from '@material-ui/core/styles';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import MaterialUiLogo from './material-ui.png';
-import ReactLogo from './react.png';
-import ReduxLogo from './redux.png';
-
+import Feature from 'components/Feature';
+import JestLogo from './images/jest.png';
+import MaterialUiLogo from './images/material-ui.png';
+import ReactLogo from './images/react.png';
+import ReduxLogo from './images/redux.png';
 import messages from './messages';
-
-const styles = theme => ({
-  card: {
-    marginTop: theme.spacing.unit * 2,
-  },
-  cardContainer: {
-    alignItems: 'center',
-    display: 'flex',
-  },
-  cardContent: {
-    display: 'flex',
-    flex: '1 auto',
-    flexDirection: 'column',
-    margin: '10px',
-  },
-  cardImage: {
-    maxHeight: 100,
-    maxWidth: 100,
-  },
-});
 
 class HomePage extends React.Component {
   // Since state and props are static,
@@ -48,8 +26,6 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
-
     return (
       <article>
         <Helmet>
@@ -59,91 +35,53 @@ class HomePage extends React.Component {
             content="Home page of Adam Rasfeld's website"
           />
         </Helmet>
-        <div>
-          <Typography variant="display2" gutterBottom>
-            <FormattedMessage {...messages.header} />
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            My name is Adam Rasfeld and this is my personal website. As I dont
-            really have anything particularly interesting to put out into the
-            world, this is more or less a pet project that I started to help
-            myself learn React and other technologies that I am interested in.
-          </Typography>
 
-          <Card className={classes.card}>
-            <CardContent className={classes.cardContainer}>
-              <img className={classes.cardImage} src={ReactLogo} alt="React" />
-              <div className={classes.cardContent}>
-                <Typography variant="title" gutterBottom>
-                  React
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </Typography>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className={classes.card}>
-            <CardContent className={classes.cardContainer}>
-              <div className={classes.cardContent}>
-                <Typography variant="title" gutterBottom>
-                  Redux
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </Typography>
-              </div>
-              <img className={classes.cardImage} src={ReduxLogo} alt="Redux" />
-            </CardContent>
-          </Card>
-
-          <Card className={classes.card}>
-            <CardContent className={classes.cardContainer}>
-              <img
-                className={classes.cardImage}
-                src={MaterialUiLogo}
-                alt="Material-UI"
-              />
-              <div className={classes.cardContent}>
-                <Typography variant="title" gutterBottom>
-                  Material-UI
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </Typography>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <Grid container direction="column" spacing={16}>
+          <Grid item xs={12}>
+            <Typography variant="display2" gutterBottom>
+              <FormattedMessage {...messages.header} />
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              My name is Adam Rasfeld and this is my personal website. As I dont
+              really have anything particularly interesting to put out into the
+              world, this is more or less a pet project that I started to help
+              myself learn React and other technologies that I am interested in.
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Feature
+              title={<FormattedMessage {...messages.reactTitle} />}
+              body={<FormattedMessage {...messages.reactBody} />}
+              image={ReactLogo}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Feature
+              title={<FormattedMessage {...messages.reduxTitle} />}
+              body={<FormattedMessage {...messages.reduxBody} />}
+              image={ReduxLogo}
+              imagePosition="right"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Feature
+              title={<FormattedMessage {...messages.materialUiTitle} />}
+              body={<FormattedMessage {...messages.materialUiBody} />}
+              image={MaterialUiLogo}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Feature
+              title={<FormattedMessage {...messages.jestTitle} />}
+              body={<FormattedMessage {...messages.jestBody} />}
+              image={JestLogo}
+              imagePosition="right"
+            />
+          </Grid>
+        </Grid>
       </article>
     );
   }
 }
 
-HomePage.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(HomePage);
+export default HomePage;
