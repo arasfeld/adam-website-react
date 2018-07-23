@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sendMessage Saga should call the messageSendingError action if the post errors 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "https://api.emailjs.com/api/v1.0/email/send",
+      Object {
+        "body": "{\\"service_id\\":\\"SERVICE_ID\\",\\"template_id\\":\\"TEMPLATE_ID\\",\\"user_id\\":\\"USER_ID\\",\\"template_params\\":{\\"from_name\\":\\"Test name\\",\\"from_email\\":\\"test@test.com\\",\\"message_text\\":\\"Test text\\"}}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should dispatch the messageSent action if it posts the data successfully 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "https://api.emailjs.com/api/v1.0/email/send",
+      Object {
+        "body": "{\\"service_id\\":\\"SERVICE_ID\\",\\"template_id\\":\\"TEMPLATE_ID\\",\\"user_id\\":\\"USER_ID\\",\\"template_params\\":{\\"from_name\\":\\"Test name\\",\\"from_email\\":\\"test@test.com\\",\\"message_text\\":\\"Test text\\"}}",
+        "headers": Object {
+          "Content-Type": "application/json",
+        },
+        "method": "POST",
+      },
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;

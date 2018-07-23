@@ -8,6 +8,6 @@ import WarcraftIcon from '../index';
 describe('<WarcraftIcon />', () => {
   it('should render an SvgIcon', () => {
     const renderedComponent = shallow(<WarcraftIcon />);
-    expect(renderedComponent.find(SvgIcon).length).toBe(1);
+    expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });

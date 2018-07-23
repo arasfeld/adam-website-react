@@ -1,8 +1,8 @@
-const exec = require('child_process').exec;
-exec('npm -v', (err, stdout, stderr) => {
+const { exec } = require('child_process');
+exec('npm -v', (err, stdout) => {
   if (err) throw err;
-  if (parseFloat(stdout) < 3) {
-    throw new Error('[ERROR: adam-website-react] You need npm version @>=3');
-    process.exit(1);
+  if (parseFloat(stdout) < 5) {
+    throw new Error('[ERROR: adam-website-react] You need npm version @>=5');
+    // process.exit(1);
   }
 });

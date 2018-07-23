@@ -5,7 +5,7 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=arazzy&api_key=67398e0ca4dd50eca0cc9b2461cf9be8&limit=21&format=json",
+      "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=arazzy&api_key=API_KEY&limit=21&format=json",
     ],
     "context": null,
     "fn": [Function],
@@ -18,7 +18,7 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=arazzy&api_key=67398e0ca4dd50eca0cc9b2461cf9be8&limit=21&format=json",
+      "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=arazzy&api_key=API_KEY&limit=21&format=json",
     ],
     "context": null,
     "fn": [Function],
@@ -31,7 +31,7 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=arazzy&api_key=67398e0ca4dd50eca0cc9b2461cf9be8&limit=10&format=json",
+      "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=arazzy&api_key=API_KEY&limit=10&format=json",
     ],
     "context": null,
     "fn": [Function],
@@ -44,7 +44,7 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=arazzy&api_key=67398e0ca4dd50eca0cc9b2461cf9be8&limit=21&format=json",
+      "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=arazzy&api_key=API_KEY&limit=21&format=json",
     ],
     "context": null,
     "fn": [Function],
@@ -57,7 +57,7 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=arazzy&api_key=67398e0ca4dd50eca0cc9b2461cf9be8&limit=21&format=json",
+      "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=arazzy&api_key=API_KEY&limit=21&format=json",
     ],
     "context": null,
     "fn": [Function],
@@ -70,7 +70,7 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=arazzy&api_key=67398e0ca4dd50eca0cc9b2461cf9be8&limit=10&format=json",
+      "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=arazzy&api_key=API_KEY&limit=10&format=json",
     ],
     "context": null,
     "fn": [Function],

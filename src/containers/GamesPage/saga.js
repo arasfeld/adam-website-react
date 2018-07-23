@@ -10,7 +10,7 @@ import { LOAD_GAMES } from './constants';
 import { gamesLoaded, gamesLoadingError } from './actions';
 
 const steamId = '76561198206720592';
-const steamApiKey = '58EE17E67E194EA23E613104686AF65B';
+const steamApiKey = 'API_KEY';
 
 export function* getGames() {
   try {
