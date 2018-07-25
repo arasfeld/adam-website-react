@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
 import { withStyles } from '@material-ui/core/styles';
+
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
+import { makeSelectLocation } from 'containers/App/selectors';
 import SideNavItem from 'components/SideNavItem';
 import routes from 'routes';
 
@@ -25,16 +30,14 @@ const styles = theme => ({
 // So: <SwipeableDrawer disableBackdropTransition={false} />
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-function SideNav(props) {
-  const {
-    classes,
-    className,
-    currentPage,
-    mobileOpen,
-    onClose,
-    onOpen,
-  } = props;
-
+function SideNav({
+  classes,
+  className,
+  location,
+  mobileOpen,
+  onClose,
+  onOpen,
+}) {
   const sideNavContent = (
     <List component="nav">
       {routes
@@ -45,7 +48,7 @@ function SideNav(props) {
             href={route.path}
             message={route.message}
             icon={route.icon}
-            active={currentPage === route.path}
+            active={location.pathname === route.path}
             onClick={onClose}
           />
         ))}
@@ -90,10 +93,21 @@ function SideNav(props) {
 SideNav.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
-  currentPage: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   mobileOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onOpen: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(SideNav);
+const mapStateToProps = createStructuredSelector({
+  location: makeSelectLocation(),
+});
+
+const withConnect = connect(mapStateToProps);
+
+export default compose(
+  withConnect,
+  withStyles(styles),
+)(SideNav);

@@ -1,18 +1,14 @@
 import { fromJS } from 'immutable';
 
-import {
-  selectGlobal,
-  makeSelectLocation,
-  makeSelectMobileSideNav,
-} from '../selectors';
+import { selectRoute, makeSelectLocation } from '../selectors';
 
-describe('selectGlobal', () => {
-  it('should select the global state', () => {
-    const globalState = fromJS({});
+describe('selectRoute', () => {
+  it('should select the route state', () => {
+    const routeState = fromJS({});
     const mockedState = fromJS({
-      global: globalState,
+      route: routeState,
     });
-    expect(selectGlobal(mockedState)).toEqual(globalState);
+    expect(selectRoute(mockedState)).toEqual(routeState);
   });
 });
 
@@ -27,21 +23,6 @@ describe('makeSelectLocation', () => {
     });
     expect(locationStateSelector(mockedState)).toEqual(
       route.get('location').toJS(),
-    );
-  });
-});
-
-describe('makeSelectMobileSideNav', () => {
-  const mobileSideNavStateSelector = makeSelectMobileSideNav();
-  it('should select the mobile sidenav state', () => {
-    const globalState = fromJS({
-      mobileSideNav: false,
-    });
-    const mockedState = fromJS({
-      global: globalState,
-    });
-    expect(mobileSideNavStateSelector(mockedState)).toEqual(
-      globalState.get('mobileSideNav'),
     );
   });
 });

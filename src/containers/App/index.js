@@ -9,18 +9,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
 import { withStyles } from '@material-ui/core/styles';
 
+import SideNav from 'containers/SideNav';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-import SideNav from 'components/SideNav';
 import routes from 'routes';
-import { closeSideNav, openSideNav, toggleSideNav } from './actions';
-import { makeSelectLocation, makeSelectMobileSideNav } from './selectors';
 
 const styles = theme => ({
   root: {
@@ -48,87 +43,64 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
-function App(props) {
-  const {
-    classes,
-    location,
-    mobileOpen,
-    onCloseSideNav,
-    onOpenSideNav,
-    onToggleSideNav,
-  } = props;
+class App extends React.Component {
+  state = {
+    mobileOpen: false,
+  };
 
-  return (
-    <div className={classes.root}>
-      <Helmet titleTemplate="%s - Adam Rasfeld" defaultTitle="Adam Rasfeld">
-        <meta
-          name="description"
-          content="My personal website written with React.js"
-        />
-      </Helmet>
-      <header>
-        <Header toggleSideNav={onToggleSideNav} />
-      </header>
-      <div className={classes.content}>
-        <SideNav
-          currentPage={location.pathname}
-          mobileOpen={mobileOpen}
-          onClose={onCloseSideNav}
-          onOpen={onOpenSideNav}
-        />
-        <main className={classes.main}>
-          <div className={classes.page}>
-            <div className={classes.toolbar} />
-            <Switch>
-              {routes.map(route => (
-                <Route
-                  key={route.path}
-                  exact={route.exact}
-                  path={route.path}
-                  component={route.component}
-                />
-              ))}
-            </Switch>
-          </div>
-          <footer>
-            <Footer />
-          </footer>
-        </main>
+  handleDrawerOpen = () => {
+    this.setState({ mobileOpen: true });
+  };
+
+  handleDrawerClose = () => {
+    this.setState({ mobileOpen: false });
+  };
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
+        <Helmet titleTemplate="%s - Adam Rasfeld" defaultTitle="Adam Rasfeld">
+          <meta
+            name="description"
+            content="My personal website written with React.js"
+          />
+        </Helmet>
+        <header>
+          <Header toggleSideNav={this.handleDrawerOpen} />
+        </header>
+        <div className={classes.content}>
+          <SideNav
+            mobileOpen={this.state.mobileOpen}
+            onClose={this.handleDrawerClose}
+            onOpen={this.handleDrawerOpen}
+          />
+          <main className={classes.main}>
+            <div className={classes.page}>
+              <div className={classes.toolbar} />
+              <Switch>
+                {routes.map(route => (
+                  <Route
+                    key={route.path}
+                    exact={route.exact}
+                    path={route.path}
+                    component={route.component}
+                  />
+                ))}
+              </Switch>
+            </div>
+            <footer>
+              <Footer />
+            </footer>
+          </main>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
-  mobileOpen: PropTypes.bool.isRequired,
-  onCloseSideNav: PropTypes.func.isRequired,
-  onOpenSideNav: PropTypes.func.isRequired,
-  onToggleSideNav: PropTypes.func.isRequired,
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    onCloseSideNav: () => dispatch(closeSideNav()),
-    onOpenSideNav: () => dispatch(openSideNav()),
-    onToggleSideNav: () => dispatch(toggleSideNav()),
-  };
-}
-
-const mapStateToProps = createStructuredSelector({
-  location: makeSelectLocation(),
-  mobileOpen: makeSelectMobileSideNav(),
-});
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
-
-export default compose(
-  withConnect,
-  withStyles(styles),
-)(App);
+export default withStyles(styles)(App);
