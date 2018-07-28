@@ -30,7 +30,7 @@ const styles = theme => ({
 // So: <SwipeableDrawer disableBackdropTransition={false} />
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-function SideNav({
+export function SideNav({
   classes,
   className,
   location,
@@ -68,7 +68,7 @@ function SideNav({
           onOpen={onOpen}
           onClose={onClose}
           ModalProps={{
-            keepMounted: true,
+            keepMounted: true, // Better open performance on mobile.
           }}
         >
           {sideNavContent}
@@ -101,11 +101,11 @@ SideNav.propTypes = {
   onOpen: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = createStructuredSelector({
-  location: makeSelectLocation(),
-});
-
-const withConnect = connect(mapStateToProps);
+const withConnect = connect(
+  createStructuredSelector({
+    location: makeSelectLocation(),
+  }),
+);
 
 export default compose(
   withConnect,

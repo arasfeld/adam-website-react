@@ -19,10 +19,6 @@ const styles = theme => ({
     justifyContent: 'flex-start',
     textTransform: 'none',
     width: '100%',
-    fontWeight: theme.typography.fontWeightRegular,
-    '&.depth-0': {
-      fontWeight: theme.typography.fontWeightMedium,
-    },
   },
   active: {
     color: theme.palette.primary.main,

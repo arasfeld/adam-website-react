@@ -12,21 +12,21 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Home',
   },
-  jestTitle: {
-    id: `${scope}.jest.title`,
-    defaultMessage: 'Jest',
+  lastFmTitle: {
+    id: `${scope}.lastfm.title`,
+    defaultMessage: 'Last.fm API',
   },
-  jestBody: {
-    id: `${scope}.jest.body`,
+  lastFmBody: {
+    id: `${scope}.lastfm.body`,
     defaultMessage:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   },
-  materialUiTitle: {
-    id: `${scope}.materialui.title`,
-    defaultMessage: 'Material-UI',
+  mailgunTitle: {
+    id: `${scope}.mailgun.title`,
+    defaultMessage: 'Mailgun API',
   },
-  materialUiBody: {
-    id: `${scope}.materialui.body`,
+  mailgunBody: {
+    id: `${scope}.mailgun.body`,
     defaultMessage:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   },
@@ -39,12 +39,12 @@ export default defineMessages({
     defaultMessage:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   },
-  reduxTitle: {
-    id: `${scope}.redux.title`,
-    defaultMessage: 'Redux',
+  steamTitle: {
+    id: `${scope}.steam.title`,
+    defaultMessage: 'Steam API',
   },
-  reduxBody: {
-    id: `${scope}.redux.body`,
+  steamBody: {
+    id: `${scope}.steam.body`,
     defaultMessage:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   },

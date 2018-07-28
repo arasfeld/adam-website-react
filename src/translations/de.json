@@ -6,8 +6,11 @@
   "app.components.ContactForm.name": "Name",
   "app.components.ContactForm.send": "Senden",
   "app.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
-  "app.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
+  "app.components.Footer.license.message":
+    "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "app.components.Header.title": "",
+  "app.components.SideNav.contact": "Kontakt",
+  "app.components.SideNav.games": "Spiele",
   "app.components.SideNav.github": "",
   "app.components.SideNav.home": "Startseite",
   "app.components.SideNav.music": "Musik",

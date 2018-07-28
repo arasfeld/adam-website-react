@@ -12,10 +12,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import Feature from 'components/Feature';
-import JestLogo from './images/jest.png';
-import MaterialUiLogo from './images/material-ui.png';
+import LastFmLogo from './images/lastfm.png';
+import MailgunLogo from './images/mailgun.png';
 import ReactLogo from './images/react.png';
-import ReduxLogo from './images/redux.png';
+import SteamLogo from './images/steam.png';
 import messages from './messages';
 
 class HomePage extends React.Component {
@@ -53,28 +53,30 @@ class HomePage extends React.Component {
               title={<FormattedMessage {...messages.reactTitle} />}
               body={<FormattedMessage {...messages.reactBody} />}
               image={ReactLogo}
+              imagePosition="left"
             />
           </Grid>
           <Grid item xs={12}>
             <Feature
-              title={<FormattedMessage {...messages.reduxTitle} />}
-              body={<FormattedMessage {...messages.reduxBody} />}
-              image={ReduxLogo}
+              title={<FormattedMessage {...messages.lastFmTitle} />}
+              body={<FormattedMessage {...messages.lastFmBody} />}
+              image={LastFmLogo}
               imagePosition="right"
             />
           </Grid>
           <Grid item xs={12}>
             <Feature
-              title={<FormattedMessage {...messages.materialUiTitle} />}
-              body={<FormattedMessage {...messages.materialUiBody} />}
-              image={MaterialUiLogo}
+              title={<FormattedMessage {...messages.steamTitle} />}
+              body={<FormattedMessage {...messages.steamBody} />}
+              image={SteamLogo}
+              imagePosition="left"
             />
           </Grid>
           <Grid item xs={12}>
             <Feature
-              title={<FormattedMessage {...messages.jestTitle} />}
-              body={<FormattedMessage {...messages.jestBody} />}
-              image={JestLogo}
+              title={<FormattedMessage {...messages.mailgunTitle} />}
+              body={<FormattedMessage {...messages.mailgunBody} />}
+              image={MailgunLogo}
               imagePosition="right"
             />
           </Grid>
