@@ -12,30 +12,25 @@ import MessageIcon from '@material-ui/icons/Message';
 import messages from './messages';
 
 class TextField extends React.Component {
+  state = {
+    error: null,
+  };
+
   update = event => {
-    this.props.onChange({
-      value: event.target.value,
-      error: this.props.error,
-    });
+    this.props.onChange(event.target.value);
   };
 
   validate = () => {
     if (this.props.value == null || this.props.value.match(/^ *$/) !== null) {
-      this.props.onChange({
-        value: this.props.value,
-        error: 'Text is required',
-      });
+      this.setState({ error: 'Text is required' });
     } else {
-      this.props.onChange({
-        value: this.props.value,
-        error: null,
-      });
+      this.setState({ error: null });
     }
   };
 
   render() {
-    const { className, value, error } = this.props;
-    const hasError = error != null;
+    const { className, value } = this.props;
+    const hasError = this.state.error != null;
 
     return (
       <FormControl className={className} required error={hasError}>
@@ -54,7 +49,7 @@ class TextField extends React.Component {
             </InputAdornment>
           }
         />
-        <FormHelperText>{error}</FormHelperText>
+        <FormHelperText>{this.state.error}</FormHelperText>
       </FormControl>
     );
   }

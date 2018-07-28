@@ -25,37 +25,33 @@ const styles = theme => ({
 class ContactForm extends React.Component {
   submit = () => {
     const message = {
-      name: this.props.name.value,
-      email: this.props.email.value,
-      text: this.props.text.value,
+      name: this.props.name,
+      email: this.props.email,
+      text: this.props.text,
     };
     this.props.onSubmit(message);
   };
 
   render() {
     const { classes, name, email, text } = this.props;
-    const valid = !name.error && !email.error && !text.error;
 
     return (
       <FormGroup>
         <NameField
           className={classes.formControl}
-          value={this.props.name.value}
-          error={this.props.name.error}
+          value={name}
           onChange={this.props.onChangeName}
         />
 
         <EmailField
           className={classes.formControl}
-          value={this.props.email.value}
-          error={this.props.email.error}
+          value={email}
           onChange={this.props.onChangeEmail}
         />
 
         <TextField
           className={classes.formControl}
-          value={this.props.text.value}
-          error={this.props.text.error}
+          value={text}
           onChange={this.props.onChangeText}
         />
 
@@ -63,7 +59,6 @@ class ContactForm extends React.Component {
           className="contact-form-submit"
           variant="contained"
           color="primary"
-          disabled={!valid}
           onClick={this.submit}
         >
           <SendIcon className={classes.sendIcon} />
@@ -86,18 +81,9 @@ ContactForm.propTypes = {
 };
 
 ContactForm.defaultProps = {
-  email: {
-    value: '',
-    error: null,
-  },
-  name: {
-    value: '',
-    error: null,
-  },
-  text: {
-    value: '',
-    error: null,
-  },
+  email: '',
+  name: '',
+  text: '',
 };
 
 export default withStyles(styles)(ContactForm);

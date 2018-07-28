@@ -16,18 +16,9 @@ describe('contactReducer', () => {
     state = fromJS({
       loading: false,
       error: false,
-      email: {
-        value: '',
-        error: null,
-      },
-      name: {
-        value: '',
-        error: null,
-      },
-      text: {
-        value: '',
-        error: null,
-      },
+      email: '',
+      name: '',
+      text: '',
     });
   });
 

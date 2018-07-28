@@ -12,30 +12,25 @@ import PersonIcon from '@material-ui/icons/Person';
 import messages from './messages';
 
 class NameField extends React.Component {
+  state = {
+    error: null,
+  };
+
   update = event => {
-    this.props.onChange({
-      value: event.target.value,
-      error: this.props.error,
-    });
+    this.props.onChange(event.target.value);
   };
 
   validate = () => {
     if (this.props.value == null || this.props.value.match(/^ *$/) !== null) {
-      this.props.onChange({
-        value: this.props.value,
-        error: 'Name is required',
-      });
+      this.setState({ error: 'Name is required' });
     } else {
-      this.props.onChange({
-        value: this.props.value,
-        error: null,
-      });
+      this.setState({ error: null });
     }
   };
 
   render() {
-    const { className, value, error } = this.props;
-    const hasError = error != null;
+    const { className, value } = this.props;
+    const hasError = this.state.error != null;
 
     return (
       <FormControl className={className} required error={hasError}>
@@ -52,7 +47,7 @@ class NameField extends React.Component {
             </InputAdornment>
           }
         />
-        <FormHelperText>{error}</FormHelperText>
+        <FormHelperText>{this.state.error}</FormHelperText>
       </FormControl>
     );
   }
@@ -61,13 +56,11 @@ class NameField extends React.Component {
 NameField.propTypes = {
   className: PropTypes.string,
   value: PropTypes.string,
-  error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
 NameField.defaultProps = {
   value: '',
-  error: null,
 };
 
 export default NameField;

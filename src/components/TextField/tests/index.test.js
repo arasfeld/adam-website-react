@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
 
 import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 
@@ -49,27 +48,5 @@ describe('<TextField />', () => {
     };
     const renderedComponent = shallow(<TextField {...props} />);
     expect(renderedComponent.find(Input).props().value).toEqual(props.value);
-  });
-
-  it('should render with error state', () => {
-    const props = {
-      error: 'Test error',
-      onChange: jest.fn(),
-    };
-    const renderedComponent = shallow(<TextField {...props} />);
-    expect(renderedComponent.find(FormControl).props().error).toBe(true);
-  });
-
-  it('should render error message', () => {
-    const props = {
-      error: 'Test error',
-      onChange: jest.fn(),
-    };
-    const renderedComponent = shallow(<TextField {...props} />);
-    expect(
-      renderedComponent.contains(
-        <FormHelperText>{props.error}</FormHelperText>,
-      ),
-    ).toBe(true);
   });
 });

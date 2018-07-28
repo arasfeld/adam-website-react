@@ -20,18 +20,9 @@ import {
 export const initialState = fromJS({
   loading: false,
   error: false,
-  email: {
-    value: '',
-    error: null,
-  },
-  name: {
-    value: '',
-    error: null,
-  },
-  text: {
-    value: '',
-    error: null,
-  },
+  email: '',
+  name: '',
+  text: '',
 });
 
 function contactReducer(state = initialState, action) {

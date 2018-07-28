@@ -59,9 +59,9 @@ function ContactPage(props) {
 ContactPage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  email: PropTypes.object,
-  name: PropTypes.object,
-  text: PropTypes.object,
+  email: PropTypes.string,
+  name: PropTypes.string,
+  text: PropTypes.string,
   onChangeEmail: PropTypes.func,
   onChangeName: PropTypes.func,
   onChangeText: PropTypes.func,
