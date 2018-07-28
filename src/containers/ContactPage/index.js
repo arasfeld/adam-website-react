@@ -73,7 +73,7 @@ export function mapDispatchToProps(dispatch) {
     onChangeEmail: email => dispatch(changeEmail(email)),
     onChangeName: name => dispatch(changeName(name)),
     onChangeText: text => dispatch(changeText(text)),
-    onSubmit: message => dispatch(sendMessage(message)),
+    onSubmit: () => dispatch(sendMessage()),
   };
 }
 

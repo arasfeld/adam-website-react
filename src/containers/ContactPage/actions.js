@@ -69,14 +69,11 @@ export function changeText(text) {
 /**
  * Send the message, this action starts the request saga
  *
- * @param  {object} message The message to send
- *
- * @return {object} An action object with a type of SEND_MESSAGE passing the message
+ * @return {object} An action object with a type of SEND_MESSAGE
  */
-export function sendMessage(message) {
+export function sendMessage() {
   return {
     type: SEND_MESSAGE,
-    message,
   };
 }
 

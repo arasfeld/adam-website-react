@@ -63,18 +63,12 @@ describe('Contact Actions', () => {
   });
 
   describe('sendMessage', () => {
-    it('should return the correct type and the message to send', () => {
-      const fixture = {
-        email: '',
-        name: '',
-        text: '',
-      };
+    it('should return the correct type', () => {
       const expectedResult = {
         type: SEND_MESSAGE,
-        message: fixture,
       };
 
-      expect(sendMessage(fixture)).toEqual(expectedResult);
+      expect(sendMessage()).toEqual(expectedResult);
     });
   });
 

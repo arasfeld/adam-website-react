@@ -2,12 +2,13 @@
  * Sends messages via mailgun
  */
 
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
 
 import { SEND_MESSAGE } from './constants';
 import { messageSent, messageSendingError } from './actions';
+import { makeSelectEmail, makeSelectName, makeSelectText } from './selectors';
 
 const emailjsServiceId = 'SERVICE_ID';
 const emailjsTemplateId = 'TEMPLATE_ID';
@@ -16,7 +17,12 @@ const emailjsUserId = 'USER_ID';
 /**
  * Mailgun request/response handler
  */
-export function* sendMessage({ message }) {
+export function* sendMessage() {
+  // Select message values from store
+  const name = yield select(makeSelectName());
+  const email = yield select(makeSelectEmail());
+  const text = yield select(makeSelectText());
+
   const requestURL = `https://api.emailjs.com/api/v1.0/email/send`;
   const requestOptions = {
     method: 'POST',
@@ -28,9 +34,9 @@ export function* sendMessage({ message }) {
       template_id: emailjsTemplateId,
       user_id: emailjsUserId,
       template_params: {
-        from_name: message.name,
-        from_email: message.email,
-        message_text: message.text,
+        from_name: name,
+        from_email: email,
+        message_text: text,
       },
     }),
   };

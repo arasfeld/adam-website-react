@@ -9,6 +9,10 @@ import { messageSent, messageSendingError } from '../actions';
 
 import mailgunData, { sendMessage } from '../saga';
 
+const email = 'test@test.com';
+const name = 'Test Name';
+const text = 'Test text';
+
 /* eslint-disable redux-saga/yield-effects */
 describe('sendMessage Saga', () => {
   let sendMessageGenerator;
@@ -16,16 +20,18 @@ describe('sendMessage Saga', () => {
   // We have to test twice, once for a successful load and once for an unsuccessful one
   // so we do all the stuff that happens beforehand automatically in the beforeEach
   beforeEach(() => {
-    const fixture = {
-      message: {
-        email: 'test@test.com',
-        name: 'Test name',
-        text: 'Test text',
-      },
-    };
-    sendMessageGenerator = sendMessage(fixture);
+    sendMessageGenerator = sendMessage();
 
-    const callDescriptor = sendMessageGenerator.next().value;
+    const selectNameDescriptor = sendMessageGenerator.next().value;
+    expect(selectNameDescriptor).toMatchSnapshot();
+
+    const selectEmailDescriptor = sendMessageGenerator.next(name).value;
+    expect(selectEmailDescriptor).toMatchSnapshot();
+
+    const selectTextDescriptor = sendMessageGenerator.next(email).value;
+    expect(selectTextDescriptor).toMatchSnapshot();
+
+    const callDescriptor = sendMessageGenerator.next(text).value;
     expect(callDescriptor).toMatchSnapshot();
   });
 

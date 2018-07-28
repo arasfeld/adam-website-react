@@ -3,11 +3,41 @@
 exports[`sendMessage Saga should call the messageSendingError action if the post errors 1`] = `
 Object {
   "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should call the messageSendingError action if the post errors 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should call the messageSendingError action if the post errors 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should call the messageSendingError action if the post errors 4`] = `
+Object {
+  "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
       "https://api.emailjs.com/api/v1.0/email/send",
       Object {
-        "body": "{\\"service_id\\":\\"SERVICE_ID\\",\\"template_id\\":\\"TEMPLATE_ID\\",\\"user_id\\":\\"USER_ID\\",\\"template_params\\":{\\"from_name\\":\\"Test name\\",\\"from_email\\":\\"test@test.com\\",\\"message_text\\":\\"Test text\\"}}",
+        "body": "{\\"service_id\\":\\"SERVICE_ID\\",\\"template_id\\":\\"TEMPLATE_ID\\",\\"user_id\\":\\"USER_ID\\",\\"template_params\\":{\\"from_name\\":\\"Test Name\\",\\"from_email\\":\\"test@test.com\\",\\"message_text\\":\\"Test text\\"}}",
         "headers": Object {
           "Content-Type": "application/json",
         },
@@ -23,11 +53,41 @@ Object {
 exports[`sendMessage Saga should dispatch the messageSent action if it posts the data successfully 1`] = `
 Object {
   "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should dispatch the messageSent action if it posts the data successfully 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should dispatch the messageSent action if it posts the data successfully 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "SELECT": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+}
+`;
+
+exports[`sendMessage Saga should dispatch the messageSent action if it posts the data successfully 4`] = `
+Object {
+  "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
       "https://api.emailjs.com/api/v1.0/email/send",
       Object {
-        "body": "{\\"service_id\\":\\"SERVICE_ID\\",\\"template_id\\":\\"TEMPLATE_ID\\",\\"user_id\\":\\"USER_ID\\",\\"template_params\\":{\\"from_name\\":\\"Test name\\",\\"from_email\\":\\"test@test.com\\",\\"message_text\\":\\"Test text\\"}}",
+        "body": "{\\"service_id\\":\\"SERVICE_ID\\",\\"template_id\\":\\"TEMPLATE_ID\\",\\"user_id\\":\\"USER_ID\\",\\"template_params\\":{\\"from_name\\":\\"Test Name\\",\\"from_email\\":\\"test@test.com\\",\\"message_text\\":\\"Test text\\"}}",
         "headers": Object {
           "Content-Type": "application/json",
         },

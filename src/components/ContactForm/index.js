@@ -22,51 +22,47 @@ const styles = theme => ({
   },
 });
 
-class ContactForm extends React.Component {
-  submit = () => {
-    const message = {
-      name: this.props.name,
-      email: this.props.email,
-      text: this.props.text,
-    };
-    this.props.onSubmit(message);
-  };
+function ContactForm({
+  classes,
+  email,
+  name,
+  text,
+  onChangeEmail,
+  onChangeName,
+  onChangeText,
+  onSubmit,
+}) {
+  return (
+    <FormGroup>
+      <NameField
+        className={classes.formControl}
+        value={name}
+        onChange={onChangeName}
+      />
 
-  render() {
-    const { classes, name, email, text } = this.props;
+      <EmailField
+        className={classes.formControl}
+        value={email}
+        onChange={onChangeEmail}
+      />
 
-    return (
-      <FormGroup>
-        <NameField
-          className={classes.formControl}
-          value={name}
-          onChange={this.props.onChangeName}
-        />
+      <TextField
+        className={classes.formControl}
+        value={text}
+        onChange={onChangeText}
+      />
 
-        <EmailField
-          className={classes.formControl}
-          value={email}
-          onChange={this.props.onChangeEmail}
-        />
-
-        <TextField
-          className={classes.formControl}
-          value={text}
-          onChange={this.props.onChangeText}
-        />
-
-        <Button
-          className="contact-form-submit"
-          variant="contained"
-          color="primary"
-          onClick={this.submit}
-        >
-          <SendIcon className={classes.sendIcon} />
-          <FormattedMessage {...messages.send} />
-        </Button>
-      </FormGroup>
-    );
-  }
+      <Button
+        className="contact-form-submit"
+        variant="contained"
+        color="primary"
+        onClick={onSubmit}
+      >
+        <SendIcon className={classes.sendIcon} />
+        <FormattedMessage {...messages.send} />
+      </Button>
+    </FormGroup>
+  );
 }
 
 ContactForm.propTypes = {
