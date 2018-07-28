@@ -12,10 +12,11 @@ import messages from './messages';
 
 function RecentGameList({ games }) {
   if (games) {
-    const totalMinutes = games.reduce(
-      (total, game) => total + game.recentPlaytime,
-      0,
-    );
+    const totalHours =
+      Math.round(
+        (games.reduce((total, game) => total + game.recentPlaytime, 0) / 60) *
+          10,
+      ) / 10;
 
     return (
       <div>
@@ -30,7 +31,7 @@ function RecentGameList({ games }) {
               <FormattedMessage
                 {...messages.activity}
                 values={{
-                  hours: Math.round((totalMinutes / 60) * 10) / 10,
+                  hours: totalHours,
                 }}
               />
             </Typography>
@@ -38,16 +39,7 @@ function RecentGameList({ games }) {
         </Grid>
 
         <Card>
-          <List dense>
-            {games.map(game => (
-              <RecentGame
-                key={game.key}
-                name={game.name}
-                image={game.iconImage}
-                playtime={game.recentPlaytime}
-              />
-            ))}
-          </List>
+          <List dense>{games.map(game => <RecentGame {...game} />)}</List>
         </Card>
       </div>
     );

@@ -18,7 +18,7 @@ function OwnedGameList({ games }) {
         <Grid container justify="space-around" spacing={8} wrap="wrap">
           {games.map(game => (
             <Grid key={game.key} item>
-              <OwnedGame name={game.name} image={game.logoImage} />
+              <OwnedGame {...game} />
             </Grid>
           ))}
         </Grid>

@@ -10,9 +10,9 @@ import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 
 import messages from './messages';
 
-function RecentGame({ image, name, playtime }) {
-  const icon = image ? (
-    <Avatar alt={name} src={image} />
+function RecentGame({ iconImage, name, recentPlaytime }) {
+  const icon = iconImage ? (
+    <Avatar alt={name} src={iconImage} />
   ) : (
     <Avatar>
       <VideogameAssetIcon />
@@ -27,7 +27,7 @@ function RecentGame({ image, name, playtime }) {
         <FormattedMessage
           {...messages.activity}
           values={{
-            hours: Math.round((playtime / 60) * 10) / 10,
+            hours: Math.round((recentPlaytime / 60) * 10) / 10,
           }}
         />
       </Typography>
@@ -36,9 +36,9 @@ function RecentGame({ image, name, playtime }) {
 }
 
 RecentGame.propTypes = {
-  image: PropTypes.string.isRequired,
+  iconImage: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  playtime: PropTypes.number.isRequired,
+  recentPlaytime: PropTypes.number.isRequired,
 };
 
 export default RecentGame;
