@@ -8,10 +8,6 @@ import { defineMessages } from 'react-intl';
 const scope = 'app.containers.ResumePage';
 
 export default defineMessages({
-  skillsHeader: {
-    id: `${scope}.skills.header`,
-    defaultMessage: 'Professional Skills',
-  },
   educationHeader: {
     id: `${scope}.education.header`,
     defaultMessage: 'Education',
@@ -19,5 +15,9 @@ export default defineMessages({
   experienceHeader: {
     id: `${scope}.experience.header`,
     defaultMessage: 'Experience',
+  },
+  skillsHeader: {
+    id: `${scope}.skills.header`,
+    defaultMessage: 'Skills',
   },
 });

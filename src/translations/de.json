@@ -22,6 +22,7 @@
   "app.containers.LocaleToggle.en": "",
   "app.containers.MusicPage.header": "Musik",
   "app.containers.NotFoundPage.header": "Seite nicht gefunden.",
+  "app.containers.ResumePage.education.header": "Bildung",
   "app.containers.ResumePage.experience.header": "Erfahrung",
   "app.containers.ResumePage.skills.header": "Kompetenzen"
 }

@@ -1,47 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { withStyles } from '@material-ui/core/styles';
 
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import Meter from 'components/Meter';
-import messages from './messages';
+import AngularIcon from 'components/AngularIcon';
+import CSharpIcon from 'components/CSharpIcon';
+import DotNetCoreIcon from 'components/DotNetCoreIcon';
+import ReactIcon from 'components/ReactIcon';
 
-function ResumeSkills({ professional, soft }) {
+const styles = () => ({
+  icon: {
+    fontSize: '6em',
+  },
+});
+
+function ResumeSkills({ classes }) {
   return (
-    <Grid container spacing={16}>
-      <Grid item xs={12} md={6}>
-        <Typography variant="headline" gutterBottom>
-          <FormattedMessage {...messages.professionalHeader} />
-        </Typography>
-        {professional.map(skill => (
-          <Meter
-            key={`professional-skill-${skill.name}`}
-            name={skill.name}
-            value={skill.value}
-          />
-        ))}
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Typography variant="headline" gutterBottom>
-          <FormattedMessage {...messages.softHeader} />
-        </Typography>
-        {soft.map(skill => (
-          <Meter
-            key={`soft-skill-${skill.name}`}
-            name={skill.name}
-            value={skill.value}
-          />
-        ))}
-      </Grid>
-    </Grid>
+    <Card>
+      <CardContent>
+        <Grid container justify="space-around" spacing={16}>
+          <Grid item>
+            <ReactIcon className={classes.icon} />
+            <Typography variant="subheading" align="center">
+              React
+            </Typography>
+          </Grid>
+          <Grid item>
+            <AngularIcon className={classes.icon} />
+            <Typography variant="subheading" align="center">
+              Angular
+            </Typography>
+          </Grid>
+          <Grid item>
+            <CSharpIcon className={classes.icon} />
+            <Typography variant="subheading" align="center">
+              C#
+            </Typography>
+          </Grid>
+          <Grid item>
+            <DotNetCoreIcon className={classes.icon} />
+            <Typography variant="subheading" align="center">
+              .NET Core
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
   );
 }
 
 ResumeSkills.propTypes = {
-  professional: PropTypes.array,
-  soft: PropTypes.array,
+  classes: PropTypes.object.isRequired,
 };
 
-export default ResumeSkills;
+export default withStyles(styles)(ResumeSkills);
