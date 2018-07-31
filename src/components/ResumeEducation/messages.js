@@ -1,19 +1,23 @@
 /*
- * ResumeHeader Messages
+ * ResumeEducation Messages
  *
- * This contains all the text for the ResumeHeader component.
+ * This contains all the text for the ResumeEducation component.
  */
 import { defineMessages } from 'react-intl';
 
-const scope = 'app.components.ResumeHeader';
+const scope = 'app.components.ResumeEducation';
 
 export default defineMessages({
-  title: {
-    id: `${scope}.title`,
-    defaultMessage: 'Web Developer',
+  miamiTitle: {
+    id: `${scope}.miami.title`,
+    defaultMessage: 'B.S. Computer Science @ Miami University',
   },
-  summary: {
-    id: `${scope}.summary`,
+  miamiDates: {
+    id: `${scope}.miami.dates`,
+    defaultMessage: '2009 - 2014',
+  },
+  miamiDescription: {
+    id: `${scope}.miami.description`,
     defaultMessage: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostrud exercitation ullamco laboris nisi ut
