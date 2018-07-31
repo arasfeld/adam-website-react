@@ -60,6 +60,22 @@ class SideNavItem extends React.Component {
       </ListItemIcon>
     ) : null;
 
+    if (/^https?:\/\//i.test(href)) {
+      return (
+        <ListItem className={classes.item} disableGutters {...other}>
+          <Button
+            className={classes.button}
+            disableRipple
+            onClick={onClick}
+            href={href}
+          >
+            {iconComponent}
+            {message ? intl.formatMessage(message) : href}
+          </Button>
+        </ListItem>
+      );
+    }
+
     return (
       <ListItem className={classes.item} disableGutters {...other}>
         <Button

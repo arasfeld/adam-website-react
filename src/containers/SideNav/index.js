@@ -11,8 +11,10 @@ import List from '@material-ui/core/List';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 import { makeSelectLocation } from 'containers/App/selectors';
+import OctocatIcon from 'components/OctocatIcon';
 import SideNavItem from 'components/SideNavItem';
 import routes from 'routes';
+import messages from './messages';
 
 const styles = theme => ({
   drawerPaper: {
@@ -52,6 +54,13 @@ export function SideNav({
             onClick={onClose}
           />
         ))}
+      <SideNavItem
+        key="github"
+        href="https://github.com/arasfeld"
+        message={messages.github}
+        icon={OctocatIcon}
+        onClick={onClose}
+      />
     </List>
   );
 
