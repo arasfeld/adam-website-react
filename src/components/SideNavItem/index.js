@@ -16,6 +16,7 @@ const styles = theme => ({
     paddingBottom: 0,
   },
   button: {
+    fontWeight: theme.typography.fontWeightRegular,
     justifyContent: 'flex-start',
     textTransform: 'none',
     width: '100%',

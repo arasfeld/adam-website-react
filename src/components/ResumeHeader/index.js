@@ -8,7 +8,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import Me from './me.png';
+import Me from 'images/me.png';
 import messages from './messages';
 
 const styles = theme => ({
