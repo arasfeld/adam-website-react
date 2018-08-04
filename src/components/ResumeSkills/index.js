@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import AngularIcon from 'components/AngularIcon';
 import CSharpIcon from 'components/CSharpIcon';
 import DotNetCoreIcon from 'components/DotNetCoreIcon';
+import MongoIcon from 'components/MongoIcon';
 import ReactIcon from 'components/ReactIcon';
 
 const styles = () => ({
@@ -45,6 +46,12 @@ function ResumeSkills({ classes }) {
             <DotNetCoreIcon className={classes.icon} />
             <Typography variant="subheading" align="center">
               .NET Core
+            </Typography>
+          </Grid>
+          <Grid item>
+            <MongoIcon className={classes.icon} />
+            <Typography variant="subheading" align="center">
+              MongoDB
             </Typography>
           </Grid>
         </Grid>
