@@ -35,6 +35,7 @@
   "app.components.SideNav.resume": "Lebenslauf",
   "app.components.TrackList.header": "Jüngste Lieder",
   "app.containers.ContactPage.header": "Kontaktiere Mich",
+  "app.containers.HomePage.about": "",
   "app.containers.HomePage.header": "Startseite",
   "app.containers.LocaleToggle.de": "",
   "app.containers.LocaleToggle.en": "",

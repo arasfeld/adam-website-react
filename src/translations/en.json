@@ -35,6 +35,8 @@
   "app.components.SideNav.resume": "Resume",
   "app.components.TrackList.header": "Recent Tracks",
   "app.containers.ContactPage.header": "Contact Me",
+  "app.containers.HomePage.about":
+    "My name is Adam Rasfeld and this is my personal website. As I don't really have anything particularly interesting to put out into the world, this is more or less a pet project that I started to help myself learn React and other technologies that I am interested in.",
   "app.containers.HomePage.header": "Home",
   "app.containers.LocaleToggle.de": "de",
   "app.containers.LocaleToggle.en": "en",
