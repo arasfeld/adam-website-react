@@ -33,8 +33,8 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-// Import material-ui theme
-import theme from './utils/theme';
+// Import theme
+import theme from './static/theme';
 
 // Observe loading of Roboto (to remove roboto, remove the <link> tag in
 // the index.html file and this observer)
