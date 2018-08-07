@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "app",
     "module": "commonjs",
     "target": "es2016",
     "jsx": "react"
