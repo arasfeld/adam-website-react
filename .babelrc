@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "styled-components"
+  ],
   "presets": [
     [
       "env",
