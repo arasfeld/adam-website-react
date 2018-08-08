@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function WarcraftIcon({ className, color }) {
+function WarcraftIcon({ className, color, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 512 512">
+    <SvgIcon
+      className={className}
+      color={color}
+      viewBox="0 0 512 512"
+      {...other}
+    >
       <g>
         <path
           d="M 255.7, 256.5 m -168, 0 a 168,168 0 1,0 336,0 a 168,168 0 1,0 -336,0

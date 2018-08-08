@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function MiamiIcon({ className, color }) {
+function MiamiIcon({ className, color, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 64 48.5">
+    <SvgIcon
+      className={className}
+      color={color}
+      viewBox="0 0 64 48.5"
+      {...other}
+    >
       <g>
         <path
           strokeWidth="0.190164404553"

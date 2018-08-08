@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function OctocatIcon({ className, color }) {
+function OctocatIcon({ className, color, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 36 36">
+    <SvgIcon className={className} color={color} viewBox="0 0 36 36" {...other}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

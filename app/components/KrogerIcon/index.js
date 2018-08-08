@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function KrogerIcon({ className, color }) {
+function KrogerIcon({ className, color, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 375 310.5">
+    <SvgIcon
+      className={className}
+      color={color}
+      viewBox="0 0 375 310.5"
+      {...other}
+    >
       <g>
         <path
           fill="#ffffff"

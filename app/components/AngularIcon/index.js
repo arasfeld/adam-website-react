@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function AngularIcon({ className, color }) {
+function AngularIcon({ className, color, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 64 64">
+    <SvgIcon className={className} color={color} viewBox="0 0 64 64" {...other}>
       <g>
         <polygon
           fill="#DD0031"

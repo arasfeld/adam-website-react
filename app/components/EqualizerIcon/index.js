@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function EqualizerIcon({ className, color }) {
+function EqualizerIcon({ className, color, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 100 100">
+    <SvgIcon
+      className={className}
+      color={color}
+      viewBox="0 0 100 100"
+      {...other}
+    >
       <g transform="rotate(180 50 50)">
         <rect x="12" y="15" width="16" height="12.189">
           <animate
