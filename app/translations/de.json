@@ -1,31 +1,21 @@
 {
-  "app.components.AlbumList.header": "Topalben",
-  "app.components.ArtistList.header": "Topkünstler",
   "app.components.ContactForm.email": "Email",
   "app.components.ContactForm.message": "Botschaft",
   "app.components.ContactForm.name": "Name",
   "app.components.ContactForm.send": "Senden",
   "app.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
-  "app.components.Footer.license.message":
-    "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
+  "app.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "app.components.Header.title": "",
   "app.components.ResumeEducation.miami.dates": "2009 - 2014",
-  "app.components.ResumeEducation.miami.description":
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "app.components.ResumeEducation.miami.title":
-    "B.S. Computerwissenschaften @ Miami University",
+  "app.components.ResumeEducation.miami.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "app.components.ResumeEducation.miami.title": "B.S. Computerwissenschaften @ Miami University",
   "app.components.ResumeExperience.kroger.dates": "2018 - STROM",
-  "app.components.ResumeExperience.kroger.description":
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "app.components.ResumeExperience.kroger.title":
-    "Web-Entwickler @ Kroger Digital",
+  "app.components.ResumeExperience.kroger.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "app.components.ResumeExperience.kroger.title": "Web-Entwickler @ Kroger Digital",
   "app.components.ResumeExperience.rovisys.dates": "2014 - 2018",
-  "app.components.ResumeExperience.rovisys.description":
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "app.components.ResumeExperience.rovisys.title":
-    "Softwareentwickler II @ RoviSys",
-  "app.components.ResumeHeader.summary":
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "app.components.ResumeExperience.rovisys.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "app.components.ResumeExperience.rovisys.title": "Softwareentwickler II @ RoviSys",
+  "app.components.ResumeHeader.summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "app.components.ResumeHeader.title": "Web-Entwickler",
   "app.components.SideNav.contact": "Kontakt",
   "app.components.SideNav.games": "Spiele",
@@ -33,13 +23,14 @@
   "app.components.SideNav.home": "Startseite",
   "app.components.SideNav.music": "Musik",
   "app.components.SideNav.resume": "Lebenslauf",
-  "app.components.TrackList.header": "Jüngste Lieder",
   "app.containers.ContactPage.header": "Kontaktiere Mich",
   "app.containers.HomePage.about": "",
   "app.containers.HomePage.header": "Startseite",
   "app.containers.LocaleToggle.de": "",
   "app.containers.LocaleToggle.en": "",
-  "app.containers.MusicPage.header": "Musik",
+  "app.containers.MusicPage.albums": "Topalben",
+  "app.containers.MusicPage.artists": "Topkünstler",
+  "app.containers.MusicPage.tracks": "Jüngste Lieder",
   "app.containers.NotFoundPage.header": "Seite nicht gefunden.",
   "app.containers.ResumePage.education.header": "Bildung",
   "app.containers.ResumePage.experience.header": "Erfahrung",

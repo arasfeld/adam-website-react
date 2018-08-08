@@ -6,9 +6,9 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 
-import AlbumList from 'components/AlbumList';
-import ArtistList from 'components/ArtistList';
-import TrackList from 'components/TrackList';
+import Album from 'components/Album';
+import Artist from 'components/Artist';
+import Track from 'components/Track';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { MusicPage, mapDispatchToProps } from '../index';
 import { loadMusic } from '../actions';
@@ -38,39 +38,33 @@ describe('<MusicPage />', () => {
     const props = {
       loading: false,
       error: false,
-      tracks: [],
+      tracks: [{}, {}],
       onLoad: jest.fn(),
     };
     const renderedComponent = shallow(<MusicPage {...props} />);
-    expect(
-      renderedComponent.contains(<TrackList tracks={props.tracks} />),
-    ).toEqual(true);
+    expect(renderedComponent.find(Track)).toHaveLength(2);
   });
 
   it('should render the album list', () => {
     const props = {
       loading: false,
       error: false,
-      albums: [],
+      albums: [{}, {}],
       onLoad: jest.fn(),
     };
     const renderedComponent = shallow(<MusicPage {...props} />);
-    expect(
-      renderedComponent.contains(<AlbumList albums={props.albums} />),
-    ).toEqual(true);
+    expect(renderedComponent.find(Album)).toHaveLength(2);
   });
 
   it('should render the artist list', () => {
     const props = {
       loading: false,
       error: false,
-      artists: [],
+      artists: [{}, {}],
       onLoad: jest.fn(),
     };
     const renderedComponent = shallow(<MusicPage {...props} />);
-    expect(
-      renderedComponent.contains(<ArtistList artists={props.artists} />),
-    ).toEqual(true);
+    expect(renderedComponent.find(Artist)).toHaveLength(2);
   });
 
   describe('mapDispatchToProps', () => {
