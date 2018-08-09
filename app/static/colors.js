@@ -14,6 +14,5 @@ export const errorColor = error[500];
 export const errorColorDark = error[700];
 export const errorColorLight = error[300];
 
-export const primaryText = '#FEFEFE';
-export const secondaryText = '#212121';
-export const accentText = '#590935';
+export const primaryText = '#FFF';
+export const secondaryText = 'rgba(255, 255, 255, 0.7)';
