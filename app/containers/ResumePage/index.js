@@ -21,8 +21,11 @@ import MongoIcon from 'components/MongoIcon';
 import ReactIcon from 'components/ReactIcon';
 import RovisysIcon from 'components/RovisysIcon';
 
-import ResumeHeader from 'components/ResumeHeader';
+import Me from 'images/me.png';
 import { fontWeightMedium } from 'static/typography';
+import FirstName from './FirstName';
+import HeaderImage from './HeaderImage';
+import LastName from './LastName';
 import messages from './messages';
 
 const styles = {
@@ -57,7 +60,27 @@ class ResumePage extends React.Component {
 
         <Grid container direction="column" spacing={8}>
           <Grid item>
-            <ResumeHeader />
+            <Card>
+              <CardContent>
+                <Grid container direction="row" spacing={16}>
+                  <Grid item>
+                    <HeaderImage src={Me} />
+                  </Grid>
+                  <Grid item xs>
+                    <div>
+                      <FirstName>ADAM</FirstName>
+                      <LastName>RASFELD</LastName>
+                    </div>
+                    <Typography variant="subheading" gutterBottom>
+                      <FormattedMessage {...messages.title} />
+                    </Typography>
+                    <Typography variant="body1" paragraph>
+                      <FormattedMessage {...messages.summary} />
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </Card>
           </Grid>
 
           <Grid item>
