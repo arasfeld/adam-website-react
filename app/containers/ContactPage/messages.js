@@ -12,4 +12,8 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Contact Me',
   },
+  send: {
+    id: `${scope}.send`,
+    defaultMessage: 'Send',
+  },
 });

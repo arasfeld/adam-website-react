@@ -10,15 +10,6 @@ import TextField from '../index';
 import messages from '../messages';
 
 describe('<TextField />', () => {
-  it('should adopt a className attribute', () => {
-    const props = {
-      className: 'test',
-      onChange: jest.fn(),
-    };
-    const renderedComponent = shallow(<TextField {...props} />);
-    expect(renderedComponent.hasClass(props.className)).toBe(true);
-  });
-
   it('should render a <FormControl />', () => {
     const props = {
       onChange: jest.fn(),

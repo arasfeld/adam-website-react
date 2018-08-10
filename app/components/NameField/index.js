@@ -29,11 +29,11 @@ class NameField extends React.Component {
   };
 
   render() {
-    const { className, value } = this.props;
+    const { value, ...other } = this.props;
     const hasError = this.state.error != null;
 
     return (
-      <FormControl className={className} required error={hasError}>
+      <FormControl required error={hasError} {...other}>
         <InputLabel>
           <FormattedMessage {...messages.label} />
         </InputLabel>
@@ -54,7 +54,6 @@ class NameField extends React.Component {
 }
 
 NameField.propTypes = {
-  className: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };

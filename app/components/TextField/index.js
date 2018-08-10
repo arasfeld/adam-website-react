@@ -29,11 +29,11 @@ class TextField extends React.Component {
   };
 
   render() {
-    const { className, value } = this.props;
+    const { value, ...other } = this.props;
     const hasError = this.state.error != null;
 
     return (
-      <FormControl className={className} required error={hasError}>
+      <FormControl required error={hasError} {...other}>
         <InputLabel>
           <FormattedMessage {...messages.label} />
         </InputLabel>
@@ -56,15 +56,12 @@ class TextField extends React.Component {
 }
 
 TextField.propTypes = {
-  className: PropTypes.string,
   value: PropTypes.string,
-  error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
 TextField.defaultProps = {
   value: '',
-  error: null,
 };
 
 export default TextField;

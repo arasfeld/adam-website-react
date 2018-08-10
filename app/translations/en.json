@@ -1,8 +1,4 @@
 {
-  "app.components.ContactForm.email": "Email",
-  "app.components.ContactForm.message": "Message",
-  "app.components.ContactForm.name": "Name",
-  "app.components.ContactForm.send": "Send",
   "app.components.Footer.author.message": "Made with love by {author}.",
   "app.components.Footer.license.message": "This project is licensed under the MIT license.",
   "app.components.Header.title": "Adam Rasfeld",
@@ -16,6 +12,7 @@
   "app.components.SideNav.music": "Music",
   "app.components.SideNav.resume": "Resume",
   "app.containers.ContactPage.header": "Contact Me",
+  "app.containers.ContactPage.send": "Send",
   "app.containers.GamesPage.activity": "{hours} hours past 2 weeks",
   "app.containers.GamesPage.owned": "Owned Games",
   "app.containers.GamesPage.recentlyPlayed": "Recently Played",

@@ -12,11 +12,16 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import FormGroup from '@material-ui/core/FormGroup';
 import Typography from '@material-ui/core/Typography';
+import SendIcon from '@material-ui/icons/Send';
 
-import ContactForm from 'components/ContactForm';
+import EmailField from 'components/EmailField';
+import NameField from 'components/NameField';
+import TextField from 'components/TextField';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import { changeEmail, changeName, changeText, sendMessage } from './actions';
@@ -31,7 +36,24 @@ import messages from './messages';
 import reducer from './reducer';
 import saga from './saga';
 
-function ContactPage(props) {
+const styles = {
+  formControl: {
+    margin: '8px',
+  },
+  sendIcon: {
+    marginRight: '8px',
+  },
+};
+
+export function ContactPage({
+  email,
+  name,
+  text,
+  onChangeEmail,
+  onChangeName,
+  onChangeText,
+  onSubmit,
+}) {
   return (
     <article>
       <Helmet>
@@ -48,7 +70,35 @@ function ContactPage(props) {
 
         <Card>
           <CardContent>
-            <ContactForm {...props} />
+            <FormGroup>
+              <NameField
+                style={styles.formControl}
+                value={name}
+                onChange={onChangeName}
+              />
+
+              <EmailField
+                style={styles.formControl}
+                value={email}
+                onChange={onChangeEmail}
+              />
+
+              <TextField
+                style={styles.formControl}
+                value={text}
+                onChange={onChangeText}
+              />
+
+              <Button
+                className="contact-form-submit"
+                variant="contained"
+                color="primary"
+                onClick={onSubmit}
+              >
+                <SendIcon style={styles.sendIcon} />
+                <FormattedMessage {...messages.send} />
+              </Button>
+            </FormGroup>
           </CardContent>
         </Card>
       </div>

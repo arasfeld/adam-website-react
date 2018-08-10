@@ -1,8 +1,4 @@
 {
-  "app.components.ContactForm.email": "Email",
-  "app.components.ContactForm.message": "Botschaft",
-  "app.components.ContactForm.name": "Name",
-  "app.components.ContactForm.send": "Senden",
   "app.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "app.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "app.components.Header.title": "",
@@ -16,6 +12,7 @@
   "app.components.SideNav.music": "Musik",
   "app.components.SideNav.resume": "Lebenslauf",
   "app.containers.ContactPage.header": "Kontaktiere Mich",
+  "app.containers.ContactPage.send": "Senden",
   "app.containers.GamesPage.activity": "{hours} Stunden nach 2 Wochen",
   "app.containers.GamesPage.owned": "Eigene Spiele",
   "app.containers.GamesPage.recentlyPlayed": "Kürzlich Gespielt",
