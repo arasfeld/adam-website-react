@@ -24,9 +24,9 @@ class EmailField extends React.Component {
 
   validate = () => {
     if (this.props.value == null || this.props.value.match(/^ *$/) !== null) {
-      this.setState({ error: 'Email is required' });
+      this.setState({ error: messages.requiredError });
     } else if (!EMAIL_REGEXP.test(this.props.value.toLowerCase())) {
-      this.setState({ error: 'Invalid email' });
+      this.setState({ error: messages.invalidError });
     } else {
       this.setState({ error: null });
     }
@@ -52,7 +52,9 @@ class EmailField extends React.Component {
             </InputAdornment>
           }
         />
-        <FormHelperText>{this.state.error}</FormHelperText>
+        <FormHelperText>
+          {hasError && <FormattedMessage {...this.state.error} />}
+        </FormHelperText>
       </FormControl>
     );
   }

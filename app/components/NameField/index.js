@@ -22,7 +22,7 @@ class NameField extends React.Component {
 
   validate = () => {
     if (this.props.value == null || this.props.value.match(/^ *$/) !== null) {
-      this.setState({ error: 'Name is required' });
+      this.setState({ error: messages.requiredError });
     } else {
       this.setState({ error: null });
     }
@@ -47,7 +47,9 @@ class NameField extends React.Component {
             </InputAdornment>
           }
         />
-        <FormHelperText>{this.state.error}</FormHelperText>
+        <FormHelperText>
+          {hasError && <FormattedMessage {...this.state.error} />}
+        </FormHelperText>
       </FormControl>
     );
   }
