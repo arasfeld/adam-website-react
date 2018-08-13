@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import Avatar from '@material-ui/core/Avatar';
 
-const HeaderImage = styled(Avatar)`
+const HeaderImage = styled.img`
   background: #757575;
+  border-radius: 50%;
+  overflow: hidden;
   width: 150px;
   height: 150px;
 `;
