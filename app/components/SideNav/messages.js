@@ -5,7 +5,7 @@
  */
 import { defineMessages } from 'react-intl';
 
-const scope = 'app.containers.SideNav';
+const scope = 'app.components.SideNav';
 
 export default defineMessages({
   github: {

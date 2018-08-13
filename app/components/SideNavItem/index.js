@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { injectIntl, intlShape } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Button from '@material-ui/core/Button';
+
+import StyledIcon from './StyledIcon';
 
 const styles = theme => ({
   item: {
@@ -41,7 +41,6 @@ class SideNavItem extends React.Component {
   render() {
     const {
       classes,
-      active,
       href,
       icon,
       onClick,
@@ -52,13 +51,9 @@ class SideNavItem extends React.Component {
 
     const IconComponent = icon;
     const iconComponent = IconComponent ? (
-      <ListItemIcon>
-        <IconComponent
-          className={classNames({
-            [classes.active]: active,
-          })}
-        />
-      </ListItemIcon>
+      <StyledIcon>
+        <IconComponent />
+      </StyledIcon>
     ) : null;
 
     if (/^https?:\/\//i.test(href)) {
@@ -80,13 +75,13 @@ class SideNavItem extends React.Component {
     return (
       <ListItem className={classes.item} disableGutters {...other}>
         <Button
-          component={Link}
-          className={classNames(classes.button, {
-            [classes.active]: active,
-          })}
+          component={NavLink}
+          className={classes.button}
+          activeClassName={classes.active}
           disableRipple
           onClick={onClick}
           to={href}
+          exact
         >
           {iconComponent}
           {message ? intl.formatMessage(message) : href}
@@ -98,7 +93,6 @@ class SideNavItem extends React.Component {
 
 SideNavItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  active: PropTypes.bool,
   href: PropTypes.string,
   message: PropTypes.object,
   icon: PropTypes.any,

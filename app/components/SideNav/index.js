@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
 import { withStyles } from '@material-ui/core/styles';
 
 import Drawer from '@material-ui/core/Drawer';
@@ -10,7 +7,6 @@ import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
-import { makeSelectLocation } from 'containers/App/selectors';
 import OctocatIcon from 'components/OctocatIcon';
 import SideNavItem from 'components/SideNavItem';
 import routes from 'routes';
@@ -32,28 +28,18 @@ const styles = theme => ({
 // So: <SwipeableDrawer disableBackdropTransition={false} />
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-export function SideNav({
-  classes,
-  className,
-  location,
-  mobileOpen,
-  onClose,
-  onOpen,
-}) {
+export function SideNav({ classes, className, mobileOpen, onClose, onOpen }) {
   const sideNavContent = (
     <List component="nav">
-      {routes
-        .filter(route => route.includeInSidenav)
-        .map(route => (
-          <SideNavItem
-            key={route.path}
-            href={route.path}
-            message={route.message}
-            icon={route.icon}
-            active={location.pathname === route.path}
-            onClick={onClose}
-          />
-        ))}
+      {routes.filter(route => route.includeInSidenav).map(route => (
+        <SideNavItem
+          key={route.path}
+          href={route.path}
+          message={route.message}
+          icon={route.icon}
+          onClick={onClose}
+        />
+      ))}
       <SideNavItem
         key="github"
         href="https://github.com/arasfeld"
@@ -102,21 +88,9 @@ export function SideNav({
 SideNav.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
   mobileOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onOpen: PropTypes.func.isRequired,
 };
 
-const withConnect = connect(
-  createStructuredSelector({
-    location: makeSelectLocation(),
-  }),
-);
-
-export default compose(
-  withConnect,
-  withStyles(styles),
-)(SideNav);
+export default withStyles(styles)(SideNav);

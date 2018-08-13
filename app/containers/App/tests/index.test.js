@@ -2,9 +2,9 @@ import React from 'react';
 import { createShallow } from '@material-ui/core/test-utils';
 import { Route } from 'react-router-dom';
 
-import Header from 'components/Header';
 import Footer from 'components/Footer';
-import SideNav from 'containers/SideNav';
+import Header from 'components/Header';
+import SideNav from 'components/SideNav';
 import App from '../index';
 
 describe('<App />', () => {
