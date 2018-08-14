@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import AngularIcon from '../index';
+import ReactIcon from '../ReactIcon';
 
-describe('<AngularIcon />', () => {
+describe('<ReactIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(<AngularIcon />);
+    const renderedComponent = shallow(<ReactIcon />);
     expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function DotNetCoreIcon({ className, color, ...other }) {
+function DotNetCoreIcon({ className, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 64 64" {...other}>
+    <SvgIcon className={className} viewBox="0 0 64 64" {...other}>
       <circle fill="#5c2d91" cx="32" cy="32" r="32" />
       <path fill="#fff" opacity="0.1" d="M9.82,9A32,32,0,1,0,55,54.18Z" />
       <path
@@ -45,22 +45,6 @@ DotNetCoreIcon.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * You can use the `nativeColor` property to apply a color attribute to the SVG element.
-   */
-  color: PropTypes.oneOf([
-    'inherit',
-    'primary',
-    'secondary',
-    'action',
-    'error',
-    'disabled',
-  ]),
-};
-
-DotNetCoreIcon.defaultProps = {
-  color: 'inherit',
 };
 
 export default DotNetCoreIcon;

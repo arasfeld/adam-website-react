@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import CSharpIcon from '../index';
+import DotNetCoreIcon from '../DotNetCoreIcon';
 
-describe('<CSharpIcon />', () => {
+describe('<DotNetCoreIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(<CSharpIcon />);
+    const renderedComponent = shallow(<DotNetCoreIcon />);
     expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });

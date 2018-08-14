@@ -5,8 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import EqualizerIcon from 'components/EqualizerIcon';
 
+import EqualizerIcon from '../EqualizerIcon';
 import messages from '../messages';
 import Track from '../index';
 

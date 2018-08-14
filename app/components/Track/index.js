@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
-import EqualizerIcon from 'components/EqualizerIcon';
+import EqualizerIcon from './EqualizerIcon';
 import messages from './messages';
 
 const styles = theme => ({

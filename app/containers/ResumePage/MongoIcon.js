@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function MongoIcon({ className, color, ...other }) {
+function MongoIcon({ className, ...other }) {
   return (
-    <SvgIcon
-      className={className}
-      color={color}
-      viewBox="0 0 318.7 708.9"
-      {...other}
-    >
+    <SvgIcon className={className} viewBox="0 0 318.7 708.9" {...other}>
       <g>
         <path
           fill="#4BA04A"
@@ -93,22 +88,6 @@ MongoIcon.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * You can use the `nativeColor` property to apply a color attribute to the SVG element.
-   */
-  color: PropTypes.oneOf([
-    'inherit',
-    'primary',
-    'secondary',
-    'action',
-    'error',
-    'disabled',
-  ]),
-};
-
-MongoIcon.defaultProps = {
-  color: 'inherit',
 };
 
 export default MongoIcon;

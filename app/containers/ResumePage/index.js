@@ -12,20 +12,19 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import AngularIcon from 'components/AngularIcon';
-import CSharpIcon from 'components/CSharpIcon';
-import DotNetCoreIcon from 'components/DotNetCoreIcon';
-import KrogerIcon from 'components/KrogerIcon';
-import MiamiIcon from 'components/MiamiIcon';
-import MongoIcon from 'components/MongoIcon';
-import ReactIcon from 'components/ReactIcon';
-import RovisysIcon from 'components/RovisysIcon';
-
 import Me from 'images/me.png';
 import { fontWeightMedium } from 'static/typography';
-import FirstName from './FirstName';
+
+import AngularIcon from './AngularIcon';
+import CSharpIcon from './CSharpIcon';
+import DotNetCoreIcon from './DotNetCoreIcon';
 import HeaderImage from './HeaderImage';
-import LastName from './LastName';
+import KrogerIcon from './KrogerIcon';
+import MiamiIcon from './MiamiIcon';
+import MongoIcon from './MongoIcon';
+import Name from './Name';
+import ReactIcon from './ReactIcon';
+import RovisysIcon from './RovisysIcon';
 import messages from './messages';
 
 const styles = {
@@ -67,10 +66,7 @@ class ResumePage extends React.Component {
                     <HeaderImage src={Me} />
                   </Grid>
                   <Grid item xs>
-                    <div>
-                      <FirstName>ADAM</FirstName>
-                      <LastName>RASFELD</LastName>
-                    </div>
+                    <Name />
                     <Typography variant="subheading" gutterBottom>
                       <FormattedMessage {...messages.title} />
                     </Typography>

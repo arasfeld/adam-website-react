@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function AngularIcon({ className, color, ...other }) {
+function AngularIcon({ className, ...other }) {
   return (
-    <SvgIcon className={className} color={color} viewBox="0 0 64 64" {...other}>
+    <SvgIcon className={className} viewBox="0 0 64 64" {...other}>
       <g>
         <polygon
           fill="#DD0031"
@@ -28,22 +28,6 @@ AngularIcon.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * You can use the `nativeColor` property to apply a color attribute to the SVG element.
-   */
-  color: PropTypes.oneOf([
-    'inherit',
-    'primary',
-    'secondary',
-    'action',
-    'error',
-    'disabled',
-  ]),
-};
-
-AngularIcon.defaultProps = {
-  color: 'inherit',
 };
 
 export default AngularIcon;

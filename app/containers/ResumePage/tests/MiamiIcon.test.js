@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import MiamiIcon from '../index';
+import MiamiIcon from '../MiamiIcon';
 
 describe('<MiamiIcon />', () => {
   it('should render an SvgIcon', () => {

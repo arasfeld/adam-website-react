@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import DotNetCoreIcon from '../index';
+import EqualizerIcon from '../EqualizerIcon';
 
-describe('<DotNetCoreIcon />', () => {
+describe('<EqualizerIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(<DotNetCoreIcon />);
+    const renderedComponent = shallow(<EqualizerIcon />);
     expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });

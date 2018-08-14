@@ -7,9 +7,9 @@ import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
-import OctocatIcon from 'components/OctocatIcon';
 import SideNavItem from 'components/SideNavItem';
 import routes from 'routes';
+import OctocatIcon from './OctocatIcon';
 import messages from './messages';
 
 const styles = theme => ({

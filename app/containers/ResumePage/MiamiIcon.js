@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-function MiamiIcon({ className, color, ...other }) {
+function MiamiIcon({ className, ...other }) {
   return (
-    <SvgIcon
-      className={className}
-      color={color}
-      viewBox="0 0 64 48.5"
-      {...other}
-    >
+    <SvgIcon className={className} viewBox="0 0 64 48.5" {...other}>
       <g>
         <path
           strokeWidth="0.190164404553"
@@ -30,22 +25,6 @@ MiamiIcon.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * You can use the `nativeColor` property to apply a color attribute to the SVG element.
-   */
-  color: PropTypes.oneOf([
-    'inherit',
-    'primary',
-    'secondary',
-    'action',
-    'error',
-    'disabled',
-  ]),
-};
-
-MiamiIcon.defaultProps = {
-  color: 'inherit',
 };
 
 export default MiamiIcon;

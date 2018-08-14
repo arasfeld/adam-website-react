@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import OctocatIcon from '../index';
+import MongoIcon from '../MongoIcon';
 
-describe('<OctocatIcon />', () => {
+describe('<MongoIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(<OctocatIcon />);
+    const renderedComponent = shallow(<MongoIcon />);
     expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });
