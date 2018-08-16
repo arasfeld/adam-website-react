@@ -44,62 +44,6 @@ export class MusicPage extends React.PureComponent {
   render() {
     const { loading, error, albums, artists, tracks } = this.props;
 
-    let content;
-    if (loading) {
-      content = <LoadingIndicator />;
-    } else if (error !== false) {
-      content = <Typography>Something went wrong!</Typography>;
-    } else {
-      content = (
-        <Grid container spacing={16}>
-          {tracks && (
-            <Grid item xs={12}>
-              <Typography variant="headline" gutterBottom>
-                <FormattedMessage {...messages.tracks} />
-              </Typography>
-              <Card>
-                <List dense>
-                  {tracks.map(track => (
-                    <Track key={track.key} {...track} />
-                  ))}
-                </List>
-              </Card>
-            </Grid>
-          )}
-
-          {albums && (
-            <Grid item xs={12}>
-              <Typography variant="headline" gutterBottom>
-                <FormattedMessage {...messages.albums} />
-              </Typography>
-              <Grid container justify="space-around" spacing={8} wrap="wrap">
-                {albums.map(album => (
-                  <Grid key={album.key} item>
-                    <Album {...album} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          )}
-
-          {artists && (
-            <Grid item xs={12}>
-              <Typography variant="headline" gutterBottom>
-                <FormattedMessage {...messages.artists} />
-              </Typography>
-              <Grid container justify="space-around" spacing={8} wrap="wrap">
-                {artists.map(artist => (
-                  <Grid key={artist.key} item>
-                    <Artist {...artist} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          )}
-        </Grid>
-      );
-    }
-
     return (
       <article>
         <Helmet>
@@ -110,7 +54,58 @@ export class MusicPage extends React.PureComponent {
           />
         </Helmet>
 
-        {content}
+        {loading && <LoadingIndicator />}
+
+        {error && <Typography>Something went wrong!</Typography>}
+
+        {!(loading || error) && (
+          <Grid container spacing={16}>
+            {tracks && (
+              <Grid item xs={12}>
+                <Typography variant="headline" gutterBottom>
+                  <FormattedMessage {...messages.tracks} />
+                </Typography>
+                <Card>
+                  <List dense>
+                    {tracks.map(track => (
+                      <Track key={track.key} {...track} />
+                    ))}
+                  </List>
+                </Card>
+              </Grid>
+            )}
+
+            {albums && (
+              <Grid item xs={12}>
+                <Typography variant="headline" gutterBottom>
+                  <FormattedMessage {...messages.albums} />
+                </Typography>
+                <Grid container justify="space-around" spacing={8} wrap="wrap">
+                  {albums.map(album => (
+                    <Grid key={album.key} item xs={4} sm={3} lg={2}>
+                      <Album {...album} />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Grid>
+            )}
+
+            {artists && (
+              <Grid item xs={12}>
+                <Typography variant="headline" gutterBottom>
+                  <FormattedMessage {...messages.artists} />
+                </Typography>
+                <Grid container justify="space-around" spacing={8} wrap="wrap">
+                  {artists.map(artist => (
+                    <Grid key={artist.key} item xs={4} sm={3} lg={2}>
+                      <Artist {...artist} />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Grid>
+            )}
+          </Grid>
+        )}
       </article>
     );
   }

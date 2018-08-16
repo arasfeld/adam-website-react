@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { sm } from 'static/breakpoints';
 import { primaryText } from 'static/colors';
 import { fontFamily } from 'static/typography';
 
@@ -15,6 +16,10 @@ const AlbumOverlay = styled.div`
   padding-right: 16px;
   position: absolute;
   right: 0;
+
+  @media (max-width: ${sm}) {
+    display: none;
+  }
 `;
 
 export default AlbumOverlay;
