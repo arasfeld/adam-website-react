@@ -20,7 +20,7 @@ const MobileButton = styled.button`
   user-select: none;
 
   @media (max-width: ${md}) {
-    display: flex;
+    display: block;
   }
 `;
 

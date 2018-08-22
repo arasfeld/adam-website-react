@@ -1,8 +1,20 @@
 import { injectGlobal } from 'styled-components';
 import { primaryText } from 'static/colors';
+import Dosis from 'fonts/Dosis.ttf';
+import YanoneKaffeesatz from 'fonts/YanoneKaffeesatz.ttf';
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
+  @font-face {
+    font-family: 'Yanone Kaffeesatz';
+    src: url('${YanoneKaffeesatz}') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Dosis';
+    src: url('${Dosis}') format('truetype');
+  }
+
   html,
   body {
     height: 100%;
@@ -11,10 +23,6 @@ injectGlobal`
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-
-  body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {

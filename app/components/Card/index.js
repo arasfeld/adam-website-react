@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { backgroundColor } from 'static/colors';
 
 const Card = styled.div`
-  background: ${backgroundColor};
-  border-radius: 4px;
-  margin: 8px;
+  background: #212121;
+  border-bottom: 1px solid #414141;
+  border-top: 1px solid #414141;
   padding: 16px;
 `;
 

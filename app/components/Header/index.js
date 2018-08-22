@@ -1,15 +1,25 @@
 import React from 'react';
 import Nav from 'components/Nav';
 import Logo from './Logo';
+import MenuButton from './MenuButton';
 import Wrapper from './Wrapper';
 
-/* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
+  state = {
+    mobileOpen: false,
+  };
+
+  toggleMobileNav = () => {
+    this.setState({ mobileOpen: !this.state.mobileOpen });
+  };
+
   render() {
+    const { mobileOpen } = this.state;
     return (
       <Wrapper>
         <Logo>Adam Rasfeld</Logo>
-        <Nav />
+        <MenuButton onClick={this.toggleMobileNav} />
+        <Nav mobileOpen={mobileOpen} />
       </Wrapper>
     );
   }
