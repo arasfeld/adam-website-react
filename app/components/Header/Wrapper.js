@@ -7,6 +7,6 @@ export default styled.div`
   box-shadow: none;
   display: flex;
   height: 75px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 2%;
+  position: relative;
 `;
