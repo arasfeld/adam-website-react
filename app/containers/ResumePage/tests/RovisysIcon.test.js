@@ -1,13 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SvgIcon from '@material-ui/core/SvgIcon';
-
 import RovisysIcon from '../RovisysIcon';
 
 describe('<RovisysIcon />', () => {
-  it('should render an SvgIcon', () => {
+  it('should render a SVG', () => {
     const renderedComponent = shallow(<RovisysIcon />);
-    expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
+    expect(renderedComponent.find('svg')).toHaveLength(1);
   });
 });

@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import Svg from 'components/Svg';
 
-function RovisysIcon({ className, ...other }) {
+function RovisysIcon() {
   return (
-    <SvgIcon className={className} viewBox="0 0 64 64" {...other}>
+    <Svg viewBox="0 0 64 64">
       <g>
         <path
           fill="#ADB6D8"
@@ -35,15 +34,8 @@ function RovisysIcon({ className, ...other }) {
 	C2.196,34.612,2.091,33.966,2.476,33.447z"
         />
       </g>
-    </SvgIcon>
+    </Svg>
   );
 }
-
-RovisysIcon.propTypes = {
-  /**
-   * @ignore
-   */
-  className: PropTypes.string,
-};
 
 export default RovisysIcon;

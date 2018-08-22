@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ArtistImage from './ArtistImage';
-import ArtistOverlay from './ArtistOverlay';
-import ArtistTitle from './ArtistTitle';
-import ArtistWrapper from './ArtistWrapper';
+import Image from './Image';
+import Label from './Label';
+import Overlay from './Overlay';
+import Wrapper from './Wrapper';
 
 function Artist({ name, image }) {
   return (
-    <ArtistWrapper>
-      <ArtistImage src={image} alt={name} />
-      <ArtistOverlay>
-        <ArtistTitle>{name}</ArtistTitle>
-      </ArtistOverlay>
-    </ArtistWrapper>
+    <Wrapper>
+      <Image src={image} alt={name} />
+      <Overlay>
+        <Label>{name}</Label>
+      </Overlay>
+    </Wrapper>
   );
 }
 

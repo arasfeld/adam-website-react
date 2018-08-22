@@ -7,10 +7,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import Card from 'components/Card';
+import H2 from 'components/H2';
+import H3 from 'components/H3';
 
 import Me from 'images/me.png';
 import { fontWeightMedium } from 'static/typography';
@@ -25,6 +24,7 @@ import MongoIcon from './MongoIcon';
 import Name from './Name';
 import ReactIcon from './ReactIcon';
 import RovisysIcon from './RovisysIcon';
+import SkillsWrapper from './SkillsWrapper';
 import messages from './messages';
 
 const styles = {
@@ -57,182 +57,95 @@ class ResumePage extends React.Component {
           />
         </Helmet>
 
-        <Grid container direction="column" spacing={8}>
-          <Grid item>
-            <Card>
-              <CardContent>
-                <Grid container direction="row" spacing={16}>
-                  <Grid item>
-                    <HeaderImage src={Me} />
-                  </Grid>
-                  <Grid item xs>
-                    <Name />
-                    <Typography variant="subheading" gutterBottom>
-                      <FormattedMessage {...messages.title} />
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      <FormattedMessage {...messages.summary} />
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardContent>
-            </Card>
-          </Grid>
+        <div>
+          <Card>
+            <HeaderImage src={Me} />
+            <div>
+              <Name />
+              <H3>
+                <FormattedMessage {...messages.title} />
+              </H3>
+              <H3>
+                <FormattedMessage {...messages.summary} />
+              </H3>
+            </div>
+          </Card>
 
-          <Grid item>
-            <Typography variant="headline" gutterBottom>
-              <FormattedMessage {...messages.experienceHeader} />
-            </Typography>
-            <Grid container direction="column" spacing={8}>
-              <Grid item>
-                <Card>
-                  <CardContent>
-                    <Grid
-                      container
-                      direction="row"
-                      alignItems="center"
-                      spacing={16}
-                    >
-                      <Grid item>
-                        <KrogerIcon style={styles.smallIcon} />
-                      </Grid>
-                      <Grid item xs>
-                        <Typography
-                          style={styles.cardTitle}
-                          variant="subheading"
-                          gutterBottom
-                        >
-                          <FormattedMessage {...messages.krogerTitle} />
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography variant="body2" gutterBottom>
-                          <FormattedMessage {...messages.krogerDates} />
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Typography variant="body1" paragraph>
-                      <FormattedMessage {...messages.krogerDescription} />
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
+          <H2>
+            <FormattedMessage {...messages.experienceHeader} />
+          </H2>
+          <div>
+            <div>
+              <KrogerIcon style={styles.smallIcon} />
+              <H3>
+                <FormattedMessage {...messages.krogerTitle} />
+              </H3>
+              <H3>
+                <FormattedMessage {...messages.krogerDates} />
+              </H3>
+            </div>
+            <H3>
+              <FormattedMessage {...messages.krogerDescription} />
+            </H3>
+          </div>
+          <div>
+            <div>
+              <RovisysIcon style={styles.smallIcon} />
+              <H3>
+                <FormattedMessage {...messages.rovisysTitle} />
+              </H3>
+              <H3>
+                <FormattedMessage {...messages.rovisysDates} />
+              </H3>
+            </div>
+            <H3>
+              <FormattedMessage {...messages.rovisysDescription} />
+            </H3>
+          </div>
 
-              <Grid item>
-                <Card>
-                  <CardContent>
-                    <Grid
-                      container
-                      direction="row"
-                      alignItems="center"
-                      spacing={16}
-                    >
-                      <Grid item>
-                        <RovisysIcon style={styles.smallIcon} />
-                      </Grid>
-                      <Grid item xs>
-                        <Typography
-                          style={styles.cardTitle}
-                          variant="subheading"
-                          gutterBottom
-                        >
-                          <FormattedMessage {...messages.rovisysTitle} />
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography variant="body2" gutterBottom>
-                          <FormattedMessage {...messages.rovisysDates} />
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Typography variant="body1" paragraph>
-                      <FormattedMessage {...messages.rovisysDescription} />
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid item>
-            <Typography variant="headline" gutterBottom>
+          <div>
+            <H2>
               <FormattedMessage {...messages.skillsHeader} />
-            </Typography>
-            <Card>
-              <CardContent>
-                <Grid container justify="space-around" spacing={16}>
-                  <Grid item>
-                    <ReactIcon style={styles.bigIcon} />
-                    <Typography variant="subheading" align="center">
-                      React
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <AngularIcon style={styles.bigIcon} />
-                    <Typography variant="subheading" align="center">
-                      Angular
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <CSharpIcon style={styles.bigIcon} />
-                    <Typography variant="subheading" align="center">
-                      C#
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <DotNetCoreIcon style={styles.bigIcon} />
-                    <Typography variant="subheading" align="center">
-                      .NET Core
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <MongoIcon style={styles.bigIcon} />
-                    <Typography variant="subheading" align="center">
-                      MongoDB
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardContent>
-            </Card>
-          </Grid>
+            </H2>
+            <SkillsWrapper>
+              <div className="skill">
+                <ReactIcon style={styles.bigIcon} />
+                <span>React</span>
+              </div>
+              <div className="skill">
+                <AngularIcon style={styles.bigIcon} />
+                <span>Angular</span>
+              </div>
+              <div className="skill">
+                <CSharpIcon style={styles.bigIcon} />
+                <span>C#</span>
+              </div>
+              <div className="skill">
+                <DotNetCoreIcon style={styles.bigIcon} />
+                <span>.NET Core</span>
+              </div>
+              <div className="skill">
+                <MongoIcon style={styles.bigIcon} />
+                <span>MongoDB</span>
+              </div>
+            </SkillsWrapper>
+          </div>
 
-          <Grid item>
-            <Typography variant="headline" gutterBottom>
-              <FormattedMessage {...messages.educationHeader} />
-            </Typography>
-            <Card>
-              <CardContent>
-                <Grid
-                  container
-                  direction="row"
-                  alignItems="center"
-                  spacing={16}
-                >
-                  <Grid item>
-                    <MiamiIcon style={styles.smallIcon} />
-                  </Grid>
-                  <Grid item xs>
-                    <Typography
-                      style={styles.cardTitle}
-                      variant="subheading"
-                      gutterBottom
-                    >
-                      <FormattedMessage {...messages.miamiTitle} />
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="body2" gutterBottom>
-                      <FormattedMessage {...messages.miamiDates} />
-                    </Typography>
-                  </Grid>
-                </Grid>
-                <Typography variant="body1" paragraph>
-                  <FormattedMessage {...messages.miamiDescription} />
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+          <div>
+            <div>
+              <MiamiIcon style={styles.smallIcon} />
+              <H3>
+                <FormattedMessage {...messages.miamiTitle} />
+              </H3>
+              <H3>
+                <FormattedMessage {...messages.miamiDates} />
+              </H3>
+            </div>
+            <H3>
+              <FormattedMessage {...messages.miamiDescription} />
+            </H3>
+          </div>
+        </div>
       </div>
     );
   }

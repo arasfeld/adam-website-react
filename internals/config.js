@@ -27,6 +27,7 @@ const App = {
         'express',
         'ip',
         'minimist',
+        'sanitize.css',
       ],
 
       /**

@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AlbumArtist from './AlbumArtist';
-import AlbumImage from './AlbumImage';
-import AlbumOverlay from './AlbumOverlay';
-import AlbumTitle from './AlbumTitle';
-import AlbumWrapper from './AlbumWrapper';
+import AlbumLabel from './AlbumLabel';
+import ArtistLabel from './ArtistLabel';
+import Image from './Image';
+import Overlay from './Overlay';
+import Wrapper from './Wrapper';
 
 function Album({ artist, image, name }) {
   return (
-    <AlbumWrapper>
-      <AlbumImage src={image} alt={name} />
-      <AlbumOverlay>
-        <AlbumTitle>{name}</AlbumTitle>
-        <AlbumArtist>{artist}</AlbumArtist>
-      </AlbumOverlay>
-    </AlbumWrapper>
+    <Wrapper>
+      <Image src={image} alt={name} />
+      <Overlay>
+        <AlbumLabel>{name}</AlbumLabel>
+        <ArtistLabel>{artist}</ArtistLabel>
+      </Overlay>
+    </Wrapper>
   );
 }
 

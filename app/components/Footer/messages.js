@@ -5,15 +5,13 @@
  */
 import { defineMessages } from 'react-intl';
 
-const scope = 'app.components.Footer';
-
 export default defineMessages({
   licenseMessage: {
-    id: `${scope}.license.message`,
+    id: 'app.components.Footer.license.message',
     defaultMessage: 'This project is licensed under the MIT license.',
   },
   authorMessage: {
-    id: `${scope}.author.message`,
+    id: 'app.components.Footer.author.message',
     defaultMessage: `
       Made with love by {author}.
     `,

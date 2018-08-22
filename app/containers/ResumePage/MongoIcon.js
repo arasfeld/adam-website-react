@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgIcon from '@material-ui/core/SvgIcon';
 
 function MongoIcon({ className, ...other }) {
   return (
-    <SvgIcon className={className} viewBox="0 0 318.7 708.9" {...other}>
+    <svg className={className} viewBox="0 0 318.7 708.9" {...other}>
       <g>
         <path
           fill="#4BA04A"
@@ -79,7 +78,7 @@ function MongoIcon({ className, ...other }) {
           d="M157.3,561.2c-0.1,0.8-0.1,1.5-0.2,2.3c-1.7-0.2-4.1,0.5-3.6-3.2C154.8,560.6,156,560.9,157.3,561.2z"
         />
       </g>
-    </SvgIcon>
+    </svg>
   );
 }
 

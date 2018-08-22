@@ -12,16 +12,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
-import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-
+import Card from 'components/Card';
+import H3 from 'components/H3';
 import LoadingIndicator from 'components/LoadingIndicator';
 import OwnedGame from 'components/OwnedGame';
 import RecentGame from 'components/RecentGame';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+
+import ImageList from './ImageList';
 import { loadGames } from './actions';
 import {
   makeSelectOwnedGames,
@@ -50,63 +49,6 @@ export class GamesPage extends React.PureComponent {
   render() {
     const { loading, error, ownedGames, recentlyPlayedGames } = this.props;
 
-    let content;
-    if (loading) {
-      content = <LoadingIndicator />;
-    } else if (error !== false) {
-      content = <Typography>Something went wrong!</Typography>;
-    } else {
-      content = (
-        <Grid container spacing={16}>
-          {recentlyPlayedGames && (
-            <Grid item xs={12}>
-              <Grid container justify="space-between" alignItems="flex-end">
-                <Grid item>
-                  <Typography variant="headline" gutterBottom>
-                    <FormattedMessage {...messages.recentlyPlayed} />
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant="subheading" gutterBottom>
-                    <FormattedMessage
-                      {...messages.activity}
-                      values={{
-                        hours: this.minutesToHours(
-                          this.totalMinutes(recentlyPlayedGames),
-                        ),
-                      }}
-                    />
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Card>
-                <List dense>
-                  {recentlyPlayedGames.map(game => (
-                    <RecentGame {...game} />
-                  ))}
-                </List>
-              </Card>
-            </Grid>
-          )}
-
-          {ownedGames && (
-            <Grid item xs={12}>
-              <Typography variant="headline" gutterBottom>
-                <FormattedMessage {...messages.owned} />
-              </Typography>
-              <Grid container justify="space-around" spacing={8} wrap="wrap">
-                {ownedGames.map(game => (
-                  <Grid key={game.key} item>
-                    <OwnedGame {...game} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          )}
-        </Grid>
-      );
-    }
-
     return (
       <article>
         <Helmet>
@@ -117,7 +59,51 @@ export class GamesPage extends React.PureComponent {
           />
         </Helmet>
 
-        {content}
+        {loading && <LoadingIndicator />}
+
+        {error && <H3>Something went wrong!</H3>}
+
+        {!(loading || error) && (
+          <div>
+            {recentlyPlayedGames && (
+              <div>
+                <H3>
+                  <FormattedMessage {...messages.recentlyPlayed} />
+                </H3>
+                <H3>
+                  <FormattedMessage
+                    {...messages.activity}
+                    values={{
+                      hours: this.minutesToHours(
+                        this.totalMinutes(recentlyPlayedGames),
+                      ),
+                    }}
+                  />
+                </H3>
+                <Card>
+                  {recentlyPlayedGames.map(game => (
+                    <RecentGame {...game} />
+                  ))}
+                </Card>
+              </div>
+            )}
+
+            {ownedGames && (
+              <div>
+                <H3>
+                  <FormattedMessage {...messages.owned} />
+                </H3>
+                <ImageList>
+                  {ownedGames.map(ownedGame => (
+                    <div key={ownedGame.key}>
+                      <OwnedGame {...ownedGame} />
+                    </div>
+                  ))}
+                </ImageList>
+              </div>
+            )}
+          </div>
+        )}
       </article>
     );
   }

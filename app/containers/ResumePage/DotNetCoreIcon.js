@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgIcon from '@material-ui/core/SvgIcon';
 
 function DotNetCoreIcon({ className, ...other }) {
   return (
-    <SvgIcon className={className} viewBox="0 0 64 64" {...other}>
+    <svg className={className} viewBox="0 0 64 64" {...other}>
       <circle fill="#5c2d91" cx="32" cy="32" r="32" />
       <path fill="#fff" opacity="0.1" d="M9.82,9A32,32,0,1,0,55,54.18Z" />
       <path
@@ -36,7 +35,7 @@ function DotNetCoreIcon({ className, ...other }) {
         fill="#f2f2f2"
         d="M43.72,47H39.49A2.24,2.24,0,0,0,40,48.54a1.86,1.86,0,0,0,1.42.54,3,3,0,0,0,1.86-.67v.9a3.48,3.48,0,0,1-2.09.57,2.54,2.54,0,0,1-2-.82,3.35,3.35,0,0,1-.73-2.3,3.28,3.28,0,0,1,.79-2.28,2.55,2.55,0,0,1,2-.88,2.26,2.26,0,0,1,1.82.76,3.18,3.18,0,0,1,.64,2.12Zm-1-.81a2,2,0,0,0-.4-1.29,1.37,1.37,0,0,0-1.1-.46,1.55,1.55,0,0,0-1.15.49,2.21,2.21,0,0,0-.59,1.27Z"
       />
-    </SvgIcon>
+    </svg>
   );
 }
 

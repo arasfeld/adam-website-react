@@ -4,8 +4,6 @@ import hoistNonReactStatics from 'hoist-non-react-statics';
 
 import getInjectors from './sagaInjectors';
 
-/* eslint-disable no-undef */
-
 /**
  * Dynamically injects a saga, passes component's props as saga arguments
  *
@@ -15,16 +13,17 @@ import getInjectors from './sagaInjectors';
  * cancelled with `task.cancel()` on component un-mount for improved performance. Another two options:
  *   - constants.DAEMON—starts the saga on component mount and never cancels it or starts again,
  *   - constants.ONCE_TILL_UNMOUNT—behaves like 'RESTART_ON_REMOUNT' but never runs it again.
+ *
  */
 export default ({ key, saga, mode }) => WrappedComponent => {
   class InjectSaga extends React.Component {
     static WrappedComponent = WrappedComponent;
-    static displayName = `withSaga(${WrappedComponent.displayName ||
-      WrappedComponent.name ||
-      'Component'})`;
     static contextTypes = {
       store: PropTypes.object.isRequired,
     };
+    static displayName = `withSaga(${WrappedComponent.displayName ||
+      WrappedComponent.name ||
+      'Component'})`;
 
     componentWillMount() {
       const { injectSaga } = this.injectors;

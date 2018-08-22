@@ -1,44 +1,39 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-// import { FormattedMessage } from 'react-intl';
 
-import Avatar from '@material-ui/core/Avatar';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-
-// import messages from '../messages';
+import Activity from '../Activity';
+import Image from '../Image';
+import Text from '../Text';
 import RecentGame from '../index';
 
-describe('<RecentGame />', () => {
-  it('should render a <ListItem />', () => {
+describe('<Track />', () => {
+  it('should render the image', () => {
     const props = {
       image: '',
       name: 'Test name',
       playtime: 0,
     };
     const renderedComponent = shallow(<RecentGame {...props} />);
-    expect(renderedComponent.find(ListItem)).toHaveLength(1);
+    expect(renderedComponent.find(Image)).toHaveLength(1);
   });
 
-  it('should render an <Avatar />', () => {
+  it('should render the text', () => {
     const props = {
       image: '',
       name: 'Test name',
       playtime: 0,
     };
     const renderedComponent = shallow(<RecentGame {...props} />);
-    expect(renderedComponent.find(Avatar)).toHaveLength(1);
+    expect(renderedComponent.find(Text)).toHaveLength(1);
   });
 
-  it('should render game name', () => {
+  it('should render <Timestamp />', () => {
     const props = {
       image: '',
       name: 'Test name',
       playtime: 0,
     };
     const renderedComponent = shallow(<RecentGame {...props} />);
-    expect(renderedComponent.find(ListItemText).props().primary).toEqual(
-      props.name,
-    );
+    expect(renderedComponent.find(Activity)).toHaveLength(1);
   });
 });

@@ -1,15 +1,9 @@
 import React from 'react';
-import { createShallow } from '@material-ui/core/test-utils';
+import { shallow } from 'enzyme';
 
 import OwnedGame from '../index';
 
 describe('<OwnedGame />', () => {
-  let shallow;
-
-  beforeAll(() => {
-    shallow = createShallow({ dive: true });
-  });
-
   it('should adopt a className attribute', () => {
     const props = {
       className: 'test',

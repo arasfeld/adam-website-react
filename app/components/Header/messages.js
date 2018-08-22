@@ -5,11 +5,25 @@
  */
 import { defineMessages } from 'react-intl';
 
-const scope = 'app.components.Header';
-
 export default defineMessages({
-  title: {
-    id: `${scope}.title`,
-    defaultMessage: 'Adam Rasfeld',
+  contact: {
+    id: 'app.components.Header.contact',
+    defaultMessage: 'Contact',
+  },
+  games: {
+    id: 'app.components.Header.games',
+    defaultMessage: 'Games',
+  },
+  home: {
+    id: 'app.components.Header.home',
+    defaultMessage: 'Home',
+  },
+  music: {
+    id: 'app.components.Header.music',
+    defaultMessage: 'Music',
+  },
+  resume: {
+    id: 'app.components.Header.resume',
+    defaultMessage: 'Resume',
   },
 });

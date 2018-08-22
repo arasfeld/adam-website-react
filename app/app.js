@@ -15,8 +15,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import FontFaceObserver from 'fontfaceobserver';
 import createHistory from 'history/createBrowserHistory';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import 'sanitize.css/sanitize.css';
 
 // Import root app
 import App from 'containers/App';
@@ -33,15 +32,15 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-// Import theme
-import theme from './static/theme';
+// Import CSS reset and Global Styles
+import './global-styles';
 
-// Observe loading of Roboto (to remove roboto, remove the <link> tag in
+// Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
-const robotoObserver = new FontFaceObserver('Roboto', {});
+const openSansObserver = new FontFaceObserver('Open Sans', {});
 
-// When Roboto is loaded, add a font-family using Roboto to the body
-robotoObserver.load().then(() => {
+// When Open Sans is loaded, add a font-family using Open Sans to the body
+openSansObserver.load().then(() => {
   document.body.classList.add('fontLoaded');
 });
 
@@ -56,10 +55,7 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <MuiThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-          </MuiThemeProvider>
+          <App />
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

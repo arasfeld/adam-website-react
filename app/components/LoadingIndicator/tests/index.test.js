@@ -1,13 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import LinearProgress from '@material-ui/core/LinearProgress';
+import renderer from 'react-test-renderer';
+import 'jest-styled-components';
 
 import LoadingIndicator from '../index';
 
 describe('<LoadingIndicator />', () => {
-  it('should render a LinearProgress', () => {
-    const renderedComponent = shallow(<LoadingIndicator />);
-    expect(renderedComponent.find(LinearProgress)).toHaveLength(1);
+  it('should match the snapshot', () => {
+    const renderedComponent = renderer.create(<LoadingIndicator />).toJSON();
+    expect(renderedComponent).toMatchSnapshot();
   });
 });

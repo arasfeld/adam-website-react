@@ -2,15 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { secondaryText } from 'static/colors';
-import {
-  fontFamily,
-  fontWeightLight,
-  fontWeightRegular,
-} from 'static/typography';
+import { fontWeightLight, fontWeightRegular } from 'static/typography';
 
 const FirstName = styled.span`
   color: ${secondaryText};
-  font-family: ${fontFamily};
   font-size: 34px;
   font-weight: ${fontWeightRegular};
   margin-right: 5px;
@@ -18,7 +13,6 @@ const FirstName = styled.span`
 
 const LastName = styled.span`
   color: ${secondaryText};
-  font-family: ${fontFamily};
   font-size: 34px;
   font-weight: ${fontWeightLight};
 `;

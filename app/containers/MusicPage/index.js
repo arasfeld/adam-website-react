@@ -12,17 +12,16 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
-import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-
 import Album from 'components/Album';
 import Artist from 'components/Artist';
-import Track from 'components/Track';
+import Card from 'components/Card';
+import H2 from 'components/H2';
 import LoadingIndicator from 'components/LoadingIndicator';
+import Track from 'components/Track';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+
+import AlbumList from './AlbumList';
 import { loadMusic } from './actions';
 import {
   makeSelectAlbums,
@@ -56,55 +55,49 @@ export class MusicPage extends React.PureComponent {
 
         {loading && <LoadingIndicator />}
 
-        {error && <Typography>Something went wrong!</Typography>}
+        {error && <H2>Something went wrong!</H2>}
 
         {!(loading || error) && (
-          <Grid container spacing={16}>
+          <div>
             {tracks && (
-              <Grid item xs={12}>
-                <Typography variant="headline" gutterBottom>
+              <div>
+                <H2>
                   <FormattedMessage {...messages.tracks} />
-                </Typography>
+                </H2>
                 <Card>
-                  <List dense>
-                    {tracks.map(track => (
-                      <Track key={track.key} {...track} />
-                    ))}
-                  </List>
+                  {tracks.map(track => (
+                    <Track key={track.key} {...track} />
+                  ))}
                 </Card>
-              </Grid>
+              </div>
             )}
 
             {albums && (
-              <Grid item xs={12}>
-                <Typography variant="headline" gutterBottom>
+              <div>
+                <H2>
                   <FormattedMessage {...messages.albums} />
-                </Typography>
-                <Grid container justify="space-around" spacing={8} wrap="wrap">
+                </H2>
+                <AlbumList>
                   {albums.map(album => (
-                    <Grid key={album.key} item xs={4} sm={3} lg={2}>
-                      <Album {...album} />
-                    </Grid>
+                    <Album key={album.key} {...album} />
                   ))}
-                </Grid>
-              </Grid>
+                </AlbumList>
+              </div>
             )}
 
             {artists && (
-              <Grid item xs={12}>
-                <Typography variant="headline" gutterBottom>
+              <div>
+                <H2>
                   <FormattedMessage {...messages.artists} />
-                </Typography>
-                <Grid container justify="space-around" spacing={8} wrap="wrap">
+                </H2>
+                <AlbumList>
                   {artists.map(artist => (
-                    <Grid key={artist.key} item xs={4} sm={3} lg={2}>
-                      <Artist {...artist} />
-                    </Grid>
+                    <Artist key={artist.key} {...artist} />
                   ))}
-                </Grid>
-              </Grid>
+                </AlbumList>
+              </div>
             )}
-          </Grid>
+          </div>
         )}
       </article>
     );

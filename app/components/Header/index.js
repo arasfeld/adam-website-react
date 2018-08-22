@@ -1,49 +1,52 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
+import ContactIcon from './ContactIcon';
+import GameIcon from './GameIcon';
+import HomeIcon from './HomeIcon';
+import MusicIcon from './MusicIcon';
+import NavBar from './NavBar';
+import NavBarIcon from './NavBarIcon';
+import NavBarLink from './NavBarLink';
+import OctocatIcon from './OctocatIcon';
+import ResumeIcon from './ResumeIcon';
+import Wrapper from './Wrapper';
 import messages from './messages';
 
-const styles = theme => ({
-  root: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  navIconHide: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-});
-
-function Header({ classes, toggleSideNav }) {
-  return (
-    <AppBar position="absolute" className={classes.root}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="Menu"
-          className={classes.navIconHide}
-          onClick={toggleSideNav}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="title" color="inherit" noWrap>
-          <FormattedMessage {...messages.title} />
-        </Typography>
-      </Toolbar>
-    </AppBar>
-  );
+/* eslint-disable react/prefer-stateless-function */
+class Header extends React.Component {
+  render() {
+    return (
+      <Wrapper>
+        <div>Adam Rasfeld</div>
+        <NavBar>
+          <NavBarLink to="/" exact>
+            <HomeIcon />
+            <FormattedMessage {...messages.home} />
+          </NavBarLink>
+          <NavBarLink to="/games">
+            <GameIcon />
+            <FormattedMessage {...messages.games} />
+          </NavBarLink>
+          <NavBarLink to="/music">
+            <MusicIcon />
+            <FormattedMessage {...messages.music} />
+          </NavBarLink>
+          <NavBarLink to="/resume">
+            <ResumeIcon />
+            <FormattedMessage {...messages.resume} />
+          </NavBarLink>
+          <NavBarLink to="/contact">
+            <ContactIcon />
+            <FormattedMessage {...messages.contact} />
+          </NavBarLink>
+          <NavBarIcon href="https://github.com/arasfeld">
+            <OctocatIcon />
+          </NavBarIcon>
+        </NavBar>
+      </Wrapper>
+    );
+  }
 }
 
-Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-  toggleSideNav: PropTypes.func.isRequired,
-};
-
-export default withStyles(styles)(Header);
+export default Header;

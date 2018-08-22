@@ -8,9 +8,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-
+import H2 from 'components/H2';
+import CenteredSection from './CenteredSection';
 import messages from './messages';
 
 class HomePage extends React.Component {
@@ -24,23 +23,23 @@ class HomePage extends React.Component {
     return (
       <article>
         <Helmet>
-          <title>Home</title>
+          <title>Home Page</title>
           <meta
             name="description"
-            content="Home page of Adam Rasfeld's website"
+            content="A React.js Boilerplate application homepage"
           />
         </Helmet>
 
-        <Grid container direction="column" spacing={16}>
-          <Grid item xs={12}>
-            <Typography variant="display2" gutterBottom>
-              <FormattedMessage {...messages.header} />
-            </Typography>
-            <Typography variant="body1" gutterBottom>
+        <div>
+          <H2>
+            <FormattedMessage {...messages.header} />
+          </H2>
+          <CenteredSection>
+            <p>
               <FormattedMessage {...messages.about} />
-            </Typography>
-          </Grid>
-        </Grid>
+            </p>
+          </CenteredSection>
+        </div>
       </article>
     );
   }

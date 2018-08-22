@@ -13,7 +13,7 @@ export const initialState = fromJS({
   locale: DEFAULT_LOCALE,
 });
 
-function localeReducer(state = initialState, action) {
+function languageProviderReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_LOCALE:
       return state.set('locale', action.locale);
@@ -22,4 +22,4 @@ function localeReducer(state = initialState, action) {
   }
 }
 
-export default localeReducer;
+export default languageProviderReducer;

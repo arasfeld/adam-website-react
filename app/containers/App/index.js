@@ -7,100 +7,38 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
 
-import Footer from 'components/Footer';
+import ContactPage from 'containers/ContactPage/Loadable';
+import GamesPage from 'containers/GamesPage/Loadable';
+import HomePage from 'containers/HomePage/Loadable';
+import MusicPage from 'containers/MusicPage/Loadable';
+import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import ResumePage from 'containers/ResumePage/Loadable';
 import Header from 'components/Header';
-import SideNav from 'components/SideNav';
-import routes from 'routes';
+import Footer from 'components/Footer';
+import Wrapper from './Wrapper';
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    height: '100vh',
-    width: '100%',
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'row',
-    maxHeight: '100vh',
-    width: '100%',
-  },
-  main: {
-    display: 'flex',
-    flex: '1 auto',
-    flexDirection: 'column',
-    maxHeight: '100vh',
-    overflowY: 'auto',
-  },
-  page: {
-    flex: '1 auto',
-    margin: theme.spacing.unit * 3,
-  },
-  toolbar: theme.mixins.toolbar,
-});
-
-class App extends React.Component {
-  state = {
-    mobileOpen: false,
-  };
-
-  handleDrawerOpen = () => {
-    this.setState({ mobileOpen: true });
-  };
-
-  handleDrawerClose = () => {
-    this.setState({ mobileOpen: false });
-  };
-
-  render() {
-    const { classes } = this.props;
-    return (
-      <div className={classes.root}>
-        <Helmet titleTemplate="%s - Adam Rasfeld" defaultTitle="Adam Rasfeld">
-          <meta
-            name="description"
-            content="My personal website written with React.js"
-          />
-        </Helmet>
-        <header>
-          <Header toggleSideNav={this.handleDrawerOpen} />
-        </header>
-        <div className={classes.content}>
-          <SideNav
-            mobileOpen={this.state.mobileOpen}
-            onClose={this.handleDrawerClose}
-            onOpen={this.handleDrawerOpen}
-          />
-          <main className={classes.main}>
-            <div className={classes.page}>
-              <div className={classes.toolbar} />
-              <Switch>
-                {routes.map(route => (
-                  <Route
-                    key={route.path}
-                    exact={route.exact}
-                    path={route.path}
-                    component={route.component}
-                  />
-                ))}
-              </Switch>
-            </div>
-            <footer>
-              <Footer />
-            </footer>
-          </main>
-        </div>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <Wrapper>
+      <Helmet titleTemplate="%s - Adam Rasfeld" defaultTitle="Adam Rasfeld">
+        <meta
+          name="description"
+          content="My personal website written with React.js"
+        />
+      </Helmet>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/games" component={GamesPage} />
+        <Route path="/music" component={MusicPage} />
+        <Route path="/resume" component={ResumePage} />
+        <Route path="" component={NotFoundPage} />
+      </Switch>
+      <Footer />
+    </Wrapper>
+  );
 }
-
-App.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(App);
