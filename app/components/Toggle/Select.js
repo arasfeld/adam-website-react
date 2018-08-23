@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 const Select = styled.select`
-  line-height: 1em;
-  height: 20px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  user-select: none;
 `;
 
 export default Select;

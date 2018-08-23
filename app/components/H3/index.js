@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { primaryText } from 'static/colors';
-import { fontWeightRegular } from 'static/typography';
+import theme from 'utils/theme';
 
 export default styled.h3`
-  color: ${primaryText};
+  color: ${theme.palette.primaryText};
   font-size: 1.5em;
-  font-weight: ${fontWeightRegular};
+  font-weight: ${theme.typography.fontWeightRegular};
   line-height: 1.35em;
   margin-bottom: 0.35em;
   overflow: hidden;

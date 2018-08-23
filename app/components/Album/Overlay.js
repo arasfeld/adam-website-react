@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { sm } from 'static/breakpoints';
-import { primaryText } from 'static/colors';
+import theme from 'utils/theme';
 
 const Overlay = styled.div`
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   bottom: 0;
-  color: ${primaryText};
+  color: ${theme.palette.primaryText};
   height: 48px;
   left: 0;
   overflow: hidden;
@@ -15,7 +14,7 @@ const Overlay = styled.div`
   position: absolute;
   right: 0;
 
-  @media (max-width: ${sm}) {
+  @media (max-width: ${theme.breakpoints.sm}) {
     display: none;
   }
 `;

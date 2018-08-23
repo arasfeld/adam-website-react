@@ -3,14 +3,14 @@
  */
 
 import styled from 'styled-components';
-import { primaryColor, primaryColorDark } from 'static/colors';
+import theme from 'utils/theme';
 
 const A = styled.a`
-  color: ${primaryColor};
+  color: ${theme.palette.primaryColor};
   text-decoration: none;
 
   &:hover {
-    color: ${primaryColorDark};
+    color: ${theme.palette.primaryColorDark};
   }
 `;
 

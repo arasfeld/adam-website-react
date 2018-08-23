@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import theme from 'utils/theme';
 
 export default styled.div`
   align-items: center;
-  background: #212121;
-  border-bottom: 1px solid #414141;
+  background: ${theme.palette.backgroundColor2};
+  border-bottom: 1px solid ${theme.palette.backgroundColor3};
   box-shadow: none;
   display: flex;
   height: 75px;

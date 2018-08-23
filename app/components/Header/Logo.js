@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { accentColor } from 'static/colors';
+import theme from 'utils/theme';
 
 const Logo = styled.div`
-  color: ${accentColor};
+  color: ${theme.palette.accentColor};
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 2em;
   letter-spacing: 5px;

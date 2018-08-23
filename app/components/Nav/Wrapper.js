@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { md } from 'static/breakpoints';
+import theme from 'utils/theme';
 
 export default styled.nav`
   align-items: center;
@@ -8,10 +8,10 @@ export default styled.nav`
   flex-direction: row;
   float: right;
 
-  @media (max-width: ${md}) {
+  @media (max-width: ${theme.breakpoints.md}) {
     align-items: stretch;
-    background: #212121;
-    border: 1px solid #414141;
+    background: ${theme.palette.backgroundColor2};
+    border: 1px solid ${theme.palette.backgroundColor3};
     display: none;
     flex-direction: column;
     position: absolute;

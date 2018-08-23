@@ -10,9 +10,7 @@ import { FormattedMessage } from 'react-intl';
 import Card from 'components/Card';
 import H2 from 'components/H2';
 import H3 from 'components/H3';
-
 import Me from 'images/me.png';
-import { fontWeightMedium } from 'static/typography';
 
 import AngularIcon from './AngularIcon';
 import CSharpIcon from './CSharpIcon';
@@ -26,18 +24,6 @@ import ReactIcon from './ReactIcon';
 import RovisysIcon from './RovisysIcon';
 import SkillsWrapper from './SkillsWrapper';
 import messages from './messages';
-
-const styles = {
-  bigIcon: {
-    fontSize: '6em',
-  },
-  smallIcon: {
-    fontSize: '3em',
-  },
-  cardTitle: {
-    fontWeight: fontWeightMedium,
-  },
-};
 
 class ResumePage extends React.Component {
   // Since state and props are static,
@@ -76,7 +62,7 @@ class ResumePage extends React.Component {
           </H2>
           <div>
             <div>
-              <KrogerIcon style={styles.smallIcon} />
+              <KrogerIcon />
               <H3>
                 <FormattedMessage {...messages.krogerTitle} />
               </H3>
@@ -90,7 +76,7 @@ class ResumePage extends React.Component {
           </div>
           <div>
             <div>
-              <RovisysIcon style={styles.smallIcon} />
+              <RovisysIcon />
               <H3>
                 <FormattedMessage {...messages.rovisysTitle} />
               </H3>
@@ -109,23 +95,23 @@ class ResumePage extends React.Component {
             </H2>
             <SkillsWrapper>
               <div className="skill">
-                <ReactIcon style={styles.bigIcon} />
+                <ReactIcon />
                 <span>React</span>
               </div>
               <div className="skill">
-                <AngularIcon style={styles.bigIcon} />
+                <AngularIcon />
                 <span>Angular</span>
               </div>
               <div className="skill">
-                <CSharpIcon style={styles.bigIcon} />
+                <CSharpIcon />
                 <span>C#</span>
               </div>
               <div className="skill">
-                <DotNetCoreIcon style={styles.bigIcon} />
+                <DotNetCoreIcon />
                 <span>.NET Core</span>
               </div>
               <div className="skill">
-                <MongoIcon style={styles.bigIcon} />
+                <MongoIcon />
                 <span>MongoDB</span>
               </div>
             </SkillsWrapper>
@@ -133,7 +119,7 @@ class ResumePage extends React.Component {
 
           <div>
             <div>
-              <MiamiIcon style={styles.smallIcon} />
+              <MiamiIcon />
               <H3>
                 <FormattedMessage {...messages.miamiTitle} />
               </H3>

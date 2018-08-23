@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Svg from 'components/Svg';
-import { md } from 'static/breakpoints';
+import theme from 'utils/theme';
 
 const MobileButton = styled.button`
   align-items: center;
@@ -19,7 +19,7 @@ const MobileButton = styled.button`
   padding: 0;
   user-select: none;
 
-  @media (max-width: ${md}) {
+  @media (max-width: ${theme.breakpoints.md}) {
     display: block;
   }
 `;

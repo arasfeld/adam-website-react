@@ -1,7 +1,7 @@
 import { injectGlobal } from 'styled-components';
-import { primaryText } from 'static/colors';
 import Dosis from 'fonts/Dosis.ttf';
 import YanoneKaffeesatz from 'fonts/YanoneKaffeesatz.ttf';
+import theme from 'utils/theme';
 
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
@@ -26,15 +26,9 @@ injectGlobal`
   }
 
   #app {
-    background-color: #191919;
-    color: ${primaryText};
+    background-color: ${theme.palette.backgroundColor1};
+    color: ${theme.palette.primaryText};
     min-height: 100%;
     min-width: 100%;
-  }
-
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
   }
 `;

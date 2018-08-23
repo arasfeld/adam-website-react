@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { primaryColor, secondaryText } from 'static/colors';
-import { md } from 'static/breakpoints';
+import theme from 'utils/theme';
 
 export default styled(NavLink)`
-  color: ${secondaryText};
+  color: ${theme.palette.secondaryText};
   float: left;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 15px;
@@ -22,11 +21,11 @@ export default styled(NavLink)`
 
   &.active,
   &:hover {
-    color: ${primaryColor};
+    color: ${theme.palette.primaryColor};
   }
 
-  @media (max-width: ${md}) {
-    border-bottom: 1px solid #414141;
+  @media (max-width: ${theme.breakpoints.md}) {
+    border-bottom: 1px solid ${theme.palette.backgroundColor3};
     display: block;
     float: none;
   }

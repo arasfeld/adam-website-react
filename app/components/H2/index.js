@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { secondaryText } from 'static/colors';
-import { fontWeightRegular } from 'static/typography';
+import theme from 'utils/theme';
 
 export default styled.h2`
-  color: ${secondaryText};
+  color: ${theme.palette.secondaryText};
   font-family: Dosis, arial, sans-serif;
   font-size: 2.125rem;
-  font-weight: ${fontWeightRegular};
+  font-weight: ${theme.typography.fontWeightRegular};
   letter-spacing: 5px;
   line-height: 1.21em;
   margin-bottom: 0.35em;

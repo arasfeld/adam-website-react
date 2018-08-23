@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { primaryColor, secondaryText } from 'static/colors';
+import theme from 'utils/theme';
 
 export default styled.a`
   box-sizing: border-box;
-  color: ${secondaryText};
+  color: ${theme.palette.secondaryText};
   font-size: 14px;
   padding: 12px;
   text-decoration: none;
@@ -11,6 +11,6 @@ export default styled.a`
   transition: color 0.2s ease-in;
 
   &:hover {
-    color: ${primaryColor};
+    color: ${theme.palette.primaryColor};
   }
 `;
