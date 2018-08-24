@@ -35,9 +35,9 @@ import saga from './saga';
 import messages from './messages';
 
 export class MusicPage extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
-    this.props.onLoad();
+    const { onLoad } = this.props;
+    onLoad();
   }
 
   render() {

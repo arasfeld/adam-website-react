@@ -17,15 +17,16 @@ import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
 
 export class LocaleToggle extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
   render() {
+    const { locale, onLocaleToggle } = this.props;
+
     return (
       <Wrapper>
         <Toggle
-          value={this.props.locale}
-          values={appLocales}
+          value={locale}
+          options={appLocales}
           messages={messages}
-          onToggle={this.props.onLocaleToggle}
+          onToggle={onLocaleToggle}
         />
       </Wrapper>
     );

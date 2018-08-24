@@ -10,7 +10,7 @@ class Header extends React.Component {
   };
 
   toggleMobileNav = () => {
-    this.setState({ mobileOpen: !this.state.mobileOpen });
+    this.setState(prevState => ({ mobileOpen: !prevState.mobileOpen }));
   };
 
   render() {

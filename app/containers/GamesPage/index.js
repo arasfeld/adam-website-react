@@ -13,7 +13,7 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
 import Card from 'components/Card';
-import H3 from 'components/H3';
+import H2 from 'components/H2';
 import LoadingIndicator from 'components/LoadingIndicator';
 import OwnedGame from 'components/OwnedGame';
 import RecentGame from 'components/RecentGame';
@@ -33,9 +33,9 @@ import saga from './saga';
 import messages from './messages';
 
 export class GamesPage extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
-    this.props.onLoad();
+    const { onLoad } = this.props;
+    onLoad();
   }
 
   totalMinutes(games) {
@@ -61,16 +61,16 @@ export class GamesPage extends React.PureComponent {
 
         {loading && <LoadingIndicator />}
 
-        {error && <H3>Something went wrong!</H3>}
+        {error && <H2>Something went wrong!</H2>}
 
         {!(loading || error) && (
           <div>
             {recentlyPlayedGames && (
               <div>
-                <H3>
+                <H2>
                   <FormattedMessage {...messages.recentlyPlayed} />
-                </H3>
-                <H3>
+                </H2>
+                <H2>
                   <FormattedMessage
                     {...messages.activity}
                     values={{
@@ -79,7 +79,7 @@ export class GamesPage extends React.PureComponent {
                       ),
                     }}
                   />
-                </H3>
+                </H2>
                 <Card>
                   {recentlyPlayedGames.map(game => (
                     <RecentGame {...game} />
@@ -90,9 +90,9 @@ export class GamesPage extends React.PureComponent {
 
             {ownedGames && (
               <div>
-                <H3>
+                <H2>
                   <FormattedMessage {...messages.owned} />
-                </H3>
+                </H2>
                 <ImageList>
                   {ownedGames.map(ownedGame => (
                     <div key={ownedGame.key}>
