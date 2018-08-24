@@ -2,11 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import SvgIcon from 'components/SvgIcon';
-import ContactIcon from '../ContactIcon';
+import ResumeIcon from '../ResumeIcon';
 
-describe('<ContactIcon />', () => {
+describe('<ResumeIcon />', () => {
   it('should render an SvgIcon', () => {
-    const renderedComponent = shallow(<ContactIcon />);
+    const renderedComponent = shallow(<ResumeIcon />);
     expect(renderedComponent.find(SvgIcon)).toHaveLength(1);
   });
 });

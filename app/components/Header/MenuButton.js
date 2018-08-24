@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Svg from 'components/Svg';
+import SvgIcon from 'components/SvgIcon';
 import theme from 'utils/theme';
 
 const MobileButton = styled.button`
@@ -27,10 +27,10 @@ const MobileButton = styled.button`
 function MenuButton({ onClick }) {
   return (
     <MobileButton onClick={onClick}>
-      <Svg viewBox="0 0 36 36">
+      <SvgIcon viewBox="0 0 36 36">
         <path fill="none" d="M0 0h24v24H0z" />
         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-      </Svg>
+      </SvgIcon>
     </MobileButton>
   );
 }

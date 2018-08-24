@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import theme from 'utils/theme';
 
 export default styled(NavLink)`
+  align-items: center;
   color: ${theme.palette.secondaryText};
-  float: left;
+  display: flex;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 15px;
   letter-spacing: 2px;
@@ -14,8 +15,6 @@ export default styled(NavLink)`
   transition: color 0.2s ease-in;
 
   svg {
-    height: 1.2em;
-    width: 1.2em;
     padding-right: 5px;
   }
 
