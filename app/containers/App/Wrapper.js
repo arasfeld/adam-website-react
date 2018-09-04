@@ -4,7 +4,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  min-height: 100%;
+  min-height: 100vh;
+  width: 100%;
 `;
 
 export default Wrapper;

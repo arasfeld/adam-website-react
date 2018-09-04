@@ -21,6 +21,10 @@ injectGlobal`
     width: 100%;
   }
 
+  article {
+    flex: 1 auto;
+  }
+
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }

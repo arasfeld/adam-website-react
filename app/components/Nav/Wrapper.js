@@ -8,6 +8,9 @@ export default styled.nav`
   flex-direction: row;
   float: right;
 
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
+    z-index 0s linear 0.01s;
+
   @media (max-width: ${theme.breakpoints.md}) {
     align-items: stretch;
     background: ${theme.palette.backgroundColor2};
@@ -16,7 +19,6 @@ export default styled.nav`
     flex-direction: column;
     position: absolute;
     top: 100%;
-    transition: height 0.27s cubic-bezier(0, 0, 0.58, 1);
     width: 100%;
 
     &.mobile-open {

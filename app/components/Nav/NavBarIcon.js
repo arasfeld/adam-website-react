@@ -13,4 +13,8 @@ export default styled.a`
   &:hover {
     color: ${theme.palette.primaryColor};
   }
+
+  @media (max-width: ${theme.breakpoints.md}) {
+    display: none;
+  }
 `;

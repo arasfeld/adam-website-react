@@ -13,6 +13,10 @@ class Header extends React.Component {
     this.setState(prevState => ({ mobileOpen: !prevState.mobileOpen }));
   };
 
+  closeNav = () => {
+    this.setState({ mobileOpen: false });
+  };
+
   render() {
     const { mobileOpen } = this.state;
     return (
