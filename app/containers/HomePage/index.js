@@ -8,8 +8,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 
-import H2 from 'components/H2';
-import CenteredSection from './CenteredSection';
+import Card from 'components/Card';
+import SlamDunk from 'images/slam-dunk.png';
+import Hero from './Hero';
 import messages from './messages';
 
 class HomePage extends React.Component {
@@ -30,16 +31,13 @@ class HomePage extends React.Component {
           />
         </Helmet>
 
-        <div>
-          <H2>
-            <FormattedMessage {...messages.header} />
-          </H2>
-          <CenteredSection>
-            <p>
-              <FormattedMessage {...messages.about} />
-            </p>
-          </CenteredSection>
-        </div>
+        <Hero src={SlamDunk} />
+
+        <Card>
+          <p>
+            <FormattedMessage {...messages.about} />
+          </p>
+        </Card>
       </article>
     );
   }
