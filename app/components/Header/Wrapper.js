@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from 'utils/theme';
 
-export default styled.div`
+export default styled.header`
   align-items: center;
   background: ${theme.palette.backgroundColor2};
   border-bottom: 1px solid ${theme.palette.backgroundColor3};

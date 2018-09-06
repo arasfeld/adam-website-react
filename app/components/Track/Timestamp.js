@@ -7,6 +7,7 @@ import {
   FormattedTime,
 } from 'react-intl';
 
+import theme from 'utils/theme';
 import EqualizerIcon from './EqualizerIcon';
 import messages from './messages';
 
@@ -14,7 +15,7 @@ function Timestamp({ date }) {
   if (!date) {
     return (
       <div>
-        <EqualizerIcon color="primary" />
+        <EqualizerIcon color={theme.palette.primaryColor} />
         <FormattedMessage {...messages.playing} />
       </div>
     );

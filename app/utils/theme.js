@@ -19,7 +19,7 @@ const palette = {
   backgroundColor1: '#191919',
   backgroundColor2: '#212121',
   backgroundColor3: '#414141',
-  primaryText: '#FFF',
+  primaryText: '#fff',
   secondaryText: 'rgba(255, 255, 255, 0.7)',
 };
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SvgIcon from 'components/SvgIcon';
 
 function EqualizerIcon({ className, color }) {
   return (
-    <svg className={className} color={color} viewBox="0 0 100 100">
+    <SvgIcon className={className} color={color} viewBox="0 0 100 100">
       <g transform="rotate(180 50 50)">
         <rect x="12" y="15" width="16" height="12.189">
           <animate
@@ -54,27 +55,13 @@ function EqualizerIcon({ className, color }) {
           />
         </rect>
       </g>
-    </svg>
+    </SvgIcon>
   );
 }
 
 EqualizerIcon.propTypes = {
-  /**
-   * @ignore
-   */
   className: PropTypes.string,
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * You can use the `nativeColor` property to apply a color attribute to the SVG element.
-   */
-  color: PropTypes.oneOf([
-    'inherit',
-    'primary',
-    'secondary',
-    'action',
-    'error',
-    'disabled',
-  ]),
+  color: PropTypes.string,
 };
 
 EqualizerIcon.defaultProps = {
