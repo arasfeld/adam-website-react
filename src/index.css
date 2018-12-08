@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'PABLO';
+  src: url('./pablo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  background-color: #F58B57;
+  font-family: 'PABLO';
+  min-height: 100%;
+  min-width: 100%;
+}
