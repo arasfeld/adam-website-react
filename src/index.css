@@ -1,8 +1,11 @@
 @font-face {
-  font-family: 'PABLO';
-  src: url('./pablo.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Yanone Kaffeesatz';
+  src: url('./fonts/YanoneKaffeesatz.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Dosis';
+  src: url('./fonts/Dosis.ttf') format('truetype');
 }
 
 html,
@@ -11,9 +14,17 @@ body {
   width: 100%;
 }
 
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #4caf50;
+}
+
 #root {
-  background-color: #F58B57;
-  font-family: 'PABLO';
+  background: #191919;
+  color: #fff;
   min-height: 100%;
   min-width: 100%;
 }

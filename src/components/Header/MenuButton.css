@@ -1,0 +1,21 @@
+.App-menuButton {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  display: none;
+  float: right;
+  justify-content: center;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  user-select: none;
+}
+
+@media (max-width: 960px) {
+  .App-menuButton {
+    display: block;
+  }
+}
