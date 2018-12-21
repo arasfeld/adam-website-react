@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Header from '../../components/Header';
-import HomePage from '../HomePage';
-import NotFoundPage from '../NotFoundPage';
+import HomePage from '../HomePage/Loadable';
+import NotFoundPage from '../NotFoundPage/Loadable';
 import './App.css';
 
 function App() {
