@@ -1,8 +1,7 @@
 import React from 'react';
-import { LoadingComponentProps } from 'react-loadable';
 import './LoadingIndicator.css';
 
-const LoadingIndicator: React.FunctionComponent<LoadingComponentProps> = () => {
+const LoadingIndicator: React.FC = () => {
   return (
     <div className="App-loading">
       Loading...

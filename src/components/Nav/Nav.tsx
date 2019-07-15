@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import HomeIcon from './HomeIcon';
+import MusicIcon from './MusicIcon';
 import './Nav.css';
 
 interface NavProps {
@@ -14,6 +15,10 @@ const Nav: React.FunctionComponent<NavProps> = ({ mobileOpen }) => {
       <NavLink className="App-navLink" exact={true} to="/">
         <HomeIcon />
         Home
+      </NavLink>
+      <NavLink className="App-navLink" to="/music">
+        <MusicIcon />
+        Music
       </NavLink>
     </nav>
   );

@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import 'sanitize.css';
+import { StoreContext } from 'redux-react-hook';
+import { BrowserRouter } from 'react-router-dom';
 
 import configureStore from './configureStore';
-import history from './utils/history';
+import rootSaga from './sagas';
 import App from './containers/App';
 import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 
-const store = configureStore({}, history);
+const store = configureStore({});
+store.runSaga(rootSaga);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
-  </Provider>,
+  (
+    <StoreContext.Provider value={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StoreContext.Provider>
+  ),
   document.getElementById('root') as HTMLElement
 );
 

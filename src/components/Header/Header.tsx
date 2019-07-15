@@ -1,36 +1,22 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import MenuButton from './MenuButton';
 import Nav from '../Nav';
 import './Header.css';
 
-interface HeaderState {
-  readonly mobileOpen: boolean;
-}
+const Header: React.FC = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-class Header extends React.Component<{}, HeaderState> {
-  readonly state: HeaderState = {
-    mobileOpen: false,
+  const toggleMobileNav = () => {
+    setMobileOpen(!mobileOpen);
   };
 
-  toggleMobileNav = () => {
-    this.setState(prevState => ({ mobileOpen: !prevState.mobileOpen }));
-  };
-
-  closeNav = () => {
-    this.setState({ mobileOpen: false });
-  };
-
-  render() {
-    const { mobileOpen } = this.state;
-    return (
-      <header className="App-header">
-        <div className="App-logo">Adam Rasfeld</div>
-        <MenuButton onClick={this.toggleMobileNav} />
-        <Nav mobileOpen={mobileOpen} />
-      </header>
-    );
-  }
-}
+  return (
+    <header className="App-header">
+      <div className="App-logo">Adam Rasfeld</div>
+      <MenuButton onClick={toggleMobileNav} />
+      <Nav mobileOpen={mobileOpen} />
+    </header>
+  );
+};
 
 export default Header;

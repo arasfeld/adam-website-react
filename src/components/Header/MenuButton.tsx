@@ -6,7 +6,7 @@ interface MenuButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const MenuButton: React.FunctionComponent<MenuButtonProps> = ({ onClick }) => {
+const MenuButton: React.FC<MenuButtonProps> = ({ onClick }) => {
   return (
     <button className="App-menuButton" onClick={onClick}>
       <SvgIcon viewBox="0 0 24 24">

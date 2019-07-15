@@ -7,7 +7,7 @@ interface SvgIconProps {
   readonly viewBox: string;
 }
 
-const SvgIcon: React.FunctionComponent<SvgIconProps> = ({ children, titleAccess = false, viewBox, ...other }) => {
+const SvgIcon: React.FC<SvgIconProps> = ({ children, titleAccess = false, viewBox, ...other }) => {
   return (
     <svg
       className="App-svgIcon"

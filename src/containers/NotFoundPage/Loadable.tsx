@@ -1,7 +1,7 @@
-import Loadable from 'react-loadable';
+import React from 'react';
 import LoadingIndicator from '../../components/LoadingIndicator';
+import loadable from '../../utils/loadable';
 
-export default Loadable({
-  loader: () => import('./NotFoundPage'),
-  loading: LoadingIndicator,
+export default loadable(() => import('./NotFoundPage'), {
+  fallback: <LoadingIndicator />,
 });
