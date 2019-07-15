@@ -6,7 +6,7 @@ interface ArtistProps {
   readonly image: string;
 }
 
-const Artist: React.FunctionComponent<ArtistProps> = ({ name, image }) => {
+const Artist: React.FC<ArtistProps> = ({ name, image }) => {
   return (
     <div className="App-artist">
       <img className="App-artistImage" src={image} alt={name} />

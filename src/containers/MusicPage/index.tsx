@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useMappedState } from 'redux-react-hook';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Album from '../../components/Album';
 import Artist from '../../components/Artist';
@@ -12,8 +12,7 @@ import './index.css';
 
 const MusicPage: React.FC<MusicPageProps> = () => {
   const dispatch = useDispatch();
-  const mapState = useCallback((state: RootState) => state.music, []);
-  const { albums, artists, tracks } = useMappedState(mapState);
+  const { albums, artists, tracks } = useSelector((state: RootState) => state.music);
 
   useEffect(() => {
     dispatch(loadMusic());

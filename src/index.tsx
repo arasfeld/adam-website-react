@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StoreContext } from 'redux-react-hook';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import 'normalize.css';
 
 import configureStore from './configureStore';
 import rootSaga from './sagas';
@@ -15,11 +16,11 @@ store.runSaga(rootSaga);
 
 ReactDOM.render(
   (
-    <StoreContext.Provider value={store}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StoreContext.Provider>
+    </Provider>
   ),
   document.getElementById('root') as HTMLElement
 );
