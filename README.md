@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Spotify Setup
+
+To get the Spotify integration set up, you must have created an application on the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
+
+Select your application and navigate to the "Settings" page. Copy the "Client ID" and "Client Secret" values, and paste them into your `.env.local` file under the `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET` environment variables respectively.
+
+Set the `SPOTIFY_REDIRECT_URI` environment variable to `http://localhost:3000/api/spotify/callback`
+
+Navigate to http://localhost:3000/api/spotify/login and authorize with Spotify.
+
+You should get redirected back to the `/api/spotify/callback` endpoint with a JSON object containing a `refresh_token` value. Copy this value and paste it into the `SPOTIFY_REFRESH_TOKEN` environment variable.
