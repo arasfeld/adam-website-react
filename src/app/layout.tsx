@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
+import { Toaster } from 'sonner';
 import './globals.css';
 
 import { Footer } from '@/components/footer';
@@ -43,6 +44,12 @@ export default function RootLayout({
             <main className="mx-auto w-full flex-auto">{children}</main>
             <Footer />
           </div>
+          <Toaster
+            position="top-right"
+            closeButton
+            duration={4000}
+            theme="system"
+          />
         </ThemeProvider>
       </body>
     </html>

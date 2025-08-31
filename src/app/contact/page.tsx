@@ -6,10 +6,8 @@ import {
 } from '@/components/ui/typography';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { ContactForm } from '@/components/contact-form';
 
 export default function Contact() {
   return (
@@ -27,55 +25,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">Send Me a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="John" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Doe" required />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Project Inquiry" required />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell me about your project or how I can help..."
-                    rows={6}
-                    required
-                    className="resize-none"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full" size="lg">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <ContactForm />
 
           {/* Contact Information */}
           <div className="space-y-6">
