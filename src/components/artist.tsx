@@ -1,14 +1,13 @@
 import Image from 'next/image';
-import { Track as SpotifyTrack } from '@/types';
+import { Artist as SpotifyArtist } from '@/types';
 
 interface Props {
-  track: SpotifyTrack;
+  artist: SpotifyArtist;
   rank?: number;
 }
 
-export function Track({ track, rank }: Props) {
-  const artistNames = track.artists.map(({ name }) => name).join(', ');
-  const image = track.album.images[2];
+export function Artist({ artist, rank }: Props) {
+  const image = artist.images[2];
 
   return (
     <div className="flex flex-row items-center gap-4 p-4 border rounded-lg hover:bg-muted/50 transition-colors">
@@ -20,23 +19,20 @@ export function Track({ track, rank }: Props) {
 
       <div className="flex-shrink-0">
         <Image
-          alt={track.album.name}
+          alt={artist.name}
           height={image.height}
           src={image.url}
           width={image.width}
-          className="rounded-md"
+          className="rounded-full"
         />
       </div>
 
       <div className="flex flex-col gap-1 min-w-0 flex-1">
         <span className="text-sm font-medium truncate hover:text-primary transition-colors">
-          {track.name}
-        </span>
-        <span className="text-sm text-muted-foreground truncate">
-          {artistNames}
+          {artist.name}
         </span>
         <span className="text-xs text-muted-foreground truncate">
-          {track.album.name}
+          {artist.genres.slice(0, 3).join(', ')}
         </span>
       </div>
     </div>
