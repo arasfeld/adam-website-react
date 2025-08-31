@@ -135,7 +135,7 @@ export default function Contact() {
                 </Button>
                 <Button asChild variant="outline" className="w-full">
                   <a
-                    href="https://linkedin.com/in/adamrasfeld"
+                    href="https://www.linkedin.com/in/adam-rasfeld"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

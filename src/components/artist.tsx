@@ -7,13 +7,13 @@ interface Props {
 }
 
 export function Artist({ artist, rank }: Props) {
-  const image = artist.images[2];
+  const image = artist.images[1] || artist.images[0]; // Use larger image
 
   return (
-    <div className="flex flex-row items-center gap-4 p-4 border rounded-lg hover:bg-muted/50 transition-colors">
+    <div className="flex flex-row items-center gap-6 p-6 hover:bg-muted/50 transition-colors">
       {rank && (
-        <div className="flex-shrink-0 w-8 h-8 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
-          <span className="text-sm font-medium text-primary">{rank}</span>
+        <div className="flex-shrink-0 w-10 h-10 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
+          <span className="text-base font-semibold text-primary">{rank}</span>
         </div>
       )}
 
@@ -23,17 +23,19 @@ export function Artist({ artist, rank }: Props) {
           height={image.height}
           src={image.url}
           width={image.width}
-          className="rounded-full"
+          className="rounded-full w-18 h-18 object-cover"
         />
       </div>
 
-      <div className="flex flex-col gap-1 min-w-0 flex-1">
-        <span className="text-sm font-medium truncate hover:text-primary transition-colors">
+      <div className="flex flex-col gap-2 min-w-0 flex-1">
+        <span className="text-base font-semibold truncate hover:text-primary transition-colors">
           {artist.name}
         </span>
-        <span className="text-xs text-muted-foreground truncate">
-          {artist.genres.slice(0, 3).join(', ')}
-        </span>
+        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          <span className="truncate">
+            {artist.genres.slice(0, 3).join(', ')}
+          </span>
+        </div>
       </div>
     </div>
   );

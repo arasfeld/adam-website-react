@@ -161,8 +161,6 @@ export default function Portfolio() {
                     imageAlt={`${project.title} screenshot`}
                     deviceType="desktop"
                     size="lg"
-                    showShadow={true}
-                    showReflection={true}
                   />
                 </div>
               )}

@@ -15,8 +15,8 @@ interface DeviceFrameProps {
   deviceType?: DeviceType;
   size?: Size;
   className?: string;
-  showShadow?: boolean;
-  showReflection?: boolean;
+  hideShadow?: boolean;
+  hideReflection?: boolean;
 }
 
 const deviceConfigs = {
@@ -51,8 +51,8 @@ export function DeviceFrame({
   deviceType = 'desktop',
   size = 'md',
   className,
-  showShadow = true,
-  showReflection = true,
+  hideShadow = false,
+  hideReflection = false,
 }: DeviceFrameProps) {
   const config = deviceConfigs[deviceType];
   const sizeClass = sizeConfigs[size];
@@ -92,7 +92,7 @@ export function DeviceFrame({
           'bg-white/20 dark:bg-black/20',
           'border border-white/30 dark:border-white/10',
           'backdrop-blur-sm',
-          showShadow && 'shadow-2xl',
+          !hideShadow && 'shadow-2xl',
           'transform transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl'
         )}
       >
@@ -126,7 +126,7 @@ export function DeviceFrame({
           )}
 
           {/* Screen Reflection */}
-          {showReflection && (
+          {!hideReflection && (
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
           )}
         </div>
@@ -141,7 +141,7 @@ export function DeviceFrame({
       </div>
 
       {/* Ambient Shadow */}
-      {showShadow && (
+      {!hideShadow && (
         <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 h-4 bg-black/10 dark:bg-black/20 rounded-full blur-xl" />
       )}
     </div>
