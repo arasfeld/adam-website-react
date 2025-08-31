@@ -50,7 +50,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <TypographyP className="font-semibold">Phone</TypographyP>
-                    <TypographyMuted>(513) 555-0123</TypographyMuted>
+                    <TypographyMuted>(513) 746-0289</TypographyMuted>
                   </div>
                 </div>
 
@@ -62,7 +62,7 @@ export default function Contact() {
                     <TypographyP className="font-semibold">
                       Location
                     </TypographyP>
-                    <TypographyMuted>Columbus, Ohio</TypographyMuted>
+                    <TypographyMuted>Cincinnati, Ohio</TypographyMuted>
                   </div>
                 </div>
               </CardContent>

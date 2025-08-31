@@ -31,8 +31,8 @@ export default async function Resume() {
               <div className="mb-8">
                 <TypographyH3 className="mb-4">Contact</TypographyH3>
                 <div className="space-y-2">
-                  <TypographyMuted>Columbus, OH</TypographyMuted>
-                  <TypographyMuted>(513) 555-0123</TypographyMuted>
+                  <TypographyMuted>Cincinnati, OH</TypographyMuted>
+                  <TypographyMuted>(513) 746-0289</TypographyMuted>
                   <TypographyMuted>arasfeld@gmail.com</TypographyMuted>
                   <TypographyA
                     href="https://github.com/arasfeld"
