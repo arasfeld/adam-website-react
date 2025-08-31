@@ -3,9 +3,7 @@ import {
   TypographyH1,
   TypographyH2,
   TypographyH3,
-  TypographyH4,
   TypographyMuted,
-  TypographyP,
   TypographySmall,
 } from '@/components/ui/typography';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
