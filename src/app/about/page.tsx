@@ -133,7 +133,7 @@ export default function About() {
               <CardContent className="p-6">
                 <TypographyH4 className="mb-4">Location</TypographyH4>
                 <TypographyMuted>
-                  Columbus, Ohio
+                  Cincinnati, Ohio
                   <br />
                   Available for remote work and relocation
                 </TypographyMuted>

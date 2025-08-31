@@ -19,6 +19,33 @@ import {
 export default function Portfolio() {
   const projects = [
     {
+      title: 'Freebox',
+      description:
+        'A marketplace application for giving away free items, built with fairness features to ensure equitable distribution and prevent hoarding.',
+      technologies: [
+        'Next.js 14',
+        'TypeScript',
+        'NextAuth.js',
+        'Prisma',
+        'PostgreSQL',
+        'Cloudinary',
+        'shadcn/ui',
+        'Tailwind CSS',
+      ],
+      highlights: [
+        'Google OAuth authentication with NextAuth.js',
+        'Drag-and-drop image uploads with Cloudinary optimization',
+        'Fairness system to prevent item hoarding',
+        'Interest management with recipient selection UI',
+        'Dark mode support with theme toggle',
+        'Responsive design for all screen sizes',
+      ],
+      year: '2025',
+      githubUrl: 'https://github.com/arasfeld/freebox',
+      liveUrl: null,
+      image: '/freebox-app-main.png',
+    },
+    {
       title: 'Electron Spotify App',
       description:
         'A comprehensive desktop music client built with Electron that provides a native Spotify experience with personalized analytics, playlist management, and music discovery features.',
@@ -47,7 +74,7 @@ export default function Portfolio() {
       image: '/spotify-app-main.png',
     },
     {
-      title: 'Personal Portfolio Website',
+      title: 'Personal Website',
       description:
         'A modern, responsive portfolio website built with Next.js and TypeScript, featuring dark mode, smooth animations, and optimized performance.',
       technologies: [
@@ -67,71 +94,6 @@ export default function Portfolio() {
       githubUrl: 'https://github.com/arasfeld/adam-website-react',
       liveUrl: 'https://adamrasfeld.com',
       image: '/portfolio-preview.png',
-    },
-    {
-      title: 'Task Management System',
-      description:
-        'A full-stack task management application with real-time updates, user authentication, and collaborative features.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Socket.io', 'JWT'],
-      highlights: [
-        'Real-time collaborative task management',
-        'User authentication and authorization',
-        'Responsive design for all devices',
-        'Data persistence and backup',
-      ],
-      year: '2023',
-      githubUrl: 'https://github.com/arasfeld/task-manager',
-      liveUrl: 'https://task-manager-demo.vercel.app',
-      image: '/task-manager-preview.png',
-    },
-    {
-      title: 'Freebox - Free Item Marketplace',
-      description:
-        'A marketplace application for giving away free items, built with fairness features to ensure equitable distribution and prevent hoarding.',
-      technologies: [
-        'Next.js 14',
-        'TypeScript',
-        'NextAuth.js',
-        'Prisma',
-        'PostgreSQL',
-        'Cloudinary',
-        'shadcn/ui',
-        'Tailwind CSS',
-      ],
-      highlights: [
-        'Google OAuth authentication with NextAuth.js',
-        'Drag-and-drop image uploads with Cloudinary optimization',
-        'Fairness system to prevent item hoarding',
-        'Interest management with recipient selection UI',
-        'Dark mode support with theme toggle',
-        'Responsive design for all screen sizes',
-      ],
-      year: '2024',
-      githubUrl: 'https://github.com/arasfeld/freebox',
-      liveUrl: null,
-      image: '/freebox-preview.png',
-    },
-    {
-      title: 'Recipe Finder',
-      description:
-        'A recipe discovery application that helps users find and save recipes based on available ingredients and dietary preferences.',
-      technologies: [
-        'React',
-        'Node.js',
-        'MongoDB',
-        'Spoonacular API',
-        'JWT Authentication',
-      ],
-      highlights: [
-        'Ingredient-based recipe search',
-        'Dietary preference filtering',
-        'Recipe saving and favorites',
-        'Nutritional information display',
-      ],
-      year: '2023',
-      githubUrl: 'https://github.com/arasfeld/recipe-finder',
-      liveUrl: 'https://recipe-finder-demo.vercel.app',
-      image: '/recipe-finder-preview.png',
     },
   ];
 
