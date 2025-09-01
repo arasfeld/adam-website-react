@@ -157,12 +157,6 @@ export function MusicPageSkeleton() {
   return (
     <div className="min-h-screen">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <Skeleton className="h-12 w-96 mx-auto mb-6" />
-          <Skeleton className="h-6 w-2/3 mx-auto" />
-        </div>
-
         {/* Currently Playing Section */}
         <div className="mb-16">
           <div className="text-center mb-6">

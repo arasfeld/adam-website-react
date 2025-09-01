@@ -1,15 +1,16 @@
+import Link from 'next/link';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   TypographyH1,
   TypographyH2,
   TypographyH4,
-  TypographyP,
   TypographyLead,
   TypographyMuted,
+  TypographyP,
 } from '@/components/ui/typography';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 
 export default function About() {
   const skills = {

@@ -58,19 +58,6 @@ export function useRecentlyPlayed(limit = 20) {
   };
 }
 
-export function useCurrentUser() {
-  const { data, error, isLoading } = useSWR(
-    '/api/spotify/current-user',
-    fetcher
-  );
-
-  return {
-    user: data,
-    isLoading,
-    isError: error,
-  };
-}
-
 export function useCurrentlyPlaying() {
   const { data, error, isLoading } = useSWR(
     '/api/spotify/currently-playing',

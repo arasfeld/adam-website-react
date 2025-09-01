@@ -1,26 +1,34 @@
 'use client';
 
 import {
+  Award,
+  Briefcase,
+  Building2,
+  Calendar,
+  Code,
+  CreditCard,
+  Database,
   Download,
+  Github,
+  GraduationCap,
+  Linkedin,
   Mail,
   MapPin,
+  Music,
   Phone,
-  Github,
-  Linkedin,
-  Calendar,
-  Briefcase,
-  GraduationCap,
-  Award,
-  Code,
+  Smartphone,
+  Wrench,
+  Zap,
 } from 'lucide-react';
+
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import {
   TypographyH1,
   TypographyH3,
-  TypographyP,
   TypographyLead,
+  TypographyP,
 } from '@/components/ui/typography';
 
 export default function Resume() {
@@ -132,7 +140,7 @@ export default function Resume() {
         'Tailwind CSS',
         'Next.js',
       ],
-      icon: '⚡',
+      icon: Zap,
     },
     {
       category: 'Backend Development',
@@ -146,7 +154,7 @@ export default function Resume() {
         'Express.js',
         'ASP.NET',
       ],
-      icon: '🔧',
+      icon: Wrench,
     },
     {
       category: 'Mobile Development',
@@ -157,7 +165,7 @@ export default function Resume() {
         'Mobile UI/UX',
         'Cross-platform Development',
       ],
-      icon: '📱',
+      icon: Smartphone,
     },
     {
       category: 'Database & Cloud',
@@ -171,7 +179,7 @@ export default function Resume() {
         'Docker',
         'Kubernetes',
       ],
-      icon: '🗄️',
+      icon: Database,
     },
   ];
 
@@ -413,29 +421,34 @@ export default function Resume() {
               </TypographyH1>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              {skills.map((skill, index) => (
-                <div key={index}>
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary">
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="text-3xl">{skill.icon}</div>
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                          {skill.category}
-                        </CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2">
-                        {skill.technologies.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+              {skills.map((skill, index) => {
+                const IconComponent = skill.icon;
+                return (
+                  <div key={index}>
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary">
+                      <CardHeader>
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                            <IconComponent className="w-6 h-6 text-primary" />
+                          </div>
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                            {skill.category}
+                          </CardTitle>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
+                          {skill.technologies.map((tech, techIndex) => (
+                            <Badge key={techIndex} variant="secondary">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -448,55 +461,61 @@ export default function Resume() {
               </TypographyH1>
             </div>
             <div className="grid lg:grid-cols-2 gap-8">
-              {projects.map((project, index) => (
-                <div key={index}>
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary h-full">
-                    <CardHeader>
-                      <div className="flex items-center gap-3">
-                        <div className="text-3xl">
-                          {index === 0 ? '🎵' : index === 1 ? '📱' : '🏢'}
+              {projects.map((project, index) => {
+                const projectIcons = [Music, CreditCard];
+                const IconComponent = projectIcons[index] || Building2;
+                return (
+                  <div key={index}>
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary h-full">
+                      <CardHeader>
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                            <IconComponent className="w-6 h-6 text-primary" />
+                          </div>
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                            {project.name}
+                          </CardTitle>
                         </div>
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                          {project.name}
-                        </CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                      <TypographyP className="text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </TypographyP>
-                      <div>
-                        <TypographyH3 className="text-lg font-semibold mb-3">
-                          Technologies
-                        </TypographyH3>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="secondary">
-                              {tech}
-                            </Badge>
-                          ))}
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                        <TypographyP className="text-muted-foreground leading-relaxed">
+                          {project.description}
+                        </TypographyP>
+                        <div>
+                          <TypographyH3 className="text-lg font-semibold mb-3">
+                            Technologies
+                          </TypographyH3>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((tech, techIndex) => (
+                              <Badge key={techIndex} variant="secondary">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <TypographyH3 className="text-lg font-semibold mb-3">
-                          Key Features
-                        </TypographyH3>
-                        <ul className="space-y-2">
-                          {project.features.map((feature, featureIndex) => (
-                            <li
-                              key={featureIndex}
-                              className="flex items-start text-muted-foreground"
-                            >
-                              <span className="text-primary mr-2 mt-1">•</span>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+                        <div>
+                          <TypographyH3 className="text-lg font-semibold mb-3">
+                            Key Features
+                          </TypographyH3>
+                          <ul className="space-y-2">
+                            {project.features.map((feature, featureIndex) => (
+                              <li
+                                key={featureIndex}
+                                className="flex items-start text-muted-foreground"
+                              >
+                                <span className="text-primary mr-2 mt-1">
+                                  •
+                                </span>
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })}
             </div>
           </section>
         </div>

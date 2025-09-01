@@ -1,13 +1,25 @@
 import {
+  Clock,
+  Code,
+  Database,
+  Github,
+  Linkedin,
+  Mail,
+  MessageSquare,
+  Phone,
+  Shield,
+  Smartphone,
+  Zap,
+} from 'lucide-react';
+
+import { ContactForm } from '@/components/contact-form';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
   TypographyH1,
-  TypographyP,
   TypographyLead,
   TypographyMuted,
+  TypographyP,
 } from '@/components/ui/typography';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
-import { ContactForm } from '@/components/contact-form';
 
 export default function Contact() {
   return (
@@ -34,65 +46,61 @@ export default function Contact() {
                 <CardTitle className="text-2xl">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-primary" />
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <TypographyP className="font-semibold">Email</TypographyP>
+                      <TypographyMuted>arasfeld@gmail.com</TypographyMuted>
+                    </div>
                   </div>
-                  <div>
-                    <TypographyP className="font-semibold">Email</TypographyP>
-                    <TypographyMuted>arasfeld@gmail.com</TypographyMuted>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <TypographyP className="font-semibold">Phone</TypographyP>
+                      <TypographyMuted>(513) 746-0289</TypographyMuted>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <a
+                      href="https://github.com/arasfeld"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
+                    >
+                      <Github className="w-6 h-6 text-primary" />
+                    </a>
+                    <div>
+                      <TypographyP className="font-semibold">
+                        GitHub
+                      </TypographyP>
+                      <TypographyMuted>@arasfeld</TypographyMuted>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <a
+                      href="https://www.linkedin.com/in/adam-rasfeld"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
+                    >
+                      <Linkedin className="w-6 h-6 text-primary" />
+                    </a>
+                    <div>
+                      <TypographyP className="font-semibold">
+                        LinkedIn
+                      </TypographyP>
+                      <TypographyMuted>adam-rasfeld</TypographyMuted>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <TypographyP className="font-semibold">Phone</TypographyP>
-                    <TypographyMuted>(513) 746-0289</TypographyMuted>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <TypographyP className="font-semibold">
-                      Location
-                    </TypographyP>
-                    <TypographyMuted>Cincinnati, Ohio</TypographyMuted>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl">Social Links</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Button asChild variant="outline" className="w-full">
-                  <a
-                    href="https://github.com/arasfeld"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="w-5 h-5 mr-3" />
-                    GitHub Profile
-                  </a>
-                </Button>
-                <Button asChild variant="outline" className="w-full">
-                  <a
-                    href="https://www.linkedin.com/in/adam-rasfeld"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin className="w-5 h-5 mr-3" />
-                    LinkedIn Profile
-                  </a>
-                </Button>
               </CardContent>
             </Card>
 

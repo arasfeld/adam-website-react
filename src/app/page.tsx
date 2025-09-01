@@ -1,4 +1,20 @@
 import Link from 'next/link';
+import {
+  Building2,
+  Clock,
+  Database,
+  Lightbulb,
+  Lock,
+  MessageCircle,
+  Palette,
+  Rocket,
+  Settings,
+  Smartphone,
+  Target,
+  Wrench,
+  Zap,
+} from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -84,38 +100,43 @@ export default function Home() {
                 {
                   name: 'Frontend',
                   tech: 'React, Angular, TypeScript',
-                  icon: '⚡',
+                  icon: Zap,
                 },
                 {
                   name: 'Backend',
                   tech: 'Node.js, .NET, Ruby',
-                  icon: '🔧',
+                  icon: Wrench,
                 },
                 {
                   name: 'Mobile',
                   tech: 'React Native, iOS, Android',
-                  icon: '📱',
+                  icon: Smartphone,
                 },
                 {
                   name: 'Architecture',
                   tech: 'Microservices, Cloud, DevOps',
-                  icon: '🏗️',
+                  icon: Building2,
                 },
-              ].map((skill, index) => (
-                <div key={index}>
-                  <Card className="group hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="text-4xl mb-4">{skill.icon}</div>
-                      <h3 className="text-xl font-semibold mb-2">
-                        {skill.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {skill.tech}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+              ].map((skill, index) => {
+                const IconComponent = skill.icon;
+                return (
+                  <div key={index}>
+                    <Card className="group hover:shadow-lg transition-shadow">
+                      <CardContent className="p-6">
+                        <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center mb-4">
+                          <IconComponent className="w-6 h-6 text-primary" />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">
+                          {skill.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {skill.tech}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -137,55 +158,60 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: '🎨',
+                icon: Palette,
                 title: 'Frontend Development',
                 description:
                   'Creating responsive, interactive interfaces that users love',
               },
               {
-                icon: '⚙️',
+                icon: Settings,
                 title: 'Backend Development',
                 description:
                   'Building robust, scalable APIs and server-side solutions',
               },
               {
-                icon: '📱',
+                icon: Smartphone,
                 title: 'Mobile Development',
                 description: 'Cross-platform mobile apps that work seamlessly',
               },
               {
-                icon: '🏗️',
+                icon: Building2,
                 title: 'System Architecture',
                 description:
                   'Designing scalable, maintainable system architectures',
               },
               {
-                icon: '🗄️',
+                icon: Database,
                 title: 'Database Design',
                 description:
                   'Optimizing data storage and retrieval for performance',
               },
               {
-                icon: '💡',
+                icon: Lightbulb,
                 title: 'Technical Consulting',
                 description:
                   'Strategic guidance for technology decisions and implementation',
               },
-            ].map((service, index) => (
-              <div key={index}>
-                <Card className="group hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="text-5xl mb-4">{service.icon}</div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <TypographyP className="text-muted-foreground">
-                      {service.description}
-                    </TypographyP>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+            ].map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <div key={index}>
+                  <Card className="group hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <IconComponent className="w-8 h-8 text-primary" />
+                      </div>
+                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <TypographyP className="text-muted-foreground">
+                        {service.description}
+                      </TypographyP>
+                    </CardContent>
+                  </Card>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -311,30 +337,42 @@ export default function Home() {
               </TypographyH2>
               <div className="grid md:grid-cols-2 gap-6 text-left">
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">⚡</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Clock className="w-4 h-4 text-primary" />
+                    </div>
                     <span className="text-sm">Fast turnaround times</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">🎯</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Target className="w-4 h-4 text-primary" />
+                    </div>
                     <span className="text-sm">Clear communication</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">🔒</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Lock className="w-4 h-4 text-primary" />
+                    </div>
                     <span className="text-sm">Secure & reliable code</span>
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">📱</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Smartphone className="w-4 h-4 text-primary" />
+                    </div>
                     <span className="text-sm">Responsive design</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">🚀</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <Rocket className="w-4 h-4 text-primary" />
+                    </div>
                     <span className="text-sm">Performance optimized</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">💬</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                      <MessageCircle className="w-4 h-4 text-primary" />
+                    </div>
                     <span className="text-sm">Ongoing support</span>
                   </div>
                 </div>

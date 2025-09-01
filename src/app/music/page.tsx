@@ -1,30 +1,29 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useMemo, useState } from 'react';
+import { Heart, Volume2 } from 'lucide-react';
+
+import { Artist } from '@/components/artist';
+import { MusicPageSkeleton } from '@/components/spotify-skeletons';
+import { Track } from '@/components/track';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   TypographyH1,
   TypographyH2,
   TypographyP,
 } from '@/components/ui/typography';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Track } from '@/components/track';
-import { Artist } from '@/components/artist';
-import { Volume2, Heart } from 'lucide-react';
 import {
-  useTopTracks,
-  useTopArtists,
-  useRecentlyPlayed,
   useCurrentlyPlaying,
-  useCurrentUser,
+  useRecentlyPlayed,
+  useTopArtists,
+  useTopTracks,
 } from '@/lib/spotify-hooks';
 import {
+  Artist as SpotifyArtist,
   TimeRange,
   Track as SpotifyTrack,
-  Artist as SpotifyArtist,
 } from '@/types';
-import { MusicPageSkeleton } from '@/components/spotify-skeletons';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function Music() {
   // SWR hooks for data fetching
@@ -44,7 +43,6 @@ export default function Music() {
     useRecentlyPlayed(10);
   const { playing: currentlyPlaying, isLoading: currentlyPlayingLoading } =
     useCurrentlyPlaying();
-  const { user: userProfile, isLoading: userProfileLoading } = useCurrentUser();
 
   // State for tab management
   const [tracksTimeRange, setTracksTimeRange] = useState<
@@ -55,16 +53,27 @@ export default function Music() {
   >('short');
 
   // Check if any data is still loading
-  const isLoading =
-    shortTermTracksLoading ||
-    mediumTermTracksLoading ||
-    longTermTracksLoading ||
-    shortTermArtistsLoading ||
-    mediumTermArtistsLoading ||
-    longTermArtistsLoading ||
-    recentTracksLoading ||
-    currentlyPlayingLoading ||
-    userProfileLoading;
+  const isLoading = useMemo(
+    () =>
+      shortTermTracksLoading ||
+      mediumTermTracksLoading ||
+      longTermTracksLoading ||
+      shortTermArtistsLoading ||
+      mediumTermArtistsLoading ||
+      longTermArtistsLoading ||
+      recentTracksLoading ||
+      currentlyPlayingLoading,
+    [
+      currentlyPlayingLoading,
+      longTermArtistsLoading,
+      longTermTracksLoading,
+      mediumTermArtistsLoading,
+      mediumTermTracksLoading,
+      recentTracksLoading,
+      shortTermArtistsLoading,
+      shortTermTracksLoading,
+    ]
+  );
 
   if (isLoading) {
     return <MusicPageSkeleton />;
@@ -83,36 +92,6 @@ export default function Music() {
             tracks
           </TypographyP>
         </div>
-
-        {/* User Profile Section */}
-        {userProfile && (
-          <div className="mb-16">
-            <Card>
-              <CardHeader>
-                <div className="flex items-center gap-6">
-                  {userProfile.images?.[0] && (
-                    <Image
-                      src={userProfile.images[0].url}
-                      alt={userProfile.display_name}
-                      width={64}
-                      height={64}
-                      className="rounded-full"
-                    />
-                  )}
-                  <div>
-                    <CardTitle className="text-2xl">
-                      {userProfile.display_name}
-                    </CardTitle>
-                    <TypographyP className="text-muted-foreground">
-                      Spotify Premium •{' '}
-                      {userProfile.followers?.total?.toLocaleString()} followers
-                    </TypographyP>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          </div>
-        )}
 
         {/* Currently Playing Section */}
         {currentlyPlaying?.item && (
