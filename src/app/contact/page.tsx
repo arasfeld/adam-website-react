@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import {
   Clock,
   Code,
@@ -7,7 +8,6 @@ import {
   Mail,
   MessageSquare,
   Phone,
-  Shield,
   Smartphone,
   Zap,
 } from 'lucide-react';
@@ -20,6 +20,37 @@ import {
   TypographyMuted,
   TypographyP,
 } from '@/components/ui/typography';
+
+export const metadata: Metadata = {
+  title: 'Contact Adam Rasfeld - Full Stack Developer',
+  description:
+    'Get in touch with Adam Rasfeld for your next software development project. Available for freelance work, consulting, and full-time opportunities. Fast response time and transparent communication.',
+  keywords: [
+    'Contact Adam Rasfeld',
+    'Hire Full Stack Developer',
+    'React Developer for Hire',
+    'Node.js Developer for Hire',
+    'TypeScript Developer for Hire',
+    'Software Development Services',
+    'Web Development Consulting',
+    'Mobile App Development',
+    'Freelance Developer',
+    'Software Engineer for Hire',
+    'Cincinnati Developer',
+    'Remote Developer',
+  ],
+  openGraph: {
+    title: 'Contact Adam Rasfeld - Full Stack Developer',
+    description:
+      'Get in touch with Adam Rasfeld for your next software development project. Available for freelance work, consulting, and full-time opportunities.',
+    url: 'https://adamrasfeld.com/contact',
+  },
+  twitter: {
+    title: 'Contact Adam Rasfeld - Full Stack Developer',
+    description:
+      'Get in touch with Adam Rasfeld for your next software development project. Available for freelance work, consulting, and full-time opportunities.',
+  },
+};
 
 export default function Contact() {
   return (
@@ -112,21 +143,23 @@ export default function Contact() {
                 <TypographyP>
                   I offer comprehensive software development services including:
                 </TypographyP>
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-4 space-y-3">
                   {[
-                    'Full-stack web development',
-                    'Mobile app development',
-                    'System architecture design',
-                    'API development and integration',
-                    'Performance optimization',
-                    'Technical consulting',
+                    { text: 'Full-stack web development', icon: Code },
+                    { text: 'Mobile app development', icon: Smartphone },
+                    { text: 'System architecture design', icon: Database },
+                    { text: 'API development and integration', icon: Zap },
+                    { text: 'Performance optimization', icon: Clock },
+                    { text: 'Technical consulting', icon: MessageSquare },
                   ].map((service, index) => (
                     <li
                       key={index}
-                      className="text-sm text-muted-foreground flex items-start"
+                      className="text-sm text-muted-foreground flex items-start gap-3"
                     >
-                      <span className="text-primary mr-2 mt-1">•</span>
-                      {service}
+                      <div className="w-5 h-5 bg-primary/10 border border-primary/20 rounded flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <service.icon className="w-3 h-3 text-primary" />
+                      </div>
+                      {service.text}
                     </li>
                   ))}
                 </ul>

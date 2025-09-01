@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
@@ -11,6 +12,35 @@ import {
   TypographyMuted,
   TypographyP,
 } from '@/components/ui/typography';
+
+export const metadata: Metadata = {
+  title: 'About Adam Rasfeld - Full Stack Developer',
+  description:
+    'Learn about Adam Rasfeld, a passionate Full Stack Developer with 8+ years of experience. From Miami University to leading enterprise applications, discover his journey in software development.',
+  keywords: [
+    'About Adam Rasfeld',
+    'Software Engineer Background',
+    'Full Stack Developer Experience',
+    'Miami University Computer Science',
+    'Enterprise Software Development',
+    'React Developer',
+    'Node.js Developer',
+    'Software Development Journey',
+    'Technical Skills',
+    'Professional Experience',
+  ],
+  openGraph: {
+    title: 'About Adam Rasfeld - Full Stack Developer',
+    description:
+      'Learn about Adam Rasfeld, a passionate Full Stack Developer with 8+ years of experience. From Miami University to leading enterprise applications.',
+    url: 'https://adamrasfeld.com/about',
+  },
+  twitter: {
+    title: 'About Adam Rasfeld - Full Stack Developer',
+    description:
+      'Learn about Adam Rasfeld, a passionate Full Stack Developer with 8+ years of experience. From Miami University to leading enterprise applications.',
+  },
+};
 
 export default function About() {
   const skills = {

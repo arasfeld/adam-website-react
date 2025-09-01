@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import {
   Award,
   Briefcase,
@@ -30,6 +29,37 @@ import {
   TypographyLead,
   TypographyP,
 } from '@/components/ui/typography';
+
+export const metadata: Metadata = {
+  title: 'Resume - Adam Rasfeld Full Stack Developer',
+  description:
+    "Download Adam Rasfeld's resume and view his professional experience as a Full Stack Developer. 8+ years of experience with React, Node.js, TypeScript, and enterprise software development.",
+  keywords: [
+    'Adam Rasfeld Resume',
+    'Full Stack Developer Resume',
+    'Software Engineer Resume',
+    'React Developer Resume',
+    'Node.js Developer Resume',
+    'TypeScript Developer Resume',
+    'Software Development Experience',
+    'Enterprise Software Development',
+    'Seamless.AI',
+    'Upstart',
+    'Kroger Digital',
+    'Miami University Computer Science',
+  ],
+  openGraph: {
+    title: 'Resume - Adam Rasfeld Full Stack Developer',
+    description:
+      "Download Adam Rasfeld's resume and view his professional experience as a Full Stack Developer with 8+ years of experience.",
+    url: 'https://adamrasfeld.com/resume',
+  },
+  twitter: {
+    title: 'Resume - Adam Rasfeld Full Stack Developer',
+    description:
+      "Download Adam Rasfeld's resume and view his professional experience as a Full Stack Developer with 8+ years of experience.",
+  },
+};
 
 export default function Resume() {
   const experience = [

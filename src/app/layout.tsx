@@ -18,9 +18,62 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Adam Rasfeld',
+  title: {
+    default: 'Adam Rasfeld - Full Stack Developer',
+    template: '%s | Adam Rasfeld',
+  },
   description:
-    'Personal portfolio and projects showcasing full-stack development skills, modern technologies, and creative problem-solving.',
+    'Full Stack Developer with 8+ years of experience building scalable web applications, mobile apps, and system architectures. Specializing in React, Node.js, TypeScript, and modern web technologies.',
+  keywords: [
+    'Full Stack Developer',
+    'React Developer',
+    'Node.js Developer',
+    'TypeScript Developer',
+    'Web Development',
+    'Mobile App Development',
+    'Software Engineer',
+    'Frontend Developer',
+    'Backend Developer',
+    'System Architecture',
+    'Cincinnati Developer',
+    'Remote Developer',
+  ],
+  authors: [{ name: 'Adam Rasfeld', url: 'https://adamrasfeld.com' }],
+  creator: 'Adam Rasfeld',
+  publisher: 'Adam Rasfeld',
+  metadataBase: new URL('https://adamrasfeld.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://adamrasfeld.com',
+    title: 'Adam Rasfeld - Full Stack Developer',
+    description:
+      'Full Stack Developer with 8+ years of experience building scalable web applications, mobile apps, and system architectures.',
+    siteName: 'Adam Rasfeld Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Adam Rasfeld - Full Stack Developer',
+    description:
+      'Full Stack Developer with 8+ years of experience building scalable web applications, mobile apps, and system architectures.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // Replace with actual verification code
+  },
 };
 
 export default function RootLayout({

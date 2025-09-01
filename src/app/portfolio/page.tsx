@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { ExternalLink, Github } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -15,6 +16,36 @@ import {
   TypographyH2,
   TypographyLead,
 } from '@/components/ui/typography';
+
+export const metadata: Metadata = {
+  title: 'Portfolio - Adam Rasfeld Projects',
+  description:
+    "Explore Adam Rasfeld's portfolio of full-stack development projects including Freebox marketplace app, Electron Spotify client, and modern web applications built with React, Next.js, and TypeScript.",
+  keywords: [
+    'Adam Rasfeld Portfolio',
+    'Full Stack Projects',
+    'React Projects',
+    'Next.js Projects',
+    'TypeScript Projects',
+    'Electron Apps',
+    'Spotify Integration',
+    'Marketplace App',
+    'Web Development Portfolio',
+    'Software Development Projects',
+    'Open Source Projects',
+  ],
+  openGraph: {
+    title: 'Portfolio - Adam Rasfeld Projects',
+    description:
+      "Explore Adam Rasfeld's portfolio of full-stack development projects including Freebox marketplace app, Electron Spotify client, and modern web applications.",
+    url: 'https://adamrasfeld.com/portfolio',
+  },
+  twitter: {
+    title: 'Portfolio - Adam Rasfeld Projects',
+    description:
+      "Explore Adam Rasfeld's portfolio of full-stack development projects including Freebox marketplace app, Electron Spotify client, and modern web applications.",
+  },
+};
 
 export default function Portfolio() {
   const projects = [
