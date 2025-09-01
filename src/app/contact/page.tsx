@@ -23,7 +23,7 @@ export default function Contact() {
           </TypographyLead>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Contact Form */}
           <ContactForm />
 

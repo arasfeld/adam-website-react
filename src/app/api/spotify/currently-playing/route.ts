@@ -19,6 +19,11 @@ export async function GET() {
       return NextResponse.json(null, { status: response.status });
     }
 
+    // Check if response has content (204 No Content means no currently playing)
+    if (response.status === 204) {
+      return NextResponse.json(null);
+    }
+
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {

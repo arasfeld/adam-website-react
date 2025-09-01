@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   TypographyH1,
   TypographyH2,
@@ -9,13 +10,13 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Track } from '@/components/track';
 import { Artist } from '@/components/artist';
-import { CurrentlyPlayingTrack } from '@/components/currently-playing-track';
 import { Volume2, Heart } from 'lucide-react';
 import {
   useTopTracks,
   useTopArtists,
   useRecentlyPlayed,
   useCurrentlyPlaying,
+  useCurrentUser,
 } from '@/lib/spotify-hooks';
 import {
   TimeRange,
@@ -23,37 +24,47 @@ import {
   Artist as SpotifyArtist,
 } from '@/types';
 import { MusicPageSkeleton } from '@/components/spotify-skeletons';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function Music() {
   // SWR hooks for data fetching
   const { tracks: shortTermTracks, isLoading: shortTermTracksLoading } =
     useTopTracks(10, 0, TimeRange.ShortTerm);
+  const { tracks: mediumTermTracks, isLoading: mediumTermTracksLoading } =
+    useTopTracks(10, 0, TimeRange.MediumTerm);
   const { tracks: longTermTracks, isLoading: longTermTracksLoading } =
     useTopTracks(10, 0, TimeRange.LongTerm);
   const { artists: shortTermArtists, isLoading: shortTermArtistsLoading } =
     useTopArtists(10, 0, TimeRange.ShortTerm);
+  const { artists: mediumTermArtists, isLoading: mediumTermArtistsLoading } =
+    useTopArtists(10, 0, TimeRange.MediumTerm);
   const { artists: longTermArtists, isLoading: longTermArtistsLoading } =
     useTopArtists(10, 0, TimeRange.LongTerm);
   const { tracks: recentTracks, isLoading: recentTracksLoading } =
     useRecentlyPlayed(10);
   const { playing: currentlyPlaying, isLoading: currentlyPlayingLoading } =
     useCurrentlyPlaying();
+  const { user: userProfile, isLoading: userProfileLoading } = useCurrentUser();
 
-  const [tracksTimeRange, setTracksTimeRange] = useState<'short' | 'long'>(
-    'short'
-  );
-  const [artistsTimeRange, setArtistsTimeRange] = useState<'short' | 'long'>(
-    'short'
-  );
+  // State for tab management
+  const [tracksTimeRange, setTracksTimeRange] = useState<
+    'short' | 'medium' | 'long'
+  >('short');
+  const [artistsTimeRange, setArtistsTimeRange] = useState<
+    'short' | 'medium' | 'long'
+  >('short');
 
   // Check if any data is still loading
   const isLoading =
     shortTermTracksLoading ||
+    mediumTermTracksLoading ||
     longTermTracksLoading ||
     shortTermArtistsLoading ||
+    mediumTermArtistsLoading ||
     longTermArtistsLoading ||
     recentTracksLoading ||
-    currentlyPlayingLoading;
+    currentlyPlayingLoading ||
+    userProfileLoading;
 
   if (isLoading) {
     return <MusicPageSkeleton />;
@@ -73,152 +84,216 @@ export default function Music() {
           </TypographyP>
         </div>
 
+        {/* User Profile Section */}
+        {userProfile && (
+          <div className="mb-16">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-6">
+                  {userProfile.images?.[0] && (
+                    <Image
+                      src={userProfile.images[0].url}
+                      alt={userProfile.display_name}
+                      width={64}
+                      height={64}
+                      className="rounded-full"
+                    />
+                  )}
+                  <div>
+                    <CardTitle className="text-2xl">
+                      {userProfile.display_name}
+                    </CardTitle>
+                    <TypographyP className="text-muted-foreground">
+                      Spotify Premium •{' '}
+                      {userProfile.followers?.total?.toLocaleString()} followers
+                    </TypographyP>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </div>
+        )}
+
         {/* Currently Playing Section */}
         {currentlyPlaying?.item && (
           <div className="mb-16">
-            <div className="text-center mb-6">
-              <TypographyH2 className="text-2xl font-bold">
-                Currently Playing
-              </TypographyH2>
-            </div>
-            <CurrentlyPlayingTrack currentlyPlaying={currentlyPlaying} />
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-2xl">Currently Playing</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Track track={currentlyPlaying.item} />
+              </CardContent>
+            </Card>
           </div>
         )}
 
         {/* Top Tracks and Artists Section with Tabs */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start">
           {/* Top Tracks Section */}
-          <Card>
+          <Card className="h-full flex flex-col">
             <CardHeader>
               <CardTitle className="text-2xl">Top Tracks</CardTitle>
-              {/* Tab Navigation */}
-              <div className="flex gap-2 mt-4">
-                <button
-                  className={`px-4 py-2 font-medium rounded-lg transition-colors ${
-                    tracksTimeRange === 'short'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground hover:text-foreground'
-                  }`}
-                  onClick={() => setTracksTimeRange('short')}
-                >
-                  4 Weeks
-                </button>
-                <button
-                  className={`px-4 py-2 font-medium rounded-lg transition-colors ${
-                    tracksTimeRange === 'long'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground hover:text-foreground'
-                  }`}
-                  onClick={() => setTracksTimeRange('long')}
-                >
-                  1 Year
-                </button>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {tracksTimeRange === 'short' ? (
-                (shortTermTracks || [])?.length > 0 ? (
-                  (shortTermTracks || []).map(
-                    (track: SpotifyTrack, index: number) => (
-                      <Track
-                        key={`short-${track.id}`}
-                        track={track}
-                        rank={index + 1}
-                      />
-                    )
-                  )
-                ) : (
-                  <div className="text-center py-8">
-                    <TypographyP className="text-muted-foreground">
-                      No recent tracks available
-                    </TypographyP>
+              <Tabs
+                value={tracksTimeRange}
+                onValueChange={(value) =>
+                  setTracksTimeRange(value as 'short' | 'medium' | 'long')
+                }
+                className="mt-4"
+              >
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="short">Short Term</TabsTrigger>
+                  <TabsTrigger value="medium">Medium Term</TabsTrigger>
+                  <TabsTrigger value="long">Long Term</TabsTrigger>
+                </TabsList>
+                <TabsContent value="short" className="mt-4 w-full">
+                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                    {shortTermTracks?.length > 0 ? (
+                      shortTermTracks.map(
+                        (track: SpotifyTrack, index: number) => (
+                          <Track
+                            key={`short-${track.id}`}
+                            track={track}
+                            rank={index + 1}
+                          />
+                        )
+                      )
+                    ) : (
+                      <div className="text-center py-8">
+                        <TypographyP className="text-muted-foreground">
+                          No short-term tracks available
+                        </TypographyP>
+                      </div>
+                    )}
                   </div>
-                )
-              ) : (longTermTracks || [])?.length > 0 ? (
-                (longTermTracks || []).map(
-                  (track: SpotifyTrack, index: number) => (
-                    <Track
-                      key={`long-${track.id}`}
-                      track={track}
-                      rank={index + 1}
-                    />
-                  )
-                )
-              ) : (
-                <div className="text-center py-8">
-                  <TypographyP className="text-muted-foreground">
-                    No long-term tracks available
-                  </TypographyP>
-                </div>
-              )}
-            </CardContent>
+                </TabsContent>
+                <TabsContent value="medium" className="mt-4 w-full">
+                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                    {mediumTermTracks?.length > 0 ? (
+                      mediumTermTracks.map(
+                        (track: SpotifyTrack, index: number) => (
+                          <Track
+                            key={`medium-${track.id}`}
+                            track={track}
+                            rank={index + 1}
+                          />
+                        )
+                      )
+                    ) : (
+                      <div className="text-center py-8">
+                        <TypographyP className="text-muted-foreground">
+                          No medium-term tracks available
+                        </TypographyP>
+                      </div>
+                    )}
+                  </div>
+                </TabsContent>
+                <TabsContent value="long" className="mt-4 w-full">
+                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                    {longTermTracks?.length > 0 ? (
+                      longTermTracks.map(
+                        (track: SpotifyTrack, index: number) => (
+                          <Track
+                            key={`long-${track.id}`}
+                            track={track}
+                            rank={index + 1}
+                          />
+                        )
+                      )
+                    ) : (
+                      <div className="text-center py-8">
+                        <TypographyP className="text-muted-foreground">
+                          No long-term tracks available
+                        </TypographyP>
+                      </div>
+                    )}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </CardHeader>
           </Card>
 
           {/* Top Artists Section */}
-          <Card>
+          <Card className="h-full flex flex-col">
             <CardHeader>
               <CardTitle className="text-2xl">Top Artists</CardTitle>
-              {/* Tab Navigation */}
-              <div className="flex gap-2 mt-4">
-                <button
-                  className={`px-4 py-2 font-medium rounded-lg transition-colors ${
-                    artistsTimeRange === 'short'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground hover:text-foreground'
-                  }`}
-                  onClick={() => setArtistsTimeRange('short')}
-                >
-                  4 Weeks
-                </button>
-                <button
-                  className={`px-4 py-2 font-medium rounded-lg transition-colors ${
-                    artistsTimeRange === 'long'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground hover:text-foreground'
-                  }`}
-                  onClick={() => setArtistsTimeRange('long')}
-                >
-                  1 Year
-                </button>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {artistsTimeRange === 'short' ? (
-                (shortTermArtists || [])?.length > 0 ? (
-                  (shortTermArtists || []).map(
-                    (artist: SpotifyArtist, index: number) => (
-                      <Artist
-                        key={`short-artist-${artist.id}`}
-                        artist={artist}
-                        rank={index + 1}
-                      />
-                    )
-                  )
-                ) : (
-                  <div className="text-center py-8">
-                    <TypographyP className="text-muted-foreground">
-                      No recent artists available
-                    </TypographyP>
+              <Tabs
+                value={artistsTimeRange}
+                onValueChange={(value) =>
+                  setArtistsTimeRange(value as 'short' | 'medium' | 'long')
+                }
+                className="mt-4"
+              >
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="short">Short Term</TabsTrigger>
+                  <TabsTrigger value="medium">Medium Term</TabsTrigger>
+                  <TabsTrigger value="long">Long Term</TabsTrigger>
+                </TabsList>
+                <TabsContent value="short" className="mt-4 w-full">
+                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                    {shortTermArtists?.length > 0 ? (
+                      shortTermArtists.map(
+                        (artist: SpotifyArtist, index: number) => (
+                          <Artist
+                            key={`short-artist-${artist.id}`}
+                            artist={artist}
+                            rank={index + 1}
+                          />
+                        )
+                      )
+                    ) : (
+                      <div className="text-center py-8">
+                        <TypographyP className="text-muted-foreground">
+                          No short-term artists available
+                        </TypographyP>
+                      </div>
+                    )}
                   </div>
-                )
-              ) : (longTermArtists || [])?.length > 0 ? (
-                (longTermArtists || []).map(
-                  (artist: SpotifyArtist, index: number) => (
-                    <Artist
-                      key={`long-artist-${artist.id}`}
-                      artist={artist}
-                      rank={index + 1}
-                    />
-                  )
-                )
-              ) : (
-                <div className="text-center py-8">
-                  <TypographyP className="text-muted-foreground">
-                    No long-term artists available
-                  </TypographyP>
-                </div>
-              )}
-            </CardContent>
+                </TabsContent>
+                <TabsContent value="medium" className="mt-4 w-full">
+                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                    {mediumTermArtists?.length > 0 ? (
+                      mediumTermArtists.map(
+                        (artist: SpotifyArtist, index: number) => (
+                          <Artist
+                            key={`medium-artist-${artist.id}`}
+                            artist={artist}
+                            rank={index + 1}
+                          />
+                        )
+                      )
+                    ) : (
+                      <div className="text-center py-8">
+                        <TypographyP className="text-muted-foreground">
+                          No medium-term artists available
+                        </TypographyP>
+                      </div>
+                    )}
+                  </div>
+                </TabsContent>
+                <TabsContent value="long" className="mt-4 w-full">
+                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                    {longTermArtists?.length > 0 ? (
+                      longTermArtists.map(
+                        (artist: SpotifyArtist, index: number) => (
+                          <Artist
+                            key={`long-artist-${artist.id}`}
+                            artist={artist}
+                            rank={index + 1}
+                          />
+                        )
+                      )
+                    ) : (
+                      <div className="text-center py-8">
+                        <TypographyP className="text-muted-foreground">
+                          No long-term artists available
+                        </TypographyP>
+                      </div>
+                    )}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </CardHeader>
           </Card>
         </div>
 
@@ -233,8 +308,8 @@ export default function Music() {
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-4">
-                {(recentTracks || [])?.length > 0 ? (
-                  (recentTracks || [])
+                {recentTracks?.length > 0 ? (
+                  recentTracks
                     .slice(0, 8)
                     .map((track: SpotifyTrack, index: number) => (
                       <Track

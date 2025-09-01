@@ -96,9 +96,14 @@ export default function About() {
             </TypographyP>
             <TypographyP className="mb-6">
               At Divisions Maintenance Group, I expanded my skills into mobile
-              development and gained experience with React Native. Currently,
-              I&apos;m at Seamless.AI, where I&apos;m working on innovative
-              sales engagement platforms and Chrome extensions.
+              development and gained experience with React Native. I then joined
+              Upstart as a Software Engineer IV, where I led initiatives to
+              break apart monolithic codebases into microservices and
+              implemented Kafka-based event systems for better scalability.
+            </TypographyP>
+            <TypographyP className="mb-6">
+              Currently, I&apos;m at Seamless.AI, where I&apos;m working on
+              innovative sales engagement platforms and Chrome extensions.
             </TypographyP>
           </div>
 
