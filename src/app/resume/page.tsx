@@ -37,11 +37,6 @@ export const metadata: Metadata = {
     "Download Adam Rasfeld's resume and view his professional experience as a Full Stack Developer. 8+ years of experience with React, Node.js, TypeScript, and enterprise software development.",
   keywords: [
     'Adam Rasfeld Resume',
-    'Full Stack Developer Resume',
-    'Software Engineer Resume',
-    'React Developer Resume',
-    'Node.js Developer Resume',
-    'TypeScript Developer Resume',
     'Software Development Experience',
     'Enterprise Software Development',
     'Seamless.AI',

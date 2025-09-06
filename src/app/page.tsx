@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Building2,
@@ -24,57 +23,7 @@ import {
   TypographyP,
 } from '@/components/ui/typography';
 
-export const metadata: Metadata = {
-  title: 'Adam Rasfeld - Full Stack Developer',
-  description:
-    'Full Stack Developer with 8+ years of experience building scalable web applications, mobile apps, and system architectures. Specializing in React, Node.js, TypeScript, and modern web technologies.',
-  keywords: [
-    'Full Stack Developer',
-    'React Developer',
-    'Node.js Developer',
-    'TypeScript Developer',
-    'Web Development',
-    'Mobile App Development',
-    'Software Engineer',
-    'Frontend Developer',
-    'Backend Developer',
-    'System Architecture',
-    'Cincinnati Developer',
-    'Remote Developer',
-  ],
-  authors: [{ name: 'Adam Rasfeld' }],
-  creator: 'Adam Rasfeld',
-  publisher: 'Adam Rasfeld',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://adamrasfeld.com',
-    title: 'Adam Rasfeld - Full Stack Developer',
-    description:
-      'Full Stack Developer with 8+ years of experience building scalable web applications, mobile apps, and system architectures.',
-    siteName: 'Adam Rasfeld Portfolio',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Adam Rasfeld - Full Stack Developer',
-    description:
-      'Full Stack Developer with 8+ years of experience building scalable web applications, mobile apps, and system architectures.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code', // Replace with actual verification code
-  },
-};
+// No metadata needed - inherits from layout.tsx
 
 export default function Home() {
   return (

@@ -21,11 +21,8 @@ export const metadata: Metadata = {
   keywords: [
     'About Adam Rasfeld',
     'Software Engineer Background',
-    'Full Stack Developer Experience',
     'Miami University Computer Science',
     'Enterprise Software Development',
-    'React Developer',
-    'Node.js Developer',
     'Software Development Journey',
     'Technical Skills',
     'Professional Experience',
