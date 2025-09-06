@@ -12,6 +12,7 @@ import {
   TypographyMuted,
   TypographyP,
 } from '@/components/ui/typography';
+import { aboutStructuredData, stringifyJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'About Adam Rasfeld - Full Stack Developer',
@@ -97,6 +98,12 @@ export default function About() {
 
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(aboutStructuredData),
+        }}
+      />
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">

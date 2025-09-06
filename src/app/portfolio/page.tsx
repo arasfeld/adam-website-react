@@ -16,6 +16,10 @@ import {
   TypographyH2,
   TypographyLead,
 } from '@/components/ui/typography';
+import {
+  createPortfolioStructuredData,
+  stringifyJsonLd,
+} from '@/lib/structured-data';
 
 import type { Project } from '@/types';
 
@@ -165,8 +169,16 @@ export default function Portfolio() {
     },
   ];
 
+  const portfolioStructuredData = createPortfolioStructuredData(projects);
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(portfolioStructuredData),
+        }}
+      />
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">

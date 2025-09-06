@@ -20,6 +20,7 @@ import {
   TypographyMuted,
   TypographyP,
 } from '@/components/ui/typography';
+import { contactStructuredData, stringifyJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'Contact Adam Rasfeld - Full Stack Developer',
@@ -55,6 +56,12 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(contactStructuredData),
+        }}
+      />
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-16">
           <TypographyH1 className="mb-6">Get In Touch</TypographyH1>

@@ -29,6 +29,7 @@ import {
   TypographyLead,
   TypographyP,
 } from '@/components/ui/typography';
+import { resumeStructuredData, stringifyJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'Resume - Adam Rasfeld Full Stack Developer',
@@ -242,6 +243,12 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(resumeStructuredData),
+        }}
+      />
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
