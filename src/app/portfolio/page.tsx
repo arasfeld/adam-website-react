@@ -17,16 +17,20 @@ import {
   TypographyLead,
 } from '@/components/ui/typography';
 
+import type { Project } from '@/types';
+
 export const metadata: Metadata = {
   title: 'Portfolio - Adam Rasfeld Projects',
   description:
-    "Explore Adam Rasfeld's portfolio of full-stack development projects including Freebox marketplace app, Electron Spotify client, and modern web applications built with React, Next.js, and TypeScript.",
+    "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Electron Spotify client, and modern web applications built with React, Next.js, and TypeScript.",
   keywords: [
     'Adam Rasfeld Portfolio',
     'Full Stack Projects',
     'React Projects',
     'Next.js Projects',
     'TypeScript Projects',
+    'React Native Apps',
+    'Mobile Development',
     'Electron Apps',
     'Spotify Integration',
     'Marketplace App',
@@ -37,18 +41,48 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Portfolio - Adam Rasfeld Projects',
     description:
-      "Explore Adam Rasfeld's portfolio of full-stack development projects including Freebox marketplace app, Electron Spotify client, and modern web applications.",
+      "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Electron Spotify client, and modern web applications.",
     url: 'https://adamrasfeld.com/portfolio',
   },
   twitter: {
     title: 'Portfolio - Adam Rasfeld Projects',
     description:
-      "Explore Adam Rasfeld's portfolio of full-stack development projects including Freebox marketplace app, Electron Spotify client, and modern web applications.",
+      "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Electron Spotify client, and modern web applications.",
   },
 };
 
 export default function Portfolio() {
-  const projects = [
+  const projects: Project[] = [
+    {
+      title: 'Dionysus',
+      description:
+        'A sophisticated React Native cocktail and drink tracking app that combines cocktail discovery, drink logging, and intelligent intoxication tracking with real-time BAC calculations and a beautiful, modern interface.',
+      technologies: [
+        'React Native 0.79.5',
+        'Expo SDK 53',
+        'TypeScript',
+        'React Native Reanimated',
+        'React Hook Form',
+        'Zod',
+        'AsyncStorage',
+        'SF Symbols',
+      ],
+      highlights: [
+        'Real-time BAC calculation using the Widmark formula',
+        'Intelligent search with 1000+ pre-loaded drinks across 15+ categories',
+        'Animated circular progress meter with color-coded intoxication levels',
+        'Curated cocktail recipe collection with step-by-step instructions',
+        'Custom component library built with pure React Native StyleSheet',
+        'Cross-platform compatibility (iOS, Android, Web) with single codebase',
+        'Smooth 60fps animations using React Native Reanimated',
+        'Advanced form validation with React Hook Form and Zod schemas',
+      ],
+      year: '2025',
+      githubUrl: 'https://github.com/arasfeld/dionysus',
+      liveUrl: null,
+      image: '/dionysus-app-main.png',
+      deviceType: 'mobile',
+    },
     {
       title: 'Freebox',
       description:
@@ -75,6 +109,7 @@ export default function Portfolio() {
       githubUrl: 'https://github.com/arasfeld/freebox',
       liveUrl: null,
       image: '/freebox-app-main.png',
+      deviceType: 'desktop',
     },
     {
       title: 'Electron Spotify App',
@@ -103,6 +138,7 @@ export default function Portfolio() {
       githubUrl: 'https://github.com/arasfeld/electron-spotify-app',
       liveUrl: null,
       image: '/spotify-app-main.png',
+      deviceType: 'desktop',
     },
     {
       title: 'Personal Website',
@@ -125,6 +161,7 @@ export default function Portfolio() {
       githubUrl: 'https://github.com/arasfeld/adam-website-react',
       liveUrl: 'https://adamrasfeld.com',
       image: '/portfolio-preview.png',
+      deviceType: 'desktop',
     },
   ];
 
@@ -152,7 +189,7 @@ export default function Portfolio() {
                   <DeviceFrame
                     imageSrc={project.image}
                     imageAlt={`${project.title} screenshot`}
-                    deviceType="desktop"
+                    deviceType={project.deviceType}
                     size="lg"
                   />
                 </div>

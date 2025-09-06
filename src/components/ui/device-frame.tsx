@@ -38,10 +38,26 @@ const deviceConfigs = {
 };
 
 const sizeConfigs = {
-  sm: 'max-w-48',
-  md: 'max-w-64',
-  lg: 'max-w-80',
-  xl: 'max-w-96',
+  sm: {
+    desktop: 'max-w-48 max-h-32',
+    tablet: 'max-w-40 max-h-48',
+    mobile: 'max-w-28 max-h-48',
+  },
+  md: {
+    desktop: 'max-w-64 max-h-40',
+    tablet: 'max-w-56 max-h-64',
+    mobile: 'max-w-36 max-h-64',
+  },
+  lg: {
+    desktop: 'max-w-80 max-h-48',
+    tablet: 'max-w-72 max-h-80',
+    mobile: 'max-w-44 max-h-80',
+  },
+  xl: {
+    desktop: 'max-w-96 max-h-56',
+    tablet: 'max-w-88 max-h-96',
+    mobile: 'max-w-52 max-h-96',
+  },
 };
 
 export function DeviceFrame({
@@ -55,7 +71,7 @@ export function DeviceFrame({
   hideReflection = false,
 }: DeviceFrameProps) {
   const config = deviceConfigs[deviceType];
-  const sizeClass = sizeConfigs[size];
+  const sizeClass = sizeConfigs[size][deviceType];
   const [imageError, setImageError] = useState(false);
 
   const getDeviceIcon = () => {
