@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
@@ -102,6 +103,21 @@ export default function About() {
         }}
       />
       <div className="max-w-6xl mx-auto px-6 py-12">
+        {/* Mobile: Photo at the very top */}
+        <div className="lg:hidden mb-8">
+          <div className="flex justify-center">
+            <div className="relative w-48 h-48 bg-card rounded-full p-2">
+              <Image
+                src="/me.png"
+                alt="Adam Rasfeld - Full Stack Developer"
+                fill
+                className="rounded-full object-cover shadow-lg"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section */}
         <div className="text-center mb-16">
           <TypographyH1 className="mb-6">About Me</TypographyH1>
@@ -114,71 +130,82 @@ export default function About() {
         </div>
 
         {/* Background Section */}
-        <div className="grid lg:grid-cols-2 gap-16 mb-16">
-          <div>
-            <TypographyH2 className="mb-6">My Journey</TypographyH2>
-            <TypographyP className="mb-6">
-              My journey in software development began at Miami University where
-              I earned my Bachelor of Science in Computer Science. Since then,
-              I&apos;ve had the privilege of working with some incredible
-              companies and teams.
-            </TypographyP>
-            <TypographyP className="mb-6">
-              I started my career at RoviSys, where I developed enterprise
-              applications and learned the fundamentals of software development.
-              From there, I moved to Kroger Digital, where I worked on
-              large-scale consumer-facing applications.
-            </TypographyP>
-            <TypographyP className="mb-6">
-              At Divisions Maintenance Group, I expanded my skills into mobile
-              development and gained experience with React Native. I then joined
-              Upstart as a Software Engineer IV, where I led initiatives to
-              break apart monolithic codebases into microservices and
-              implemented Kafka-based event systems for better scalability.
-            </TypographyP>
-            <TypographyP className="mb-6">
-              Currently, I&apos;m at Seamless.AI, where I&apos;m working on
-              innovative sales engagement platforms and Chrome extensions.
-            </TypographyP>
-          </div>
+        <div className="mb-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <TypographyH2 className="mb-6">My Journey</TypographyH2>
+              <TypographyP className="mb-6">
+                My journey in software development began at Miami University
+                where I earned my Bachelor of Science in Computer Science. Since
+                then, I&apos;ve had the privilege of working with some
+                incredible companies and teams.
+              </TypographyP>
+              <TypographyP className="mb-6">
+                I started my career at RoviSys, where I developed enterprise
+                applications and learned the fundamentals of software
+                development. From there, I moved to Kroger Digital, where I
+                worked on large-scale consumer-facing applications.
+              </TypographyP>
+              <TypographyP className="mb-6">
+                At Divisions Maintenance Group, I expanded my skills into mobile
+                development and gained experience with React Native. I then
+                joined Upstart as a Software Engineer IV, where I led
+                initiatives to break apart monolithic codebases into
+                microservices and implemented Kafka-based event systems for
+                better scalability.
+              </TypographyP>
+              <TypographyP className="mb-6">
+                Currently, I&apos;m at Seamless.AI, where I&apos;m working on
+                innovative sales engagement platforms and Chrome extensions.
+              </TypographyP>
+            </div>
 
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <TypographyH4 className="mb-4">Education</TypographyH4>
-                <TypographyMuted>
-                  <strong>Bachelor of Science in Computer Science</strong>
-                  <br />
-                  Miami University, Oxford OH
-                  <br />
-                  Graduated: 2016
-                </TypographyMuted>
-              </CardContent>
-            </Card>
+            <div className="space-y-6">
+              {/* Desktop: Photo in right column */}
+              <div className="hidden lg:flex justify-center">
+                <div className="relative w-64 h-64 bg-card rounded-full p-2">
+                  <Image
+                    src="/me.png"
+                    alt="Adam Rasfeld - Full Stack Developer"
+                    fill
+                    className="rounded-full object-cover shadow-lg"
+                    priority
+                  />
+                </div>
+              </div>
 
-            <Card>
-              <CardContent className="p-6">
-                <TypographyH4 className="mb-4">Current Role</TypographyH4>
-                <TypographyMuted>
-                  <strong>Software Engineer II</strong>
-                  <br />
-                  Seamless.AI, Columbus OH
-                  <br />
-                  February 2023 - Present
-                </TypographyMuted>
-              </CardContent>
-            </Card>
+              {/* Combined Info Card */}
+              <Card>
+                <CardContent className="space-y-6">
+                  <div>
+                    <TypographyH4 className="mb-3">Education</TypographyH4>
+                    <TypographyMuted>
+                      <strong>Bachelor of Science in Computer Science</strong>
+                      <br />
+                      Miami University, Oxford OH
+                      <br />
+                      Graduated: 2016
+                    </TypographyMuted>
+                  </div>
 
-            <Card>
-              <CardContent className="p-6">
-                <TypographyH4 className="mb-4">Location</TypographyH4>
-                <TypographyMuted>
-                  Cincinnati, Ohio
-                  <br />
-                  Available for remote work and relocation
-                </TypographyMuted>
-              </CardContent>
-            </Card>
+                  <div>
+                    <TypographyH4 className="mb-3">Current Role</TypographyH4>
+                    <TypographyMuted>
+                      <strong>Software Engineer II</strong>
+                      <br />
+                      Seamless.AI, Columbus OH
+                      <br />
+                      February 2023 - Present
+                    </TypographyMuted>
+                  </div>
+
+                  <div>
+                    <TypographyH4 className="mb-3">Location</TypographyH4>
+                    <TypographyMuted>Cincinnati, Ohio</TypographyMuted>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
 
