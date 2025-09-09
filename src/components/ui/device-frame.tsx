@@ -39,23 +39,23 @@ const deviceConfigs = {
 
 const sizeConfigs = {
   sm: {
-    desktop: 'max-w-48 max-h-32',
-    tablet: 'max-w-40 max-h-48',
-    mobile: 'max-w-28 max-h-48',
+    desktop: 'max-w-56 max-h-40',
+    tablet: 'max-w-44 max-h-40',
+    mobile: 'max-w-28 max-h-40',
   },
   md: {
-    desktop: 'max-w-64 max-h-40',
-    tablet: 'max-w-56 max-h-64',
-    mobile: 'max-w-36 max-h-64',
+    desktop: 'max-w-80 max-h-56',
+    tablet: 'max-w-64 max-h-56',
+    mobile: 'max-w-36 max-h-56',
   },
   lg: {
-    desktop: 'max-w-80 max-h-48',
-    tablet: 'max-w-72 max-h-80',
-    mobile: 'max-w-44 max-h-80',
+    desktop: 'max-w-96 max-h-72',
+    tablet: 'max-w-80 max-h-72',
+    mobile: 'max-w-44 max-h-72',
   },
   xl: {
-    desktop: 'max-w-96 max-h-56',
-    tablet: 'max-w-88 max-h-96',
+    desktop: 'max-w-[28rem] max-h-96',
+    tablet: 'max-w-[24rem] max-h-96',
     mobile: 'max-w-52 max-h-96',
   },
 };

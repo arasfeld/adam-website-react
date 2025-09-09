@@ -47,10 +47,10 @@ export default function Music() {
   // State for tab management
   const [tracksTimeRange, setTracksTimeRange] = useState<
     'short' | 'medium' | 'long'
-  >('short');
+  >('long');
   const [artistsTimeRange, setArtistsTimeRange] = useState<
     'short' | 'medium' | 'long'
-  >('short');
+  >('long');
 
   // Check if any data is still loading
   const isLoading = useMemo(
@@ -108,25 +108,25 @@ export default function Music() {
         )}
 
         {/* Top Tracks and Artists Section with Tabs */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start w-full min-w-0">
           {/* Top Tracks Section */}
-          <Card className="h-full flex flex-col">
-            <CardHeader>
+          <Card className="h-full flex flex-col w-full min-w-0">
+            <CardHeader className="w-full min-w-0">
               <CardTitle className="text-2xl">Top Tracks</CardTitle>
               <Tabs
                 value={tracksTimeRange}
                 onValueChange={(value) =>
                   setTracksTimeRange(value as 'short' | 'medium' | 'long')
                 }
-                className="mt-4"
+                className="mt-4 w-full min-w-0"
               >
                 <TabsList className="grid w-full grid-cols-3">
                   <TabsTrigger value="short">Short Term</TabsTrigger>
                   <TabsTrigger value="medium">Medium Term</TabsTrigger>
                   <TabsTrigger value="long">Long Term</TabsTrigger>
                 </TabsList>
-                <TabsContent value="short" className="mt-4 w-full">
-                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                <TabsContent value="short" className="mt-4 w-full min-w-0">
+                  <div className="space-y-3 w-full min-w-0 overflow-hidden">
                     {shortTermTracks?.length > 0 ? (
                       shortTermTracks.map(
                         (track: SpotifyTrack, index: number) => (
@@ -146,8 +146,8 @@ export default function Music() {
                     )}
                   </div>
                 </TabsContent>
-                <TabsContent value="medium" className="mt-4 w-full">
-                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                <TabsContent value="medium" className="mt-4 w-full min-w-0">
+                  <div className="space-y-3 w-full min-w-0 overflow-hidden">
                     {mediumTermTracks?.length > 0 ? (
                       mediumTermTracks.map(
                         (track: SpotifyTrack, index: number) => (
@@ -167,8 +167,8 @@ export default function Music() {
                     )}
                   </div>
                 </TabsContent>
-                <TabsContent value="long" className="mt-4 w-full">
-                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                <TabsContent value="long" className="mt-4 w-full min-w-0">
+                  <div className="space-y-3 w-full min-w-0 overflow-hidden">
                     {longTermTracks?.length > 0 ? (
                       longTermTracks.map(
                         (track: SpotifyTrack, index: number) => (
@@ -193,23 +193,23 @@ export default function Music() {
           </Card>
 
           {/* Top Artists Section */}
-          <Card className="h-full flex flex-col">
-            <CardHeader>
+          <Card className="h-full flex flex-col w-full min-w-0">
+            <CardHeader className="w-full min-w-0">
               <CardTitle className="text-2xl">Top Artists</CardTitle>
               <Tabs
                 value={artistsTimeRange}
                 onValueChange={(value) =>
                   setArtistsTimeRange(value as 'short' | 'medium' | 'long')
                 }
-                className="mt-4"
+                className="mt-4 w-full min-w-0"
               >
                 <TabsList className="grid w-full grid-cols-3">
                   <TabsTrigger value="short">Short Term</TabsTrigger>
                   <TabsTrigger value="medium">Medium Term</TabsTrigger>
                   <TabsTrigger value="long">Long Term</TabsTrigger>
                 </TabsList>
-                <TabsContent value="short" className="mt-4 w-full">
-                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                <TabsContent value="short" className="mt-4 w-full min-w-0">
+                  <div className="space-y-3 w-full min-w-0 overflow-hidden">
                     {shortTermArtists?.length > 0 ? (
                       shortTermArtists.map(
                         (artist: SpotifyArtist, index: number) => (
@@ -229,8 +229,8 @@ export default function Music() {
                     )}
                   </div>
                 </TabsContent>
-                <TabsContent value="medium" className="mt-4 w-full">
-                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                <TabsContent value="medium" className="mt-4 w-full min-w-0">
+                  <div className="space-y-3 w-full min-w-0 overflow-hidden">
                     {mediumTermArtists?.length > 0 ? (
                       mediumTermArtists.map(
                         (artist: SpotifyArtist, index: number) => (
@@ -250,8 +250,8 @@ export default function Music() {
                     )}
                   </div>
                 </TabsContent>
-                <TabsContent value="long" className="mt-4 w-full">
-                  <div className="space-y-3 w-full max-w-full overflow-hidden">
+                <TabsContent value="long" className="mt-4 w-full min-w-0">
+                  <div className="space-y-3 w-full min-w-0 overflow-hidden">
                     {longTermArtists?.length > 0 ? (
                       longTermArtists.map(
                         (artist: SpotifyArtist, index: number) => (
@@ -278,15 +278,15 @@ export default function Music() {
 
         {/* Recently Played Section */}
         <div className="mb-16">
-          <Card>
-            <CardHeader>
+          <Card className="w-full min-w-0">
+            <CardHeader className="w-full min-w-0">
               <CardTitle className="text-2xl">Recently Played</CardTitle>
               <TypographyP className="text-muted-foreground">
                 Your latest listening history
               </TypographyP>
             </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
+            <CardContent className="w-full min-w-0">
+              <div className="grid md:grid-cols-2 gap-4 w-full min-w-0">
                 {recentTracks?.length > 0 ? (
                   recentTracks
                     .slice(0, 8)

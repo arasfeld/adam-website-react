@@ -79,22 +79,24 @@ export default function Contact() {
                 <CardTitle className="text-2xl">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-primary" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <TypographyP className="font-semibold">Email</TypographyP>
-                      <TypographyMuted>arasfeld@gmail.com</TypographyMuted>
+                      <TypographyMuted className="break-all">
+                        arasfeld@gmail.com
+                      </TypographyMuted>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <TypographyP className="font-semibold">Phone</TypographyP>
                       <TypographyMuted>(513) 746-0289</TypographyMuted>
                     </div>
@@ -105,11 +107,11 @@ export default function Contact() {
                       href="https://github.com/arasfeld"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
+                      className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors flex-shrink-0"
                     >
                       <Github className="w-6 h-6 text-primary" />
                     </a>
-                    <div>
+                    <div className="min-w-0">
                       <TypographyP className="font-semibold">
                         GitHub
                       </TypographyP>
@@ -122,11 +124,11 @@ export default function Contact() {
                       href="https://www.linkedin.com/in/adam-rasfeld"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
+                      className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors flex-shrink-0"
                     >
                       <Linkedin className="w-6 h-6 text-primary" />
                     </a>
-                    <div>
+                    <div className="min-w-0">
                       <TypographyP className="font-semibold">
                         LinkedIn
                       </TypographyP>
