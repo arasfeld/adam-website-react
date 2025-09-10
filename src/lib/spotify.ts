@@ -19,7 +19,7 @@ export async function getAccessToken() {
     }),
     // cache access token for 1 hour before revalidating
     next: { revalidate: 3600 },
-  }).then((res) => res.json());
+  }).then(res => res.json());
 
   return response;
 }

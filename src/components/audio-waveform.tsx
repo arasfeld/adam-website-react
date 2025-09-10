@@ -15,7 +15,7 @@ export function AudioWaveform({
     if (!isPlaying) return;
 
     const interval = setInterval(() => {
-      setBars((prevBars) =>
+      setBars(prevBars =>
         prevBars.map(() => {
           // Generate random heights between 4 and 24 pixels
           return 4 + Math.random() * 20;

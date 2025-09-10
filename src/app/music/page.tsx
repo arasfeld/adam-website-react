@@ -115,7 +115,7 @@ export default function Music() {
               <CardTitle className="text-2xl">Top Tracks</CardTitle>
               <Tabs
                 value={tracksTimeRange}
-                onValueChange={(value) =>
+                onValueChange={value =>
                   setTracksTimeRange(value as 'short' | 'medium' | 'long')
                 }
                 className="mt-4 w-full min-w-0"
@@ -198,7 +198,7 @@ export default function Music() {
               <CardTitle className="text-2xl">Top Artists</CardTitle>
               <Tabs
                 value={artistsTimeRange}
-                onValueChange={(value) =>
+                onValueChange={value =>
                   setArtistsTimeRange(value as 'short' | 'medium' | 'long')
                 }
                 className="mt-4 w-full min-w-0"
