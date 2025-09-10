@@ -231,7 +231,7 @@ export default function About() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {skillList.map((skill) => (
+                    {skillList.map(skill => (
                       <Badge key={skill} variant="outline" className="text-xs">
                         {skill}
                       </Badge>

@@ -89,7 +89,7 @@ export default async function Image() {
               marginTop: '20px',
             }}
           >
-            {['React', 'Node.js', 'TypeScript', 'Next.js'].map((tech) => (
+            {['React', 'Node.js', 'TypeScript', 'Next.js'].map(tech => (
               <div
                 key={tech}
                 style={{

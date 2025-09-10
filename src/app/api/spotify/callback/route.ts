@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
       grant_type: 'authorization_code',
       redirect_uri: SPOTIFY_REDIRECT_URI,
     }),
-  }).then((res) => res.json());
+  }).then(res => res.json());
 
   return Response.json(response);
 }

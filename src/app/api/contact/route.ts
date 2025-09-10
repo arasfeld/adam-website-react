@@ -42,8 +42,8 @@ export async function POST(request: NextRequest) {
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="margin-top: 0; color: #555;">Contact Information</h3>
             <p><strong>Name:</strong> ${validatedData.firstName} ${
-        validatedData.lastName
-      }</p>
+              validatedData.lastName
+            }</p>
             <p><strong>Email:</strong> ${validatedData.email}</p>
             <p><strong>Subject:</strong> ${validatedData.subject}</p>
           </div>
