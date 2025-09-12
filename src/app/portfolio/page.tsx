@@ -26,7 +26,7 @@ import type { Project } from '@/types';
 export const metadata: Metadata = {
   title: 'Portfolio - Adam Rasfeld Projects',
   description:
-    "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Electron Spotify client, and modern web applications built with React, Next.js, and TypeScript.",
+    "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Joyce Art Studio portfolio website, Electron Spotify client, and modern web applications built with React, Next.js, and TypeScript.",
   keywords: [
     'Adam Rasfeld Portfolio',
     'Full Stack Projects',
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Portfolio - Adam Rasfeld Projects',
     description:
-      "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Electron Spotify client, and modern web applications.",
+      "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Joyce Art Studio portfolio website, Electron Spotify client, and modern web applications.",
     url: 'https://adamrasfeld.com/portfolio',
   },
   twitter: {
     title: 'Portfolio - Adam Rasfeld Projects',
     description:
-      "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Electron Spotify client, and modern web applications.",
+      "Explore Adam Rasfeld's portfolio of full-stack development projects including Dionysus drink tracking app, Freebox marketplace app, Joyce Art Studio portfolio website, Electron Spotify client, and modern web applications.",
   },
 };
 
@@ -62,8 +62,8 @@ export default function Portfolio() {
       description:
         'A sophisticated React Native cocktail and drink tracking app that combines cocktail discovery, drink logging, and intelligent intoxication tracking with real-time BAC calculations and a beautiful, modern interface.',
       technologies: [
-        'React Native 0.79.5',
-        'Expo SDK 53',
+        'React Native',
+        'Expo',
         'TypeScript',
         'React Native Reanimated',
         'React Hook Form',
@@ -92,7 +92,7 @@ export default function Portfolio() {
       description:
         'A marketplace application for giving away free items, built with fairness features to ensure equitable distribution and prevent hoarding.',
       technologies: [
-        'Next.js 14',
+        'Next.js',
         'TypeScript',
         'NextAuth.js',
         'Prisma',
@@ -121,11 +121,11 @@ export default function Portfolio() {
         'A comprehensive desktop music client built with Electron that provides a native Spotify experience with personalized analytics, playlist management, and music discovery features.',
       technologies: [
         'Electron',
-        'React 18',
+        'React',
         'TypeScript',
         'Redux Toolkit',
         'RTK Query',
-        'Mantine v7',
+        'Mantine',
         'Spotify Web API',
         'Vite',
         'Vitest',
@@ -145,26 +145,36 @@ export default function Portfolio() {
       deviceType: 'desktop',
     },
     {
-      title: 'Personal Website',
+      title: 'Joyce Art Studio',
       description:
-        'A modern, responsive portfolio website built with Next.js and TypeScript, featuring dark mode, smooth animations, and optimized performance.',
+        'A comprehensive, full-stack portfolio website for Joyce Rasfeld, a professional artist specializing in original artwork and custom commissions. Features dynamic portfolio gallery, e-commerce functionality, and professional contact system.',
       technologies: [
         'Next.js',
         'React',
         'TypeScript',
         'Tailwind CSS',
+        'PostgreSQL',
+        'Prisma ORM',
+        'Radix UI',
+        'React Hook Form',
+        'Zod',
+        'Resend API',
+        'Docker',
         'Vercel',
       ],
       highlights: [
-        'Modern responsive design with dark/light mode',
-        'Optimized performance and SEO',
-        'Spotify integration for music showcase',
-        'Professional portfolio presentation',
+        'Dynamic portfolio gallery with category filtering and sorting',
+        'Complete e-commerce integration with shopping cart functionality',
+        'Professional contact system with email integration using Resend API',
+        'PostgreSQL database with Prisma ORM for artwork inventory management',
+        'Responsive design with mobile-first approach and smooth animations',
+        'Performance optimization with Next.js Image optimization and lazy loading',
+        'SEO optimization with proper metadata and semantic HTML',
       ],
-      year: '2024',
-      githubUrl: 'https://github.com/arasfeld/adam-website-react',
-      liveUrl: 'https://adamrasfeld.com',
-      image: '/portfolio-preview.png',
+      year: '2025',
+      githubUrl: 'https://github.com/JoyRasfeld/joyce-website',
+      liveUrl: 'https://joyceartstudio.com',
+      image: '/joyce-app-main.png',
       deviceType: 'desktop',
     },
   ];
@@ -270,7 +280,7 @@ export default function Portfolio() {
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
+                        Visit Site
                       </a>
                     </Button>
                   )}
