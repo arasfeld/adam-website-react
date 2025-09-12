@@ -65,12 +65,23 @@ export default function Resume() {
       duration: 'Feb 2023 - Present',
       location: 'Columbus, OH',
       description:
-        'Building innovative sales engagement platforms and Chrome extensions. Working with modern web technologies and optimizing user experiences.',
-      technologies: ['React', 'TypeScript', 'Chrome Extensions', 'Node.js'],
+        'Developing Chrome extensions and web platforms for sales automation, focusing on user experience optimization and security compliance.',
+      technologies: [
+        'Node.js',
+        'React',
+        'Redux',
+        'PostgreSQL',
+        'Chrome Extension',
+        'Redis',
+        'Sequelize',
+        'rsuite',
+      ],
       achievements: [
-        'Developed Chrome extensions for sales automation',
-        'Optimized platform performance and user experience',
-        'Collaborated with cross-functional teams on product features',
+        'Designed and shipped dynamic, customizable datatables with column selection, filtering, sorting, row selection, and bulk actions',
+        'Built the "Connect" workflow, expanding the platform into campaign management with task sequencing and automated outreach',
+        'Migrated the extension from Manifest v2 to v3, ensuring compliance with updated Chrome security requirements',
+        "Fixed security vulnerabilities flagged by GitHub code scanning, strengthening the platform's security posture",
+        'Mentored a junior engineer and collaborated cross-team with backend and integrations groups',
       ],
     },
     {
@@ -79,61 +90,97 @@ export default function Resume() {
       duration: 'Sep 2021 - Jan 2023',
       location: 'San Mateo, CA',
       description:
-        'Led initiatives to break apart a monolithic codebase into modular microservices, increasing scalability and system reliability.',
-      technologies: ['Ruby on Rails', 'gRPC', 'Kafka', 'React', 'PostgreSQL'],
+        'Architected microservices migration and performance optimization for financial technology platform, implementing modern monitoring and feature management.',
+      technologies: [
+        'Ruby on Rails',
+        'Slim',
+        'ActiveRecord',
+        'PostgreSQL',
+        'Redis',
+        'Kafka',
+        'gRPC',
+        'LaunchDarkly',
+        'DataDog',
+      ],
       achievements: [
-        'Led initiatives to break apart a monolithic codebase into modular microservices, increasing scalability',
-        'Improved the performance of paginated reporting queries, significantly reducing load times',
-        'Designed and implemented a Kafka-based event bus for service decoupling, enabling better system reliability',
+        'Developed reporting APIs with keyset pagination to improve query performance',
+        'Supported migration from monolithic Rails codebase to microservices using Kafka for event messaging',
+        'Analyzed database ownership boundaries to define data ownership across teams',
+        'Integrated monitoring and feature management tools (DataDog, LaunchDarkly) to maintain reliability',
       ],
     },
     {
       company: 'Divisions Maintenance Group',
-      role: 'Software Development Engineer III',
+      role: 'Software Engineer III',
       duration: 'Nov 2020 - Sep 2021',
       location: 'Newport, KY',
       description:
-        'Built new technician onboarding experience and led migration of service bus messaging system to gRPC.',
+        'Developed cross-platform mobile and web applications with modern architecture patterns, focusing on user onboarding and inter-service communication.',
       technologies: [
-        'C#.NET',
-        'gRPC',
-        'Node.js',
         'React',
         'React Native',
+        'MobX',
+        'C#.NET',
+        'gRPC',
+        'Kafka',
         'MSSQL Server',
+        'Jest',
+        'Datadog',
+        'Sentry',
       ],
       achievements: [
-        'Built a new technician onboarding experience for both web and mobile applications, streamlining user registration',
-        'Led the migration of a service bus messaging system to gRPC, improving inter-service communication',
-        'Developed a native module to facilitate gRPC requests on Android and iOS devices',
+        'Built a new technician onboarding experience for web (React) and mobile (React Native) apps',
+        'Developed a native module enabling gRPC requests on Android and iOS',
+        'Led the creation of a modular onboarding service/API, migrating service bus messaging system to gRPC and Kafka',
+        'Enhanced backend logging/telemetry with Datadog and Sentry and implemented unit/integration tests with Jest',
       ],
     },
     {
       company: 'Kroger Digital',
       role: 'Software Engineer',
-      duration: '2019 - 2021',
+      duration: 'Mar 2018 - Oct 2020',
       location: 'Cincinnati, OH',
       description:
-        'Developed large-scale consumer-facing applications for one of the largest grocery retailers.',
-      technologies: ['React', 'Angular', 'Java', 'MongoDB'],
+        'Built scalable e-commerce applications and developer tooling for major retail platform, emphasizing code quality and accessibility standards.',
+      technologies: [
+        'React',
+        'Redux',
+        'Node.js',
+        'MongoDB',
+        'Jest',
+        'WebdriverIO',
+        'Storybook',
+        'Datadog',
+      ],
       achievements: [
-        'Built customer-facing web applications',
-        'Worked on high-traffic e-commerce platforms',
-        'Implemented responsive design and accessibility features',
+        'Consolidated multiple account repositories into a Lerna monorepo, improving maintainability and deployment workflows',
+        'Drove unit and end-to-end test coverage above 90% using Jest and WebdriverIO',
+        'Redesigned authentication flows and improved accessibility following WCAG standards',
+        'Helped build a content management platform with Node.js + MongoDB',
       ],
     },
     {
       company: 'RoviSys',
-      role: 'Software Engineer',
-      duration: '2016 - 2019',
+      role: 'Software Developer II',
+      duration: 'Dec 2014 - Feb 2018',
       location: 'Aurora, OH',
       description:
-        'Developed enterprise applications and learned fundamental software development practices.',
-      technologies: ['.NET', 'C#', 'SQL Server', 'JavaScript'],
+        'Developed enterprise automation systems and internal business applications, modernizing legacy systems with contemporary web technologies.',
+      technologies: [
+        'ASP.NET MVC',
+        'Web API',
+        'Entity Framework',
+        'AngularJS',
+        'WPF',
+        'MSSQL Server',
+        'AutoCAD SDK',
+        'Cognex',
+      ],
       achievements: [
-        'Built enterprise automation systems',
-        'Developed industrial control applications',
-        'Gained experience with enterprise software development',
+        'Designed and maintained internal business apps streamlining project management, staffing, and reporting',
+        'Modernized legacy systems by migrating WinForms → WPF, including engineering tools with AutoCAD SDK integration',
+        'Built platforms for resource forecasting, asset tracking, desk reservation, and employee surveys',
+        'Collaborated across teams to deliver scalable, reliable applications for internal and customer-facing use',
       ],
     },
   ];
@@ -143,96 +190,69 @@ export default function Resume() {
       degree: 'Bachelor of Science in Computer Science',
       school: 'Miami University',
       location: 'Oxford, OH',
-      duration: '2012 - 2016',
-      gpa: '3.8/4.0',
-      highlights: [
-        "Dean's List: 2013-2016",
-        'Computer Science Honor Society',
-        'Senior Capstone Project: Machine Learning Algorithm Implementation',
-      ],
+      duration: 'Aug 2009 - Dec 2014',
     },
   ];
 
   const skills = [
     {
-      category: 'Frontend Development',
+      category: 'Languages & Frameworks',
       technologies: [
-        'React',
-        'Angular',
-        'TypeScript',
         'JavaScript',
-        'HTML5',
-        'CSS3',
-        'Tailwind CSS',
+        'TypeScript',
+        'React',
+        'React Native',
         'Next.js',
+        'Node.js',
+        'Ruby on Rails',
+        'C#.NET',
+        'ASP.NET MVC',
+        'Web API',
+        'AngularJS',
+        'SQL',
+        'HTML/CSS',
       ],
       icon: Zap,
     },
     {
-      category: 'Backend Development',
-      technologies: [
-        'Node.js',
-        '.NET',
-        'C#',
-        'Java',
-        'Python',
-        'Ruby',
-        'Express.js',
-        'ASP.NET',
-      ],
+      category: 'Databases',
+      technologies: ['PostgreSQL', 'MongoDB', 'MSSQL Server', 'MySQL', 'Redis'],
+      icon: Database,
+    },
+    {
+      category: 'Messaging & APIs',
+      technologies: ['gRPC', 'Kafka', 'REST APIs', 'GraphQL'],
       icon: Wrench,
     },
     {
-      category: 'Mobile Development',
+      category: 'Testing & QA',
+      technologies: ['Jest', 'WebdriverIO', 'NUnit'],
+      icon: Code,
+    },
+    {
+      category: 'DevOps & Tools',
       technologies: [
-        'React Native',
-        'iOS Development',
-        'Android Development',
-        'Mobile UI/UX',
-        'Cross-platform Development',
+        'AWS',
+        'Docker',
+        'Prisma',
+        'LaunchDarkly',
+        'Datadog',
+        'Sentry',
+        'GitHub',
+        'Vercel',
       ],
       icon: Smartphone,
     },
     {
-      category: 'Database & Cloud',
+      category: 'Practices',
       technologies: [
-        'PostgreSQL',
-        'MongoDB',
-        'SQL Server',
-        'Redis',
-        'AWS',
-        'Azure',
-        'Docker',
-        'Kubernetes',
+        'Agile/Scrum',
+        'Microservices',
+        'Accessibility (WCAG)',
+        'TDD',
+        'CI/CD',
       ],
-      icon: Database,
-    },
-  ];
-
-  const projects = [
-    {
-      name: 'Spotify Integration App',
-      description:
-        'A web application that integrates with Spotify API to display user listening history and create personalized playlists.',
-      technologies: ['React', 'TypeScript', 'Spotify API', 'Node.js'],
-      features: [
-        'Real-time music tracking',
-        'Personalized recommendations',
-        'Playlist generation',
-        'User analytics dashboard',
-      ],
-    },
-    {
-      name: 'FreeBox Mobile App',
-      description:
-        'A cross-platform mobile application for managing and tracking personal finances with intuitive budgeting tools.',
-      technologies: ['React Native', 'TypeScript', 'Firebase', 'Redux'],
-      features: [
-        'Expense tracking',
-        'Budget planning',
-        'Financial insights',
-        'Multi-currency support',
-      ],
+      icon: Award,
     },
   ];
 
@@ -254,9 +274,14 @@ export default function Resume() {
             <TypographyH3 className="text-2xl md:text-3xl text-primary font-semibold">
               Full Stack Developer
             </TypographyH3>
-            <TypographyLead className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Passionate about creating innovative digital solutions and
-              transforming complex problems into elegant, scalable systems.
+            <TypographyLead className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Full Stack Software Engineer with extensive experience building
+              scalable web and mobile applications, optimizing systems, and
+              crafting high-performance, user-friendly interfaces. Skilled in
+              React, Next.js, Node.js, Ruby on Rails, and API integrations.
+              Experienced in mentoring, cross-team collaboration, and delivering
+              production-ready solutions that balance performance, usability,
+              and security.
             </TypographyLead>
           </div>
 
@@ -415,29 +440,11 @@ export default function Resume() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="flex items-center gap-2">
-                      <Award className="w-5 h-5 text-primary" />
-                      <TypographyP className="font-semibold">
-                        GPA: {edu.gpa}
-                      </TypographyP>
-                    </div>
-                    <div>
-                      <TypographyH3 className="text-lg font-semibold mb-3">
-                        Highlights
-                      </TypographyH3>
-                      <ul className="space-y-2">
-                        {edu.highlights.map((highlight, highlightIndex) => (
-                          <li
-                            key={highlightIndex}
-                            className="flex items-start text-muted-foreground"
-                          >
-                            <span className="text-primary mr-2 mt-1">•</span>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <CardContent>
+                    <TypographyP className="text-muted-foreground leading-relaxed">
+                      Bachelor of Science degree in Computer Science from Miami
+                      University.
+                    </TypographyP>
                   </CardContent>
                 </Card>
               </div>
@@ -452,12 +459,12 @@ export default function Resume() {
                 Technical Skills
               </TypographyH1>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {skills.map((skill, index) => {
                 const IconComponent = skill.icon;
                 return (
                   <div key={index}>
-                    <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary">
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary h-full flex flex-col">
                       <CardHeader>
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
@@ -468,80 +475,13 @@ export default function Resume() {
                           </CardTitle>
                         </div>
                       </CardHeader>
-                      <CardContent>
+                      <CardContent className="flex-1 flex flex-col justify-start">
                         <div className="flex flex-wrap gap-2">
                           {skill.technologies.map((tech, techIndex) => (
                             <Badge key={techIndex} variant="secondary">
                               {tech}
                             </Badge>
                           ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* Projects Section */}
-          <section className="space-y-8">
-            <div className="text-center mb-8">
-              <TypographyH1 className="text-3xl font-bold flex items-center justify-center gap-3">
-                <Award className="w-8 h-8 text-primary" />
-                Featured Projects
-              </TypographyH1>
-            </div>
-            <div className="grid lg:grid-cols-2 gap-8">
-              {projects.map((project, index) => {
-                const projectIcons = [Music, CreditCard];
-                const IconComponent = projectIcons[index] || Building2;
-                return (
-                  <div key={index}>
-                    <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-l-4 border-l-primary h-full">
-                      <CardHeader>
-                        <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                            <IconComponent className="w-6 h-6 text-primary" />
-                          </div>
-                          <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                            {project.name}
-                          </CardTitle>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="space-y-6">
-                        <TypographyP className="text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </TypographyP>
-                        <div>
-                          <TypographyH3 className="text-lg font-semibold mb-3">
-                            Technologies
-                          </TypographyH3>
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech, techIndex) => (
-                              <Badge key={techIndex} variant="secondary">
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <TypographyH3 className="text-lg font-semibold mb-3">
-                            Key Features
-                          </TypographyH3>
-                          <ul className="space-y-2">
-                            {project.features.map((feature, featureIndex) => (
-                              <li
-                                key={featureIndex}
-                                className="flex items-start text-muted-foreground"
-                              >
-                                <span className="text-primary mr-2 mt-1">
-                                  •
-                                </span>
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
                         </div>
                       </CardContent>
                     </Card>
