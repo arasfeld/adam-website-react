@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   publisher: 'Adam Rasfeld',
   metadataBase: new URL('https://adamrasfeld.com'),
   alternates: {
-    canonical: '/',
+    canonical: 'https://adamrasfeld.com',
   },
   openGraph: {
     type: 'website',

@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     'Software Development Projects',
     'Open Source Projects',
   ],
+  alternates: {
+    canonical: 'https://adamrasfeld.com/portfolio',
+  },
   openGraph: {
     title: 'Portfolio - Adam Rasfeld Projects',
     description:

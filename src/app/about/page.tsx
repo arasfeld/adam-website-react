@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     'Technical Skills',
     'Professional Experience',
   ],
+  alternates: {
+    canonical: 'https://adamrasfeld.com/about',
+  },
   openGraph: {
     title: 'About Adam Rasfeld - Full Stack Developer',
     description:

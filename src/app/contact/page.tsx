@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     'Cincinnati Developer',
     'Remote Developer',
   ],
+  alternates: {
+    canonical: 'https://adamrasfeld.com/contact',
+  },
   openGraph: {
     title: 'Contact Adam Rasfeld - Full Stack Developer',
     description:

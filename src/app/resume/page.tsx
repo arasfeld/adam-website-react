@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     'Kroger Digital',
     'Miami University Computer Science',
   ],
+  alternates: {
+    canonical: 'https://adamrasfeld.com/resume',
+  },
   openGraph: {
     title: 'Resume - Adam Rasfeld Full Stack Developer',
     description:
