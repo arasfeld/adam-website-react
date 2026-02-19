@@ -17,10 +17,10 @@ export function PricingSection() {
     <section className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <TypographyH2 className="text-4xl md:text-5xl font-bold mb-6">
+          <TypographyH2 className="text-4xl md:text-5xl font-bold mb-6 text-wrap-balance">
             Available for New Projects
           </TypographyH2>
-          <TypographyP className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <TypographyP className="text-xl text-muted-foreground max-w-3xl mx-auto text-wrap-pretty">
             I&apos;m currently accepting freelance and contract opportunities.
             Let&apos;s build something amazing together.
           </TypographyP>
@@ -92,12 +92,12 @@ export function PricingSection() {
                 <CardHeader className="text-center pb-4">
                   <CardTitle className="text-2xl mb-2">{pkg.title}</CardTitle>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl font-bold text-primary">
+                    <span className="text-4xl font-bold text-primary tabular-nums">
                       {pkg.price}
                     </span>
                     <span className="text-muted-foreground">{pkg.period}</span>
                   </div>
-                  <TypographyP className="text-muted-foreground mt-2">
+                  <TypographyP className="text-muted-foreground mt-2 text-wrap-pretty">
                     {pkg.description}
                   </TypographyP>
                 </CardHeader>
@@ -105,7 +105,12 @@ export function PricingSection() {
                   <ul className="space-y-3">
                     {pkg.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="text-primary mr-2 mt-1">✓</span>
+                        <span
+                          className="text-primary mr-2 mt-1"
+                          aria-hidden="true"
+                        >
+                          ✓
+                        </span>
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -127,26 +132,32 @@ export function PricingSection() {
 
         <div className="text-center">
           <Card className="p-8 max-w-2xl mx-auto">
-            <TypographyH2 className="text-2xl font-bold mb-4">
+            <TypographyH2 className="text-2xl font-bold mb-4 text-wrap-balance">
               Why Choose Me?
             </TypographyH2>
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Clock className="w-4 h-4 text-primary" />
+                    <Clock
+                      className="w-4 h-4 text-primary"
+                      aria-hidden="true"
+                    />
                   </div>
                   <span className="text-sm">Fast turnaround times</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Target className="w-4 h-4 text-primary" />
+                    <Target
+                      className="w-4 h-4 text-primary"
+                      aria-hidden="true"
+                    />
                   </div>
                   <span className="text-sm">Clear communication</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Lock className="w-4 h-4 text-primary" />
+                    <Lock className="w-4 h-4 text-primary" aria-hidden="true" />
                   </div>
                   <span className="text-sm">Secure & reliable code</span>
                 </div>
@@ -154,19 +165,28 @@ export function PricingSection() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Smartphone className="w-4 h-4 text-primary" />
+                    <Smartphone
+                      className="w-4 h-4 text-primary"
+                      aria-hidden="true"
+                    />
                   </div>
                   <span className="text-sm">Responsive design</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <Rocket className="w-4 h-4 text-primary" />
+                    <Rocket
+                      className="w-4 h-4 text-primary"
+                      aria-hidden="true"
+                    />
                   </div>
                   <span className="text-sm">Performance optimized</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center">
-                    <MessageCircle className="w-4 h-4 text-primary" />
+                    <MessageCircle
+                      className="w-4 h-4 text-primary"
+                      aria-hidden="true"
+                    />
                   </div>
                   <span className="text-sm">Ongoing support</span>
                 </div>

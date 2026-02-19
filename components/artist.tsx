@@ -13,13 +13,15 @@ export function Artist({ artist, rank }: Props) {
     <div className="flex flex-row items-center gap-4 p-4 hover:bg-muted/50 transition-colors w-full max-w-full overflow-hidden">
       {rank && (
         <div className="flex-shrink-0 w-8 h-8 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
-          <span className="text-sm font-semibold text-primary">{rank}</span>
+          <span className="text-sm font-semibold text-primary tabular-nums">
+            {rank}
+          </span>
         </div>
       )}
 
       <div className="flex-shrink-0">
         <Image
-          alt={artist.name}
+          alt={`Photo of ${artist.name}`}
           height={image.height}
           src={image.url}
           width={image.width}

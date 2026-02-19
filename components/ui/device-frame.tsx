@@ -17,6 +17,7 @@ interface DeviceFrameProps {
   className?: string;
   hideShadow?: boolean;
   hideReflection?: boolean;
+  priority?: boolean;
 }
 
 const deviceConfigs = {
@@ -69,6 +70,7 @@ export function DeviceFrame({
   className,
   hideShadow = false,
   hideReflection = false,
+  priority = false,
 }: DeviceFrameProps) {
   const config = deviceConfigs[deviceType];
   const sizeClass = sizeConfigs[size][deviceType];
@@ -131,6 +133,7 @@ export function DeviceFrame({
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={priority}
               onError={() => setImageError(true)}
             />
           ) : children ? (

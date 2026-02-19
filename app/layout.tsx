@@ -112,9 +112,17 @@ export default function RootLayout({
           disableTransitionOnChange
           enableSystem
         >
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:border focus:rounded-md focus:shadow-lg"
+          >
+            Skip to content
+          </a>
           <div className="flex flex-col h-full w-full min-h-screen">
             <Header />
-            <main className="mx-auto w-full flex-auto">{children}</main>
+            <main id="main-content" className="mx-auto w-full flex-auto">
+              {children}
+            </main>
             <Footer />
           </div>
           <Toaster

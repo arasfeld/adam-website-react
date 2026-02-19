@@ -62,8 +62,10 @@ export default function Contact() {
       />
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-16">
-          <TypographyH1 className="mb-6">Get In Touch</TypographyH1>
-          <TypographyLead className="max-w-3xl mx-auto">
+          <TypographyH1 className="mb-6 text-wrap-balance">
+            Get In Touch
+          </TypographyH1>
+          <TypographyLead className="max-w-3xl mx-auto text-wrap-pretty">
             I&apos;m always interested in new opportunities and exciting
             projects. Whether you have a question, want to discuss a potential
             collaboration, or just want to say hello, I&apos;d love to hear from
@@ -79,17 +81,22 @@ export default function Contact() {
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Contact Information</CardTitle>
+                <CardTitle className="text-2xl text-wrap-balance">
+                  Contact Information
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-primary" />
+                      <Mail
+                        className="w-6 h-6 text-primary"
+                        aria-hidden="true"
+                      />
                     </div>
                     <div className="min-w-0">
                       <TypographyP className="font-semibold">Email</TypographyP>
-                      <TypographyMuted className="break-all">
+                      <TypographyMuted className="break-all tabular-nums">
                         arasfeld@gmail.com
                       </TypographyMuted>
                     </div>
@@ -97,11 +104,16 @@ export default function Contact() {
 
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-primary" />
+                      <Phone
+                        className="w-6 h-6 text-primary"
+                        aria-hidden="true"
+                      />
                     </div>
                     <div className="min-w-0">
                       <TypographyP className="font-semibold">Phone</TypographyP>
-                      <TypographyMuted>(513) 746-0289</TypographyMuted>
+                      <TypographyMuted className="tabular-nums">
+                        (513) 746-0289
+                      </TypographyMuted>
                     </div>
                   </div>
 
@@ -112,7 +124,11 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors flex-shrink-0"
                     >
-                      <Github className="w-6 h-6 text-primary" />
+                      <Github
+                        className="w-6 h-6 text-primary"
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">GitHub</span>
                     </a>
                     <div className="min-w-0">
                       <TypographyP className="font-semibold">
@@ -129,7 +145,11 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors flex-shrink-0"
                     >
-                      <Linkedin className="w-6 h-6 text-primary" />
+                      <Linkedin
+                        className="w-6 h-6 text-primary"
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">LinkedIn</span>
                     </a>
                     <div className="min-w-0">
                       <TypographyP className="font-semibold">
@@ -144,7 +164,9 @@ export default function Contact() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Services Offered</CardTitle>
+                <CardTitle className="text-2xl text-wrap-balance">
+                  Services Offered
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <TypographyP>
@@ -164,7 +186,10 @@ export default function Contact() {
                       className="text-sm text-muted-foreground flex items-start gap-3"
                     >
                       <div className="w-5 h-5 bg-primary/10 border border-primary/20 rounded flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <service.icon className="w-3 h-3 text-primary" />
+                        <service.icon
+                          className="w-3 h-3 text-primary"
+                          aria-hidden="true"
+                        />
                       </div>
                       {service.text}
                     </li>

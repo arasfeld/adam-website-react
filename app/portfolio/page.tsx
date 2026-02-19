@@ -195,8 +195,10 @@ export default function Portfolio() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <TypographyH1 className="mb-6">Personal Projects</TypographyH1>
-          <TypographyLead className="max-w-3xl mx-auto">
+          <TypographyH1 className="mb-6 text-wrap-balance">
+            Personal Projects
+          </TypographyH1>
+          <TypographyLead className="max-w-3xl mx-auto text-wrap-pretty">
             A collection of projects showcasing my skills in full-stack
             development, modern technologies, and creative problem-solving.
           </TypographyLead>
@@ -216,17 +218,20 @@ export default function Portfolio() {
                     imageAlt={`${project.title} screenshot`}
                     deviceType={project.deviceType}
                     size="lg"
+                    priority={index < 2}
                   />
                 </div>
               )}
               <CardHeader className="pb-6">
                 <div className="flex justify-between items-start mb-4">
-                  <CardTitle className="text-2xl">{project.title}</CardTitle>
-                  <Badge variant="outline" className="text-xs">
+                  <CardTitle className="text-2xl text-wrap-balance">
+                    {project.title}
+                  </CardTitle>
+                  <Badge variant="outline" className="text-xs tabular-nums">
                     {project.year}
                   </Badge>
                 </div>
-                <CardDescription className="leading-relaxed">
+                <CardDescription className="leading-relaxed text-wrap-pretty">
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -256,7 +261,12 @@ export default function Portfolio() {
                         key={highlightIndex}
                         className="text-sm text-muted-foreground flex items-start"
                       >
-                        <span className="text-primary mr-2 mt-1">•</span>
+                        <span
+                          className="text-primary mr-2 mt-1"
+                          aria-hidden="true"
+                        >
+                          •
+                        </span>
                         {highlight}
                       </li>
                     ))}

@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Heart, Volume2 } from 'lucide-react';
 
 import { Artist } from '@/components/artist';
@@ -25,7 +26,10 @@ import {
   Track as SpotifyTrack,
 } from '@/types';
 
-export default function Music() {
+function MusicContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   // SWR hooks for data fetching
   const { tracks: shortTermTracks, isLoading: shortTermTracksLoading } =
     useTopTracks(10, 0, TimeRange.ShortTerm);
@@ -44,13 +48,23 @@ export default function Music() {
   const { playing: currentlyPlaying, isLoading: currentlyPlayingLoading } =
     useCurrentlyPlaying();
 
-  // State for tab management
-  const [tracksTimeRange, setTracksTimeRange] = useState<
-    'short' | 'medium' | 'long'
-  >('long');
-  const [artistsTimeRange, setArtistsTimeRange] = useState<
-    'short' | 'medium' | 'long'
-  >('long');
+  // Get tab values from URL or default to 'long'
+  const tracksTimeRange =
+    (searchParams.get('tracks') as 'short' | 'medium' | 'long') || 'long';
+  const artistsTimeRange =
+    (searchParams.get('artists') as 'short' | 'medium' | 'long') || 'long';
+
+  const setTracksTimeRange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('tracks', value);
+    router.replace(`?${params.toString()}`, { scroll: false });
+  };
+
+  const setArtistsTimeRange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('artists', value);
+    router.replace(`?${params.toString()}`, { scroll: false });
+  };
 
   // Check if any data is still loading
   const isLoading = useMemo(
@@ -84,10 +98,10 @@ export default function Music() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <TypographyH1 className="text-4xl md:text-5xl font-bold mb-6">
+          <TypographyH1 className="text-4xl md:text-5xl font-bold mb-6 text-wrap-balance">
             My Music Taste
           </TypographyH1>
-          <TypographyP className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <TypographyP className="text-xl text-muted-foreground max-w-3xl mx-auto text-wrap-pretty">
             A real-time glimpse into my Spotify listening habits and favorite
             tracks
           </TypographyP>
@@ -98,7 +112,9 @@ export default function Music() {
           <div className="mb-16">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Currently Playing</CardTitle>
+                <CardTitle className="text-2xl text-wrap-balance">
+                  Currently Playing
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <Track track={currentlyPlaying.item} />
@@ -112,12 +128,12 @@ export default function Music() {
           {/* Top Tracks Section */}
           <Card className="h-full flex flex-col w-full min-w-0">
             <CardHeader className="w-full min-w-0">
-              <CardTitle className="text-2xl">Top Tracks</CardTitle>
+              <CardTitle className="text-2xl text-wrap-balance">
+                Top Tracks
+              </CardTitle>
               <Tabs
                 value={tracksTimeRange}
-                onValueChange={value =>
-                  setTracksTimeRange(value as 'short' | 'medium' | 'long')
-                }
+                onValueChange={setTracksTimeRange}
                 className="mt-4 w-full min-w-0"
               >
                 <TabsList className="grid w-full grid-cols-3">
@@ -195,12 +211,12 @@ export default function Music() {
           {/* Top Artists Section */}
           <Card className="h-full flex flex-col w-full min-w-0">
             <CardHeader className="w-full min-w-0">
-              <CardTitle className="text-2xl">Top Artists</CardTitle>
+              <CardTitle className="text-2xl text-wrap-balance">
+                Top Artists
+              </CardTitle>
               <Tabs
                 value={artistsTimeRange}
-                onValueChange={value =>
-                  setArtistsTimeRange(value as 'short' | 'medium' | 'long')
-                }
+                onValueChange={setArtistsTimeRange}
                 className="mt-4 w-full min-w-0"
               >
                 <TabsList className="grid w-full grid-cols-3">
@@ -280,8 +296,10 @@ export default function Music() {
         <div className="mb-16">
           <Card className="w-full min-w-0">
             <CardHeader className="w-full min-w-0">
-              <CardTitle className="text-2xl">Recently Played</CardTitle>
-              <TypographyP className="text-muted-foreground">
+              <CardTitle className="text-2xl text-wrap-balance">
+                Recently Played
+              </CardTitle>
+              <TypographyP className="text-muted-foreground text-wrap-pretty">
                 Your latest listening history
               </TypographyP>
             </CardHeader>
@@ -311,10 +329,10 @@ export default function Music() {
         {/* CTA Section */}
         <div className="text-center">
           <Card className="p-12">
-            <TypographyH2 className="text-3xl font-bold mb-6">
+            <TypographyH2 className="text-3xl font-bold mb-6 text-wrap-balance">
               Connect Through Music
             </TypographyH2>
-            <TypographyP className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            <TypographyP className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed text-wrap-pretty">
               Music is a universal language. Let&apos;s discuss your favorite
               artists and discover new sounds together.
             </TypographyP>
@@ -325,14 +343,14 @@ export default function Music() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg text-lg font-medium transition-colors"
               >
-                <Heart className="w-5 h-5" />
+                <Heart className="w-5 h-5" aria-hidden="true" />
                 Follow on Spotify
               </a>
               <a
                 href="/contact"
                 className="inline-flex items-center gap-3 px-8 py-4 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-lg text-lg font-medium transition-colors"
               >
-                <Volume2 className="w-5 h-5" />
+                <Volume2 className="w-5 h-5" aria-hidden="true" />
                 Share Your Music
               </a>
             </div>
@@ -340,5 +358,13 @@ export default function Music() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Music() {
+  return (
+    <Suspense fallback={<MusicPageSkeleton />}>
+      <MusicContent />
+    </Suspense>
   );
 }

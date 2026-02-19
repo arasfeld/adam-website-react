@@ -123,8 +123,10 @@ export default function About() {
 
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <TypographyH1 className="mb-6">About Me</TypographyH1>
-          <TypographyLead className="max-w-3xl mx-auto">
+          <TypographyH1 className="mb-6 text-wrap-balance">
+            About Me
+          </TypographyH1>
+          <TypographyLead className="max-w-3xl mx-auto text-wrap-pretty">
             I&apos;m a passionate Full Stack Software Developer with over 8
             years of experience building scalable applications and optimizing
             system performance. I specialize in modern web technologies and have
@@ -136,7 +138,9 @@ export default function About() {
         <div className="mb-16">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <TypographyH2 className="mb-6">My Journey</TypographyH2>
+              <TypographyH2 className="mb-6 text-wrap-balance">
+                My Journey
+              </TypographyH2>
               <TypographyP className="mb-6">
                 My journey in software development began at Miami University
                 where I earned my Bachelor of Science in Computer Science. Since

@@ -83,6 +83,8 @@ export function ContactForm({ className }: ContactFormProps) {
               <Input
                 id="firstName"
                 placeholder="John"
+                autoComplete="given-name"
+                required
                 {...register('firstName')}
                 className={errors.firstName ? 'border-red-500' : ''}
               />
@@ -97,6 +99,8 @@ export function ContactForm({ className }: ContactFormProps) {
               <Input
                 id="lastName"
                 placeholder="Doe"
+                autoComplete="family-name"
+                required
                 {...register('lastName')}
                 className={errors.lastName ? 'border-red-500' : ''}
               />
@@ -113,6 +117,9 @@ export function ContactForm({ className }: ContactFormProps) {
             <Input
               id="email"
               type="email"
+              inputMode="email"
+              autoComplete="email"
+              required
               placeholder="john@example.com"
               {...register('email')}
               className={errors.email ? 'border-red-500' : ''}
@@ -129,6 +136,8 @@ export function ContactForm({ className }: ContactFormProps) {
             <Input
               id="subject"
               placeholder="Project Inquiry"
+              autoComplete="off"
+              required
               {...register('subject')}
               className={errors.subject ? 'border-red-500' : ''}
             />
@@ -145,6 +154,7 @@ export function ContactForm({ className }: ContactFormProps) {
               id="message"
               placeholder="Tell me about your project or how I can help..."
               rows={6}
+              required
               className={`resize-none ${
                 errors.message ? 'border-red-500' : ''
               }`}

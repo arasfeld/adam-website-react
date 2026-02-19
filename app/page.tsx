@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import {
   Building2,
   Database,
@@ -10,7 +11,6 @@ import {
   Zap,
 } from 'lucide-react';
 
-import { PricingSection } from '@/components/pricing-section';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -19,7 +19,15 @@ import {
   TypographyP,
 } from '@/components/ui/typography';
 
-// No metadata needed - inherits from layout.tsx
+// Dynamically import PricingSection as it is conditionally rendered
+const PricingSection = dynamic(
+  () => import('@/components/pricing-section').then(mod => mod.PricingSection),
+  {
+    loading: () => (
+      <div className="py-20 animate-pulse bg-muted/20 h-[500px]" />
+    ),
+  }
+);
 
 export default function Home() {
   return (
@@ -29,19 +37,19 @@ export default function Home() {
         <div className="relative max-w-4xl mx-auto w-full">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <TypographyH1 className="text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <TypographyH1 className="text-6xl md:text-8xl lg:text-9xl font-bold bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent text-wrap-balance">
                 Adam Rasfeld
               </TypographyH1>
             </div>
 
             <div className="space-y-6">
-              <TypographyH2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+              <TypographyH2 className="text-2xl md:text-3xl font-semibold text-muted-foreground text-wrap-balance">
                 Full Stack Developer
               </TypographyH2>
             </div>
 
             <div>
-              <TypographyP className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <TypographyP className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-wrap-pretty">
                 Building digital solutions with precision. Transforming complex
                 algorithms into elegant, scalable systems.
               </TypographyP>
@@ -69,7 +77,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="space-y-6">
-                <TypographyH2 className="text-4xl md:text-5xl font-bold">
+                <TypographyH2 className="text-4xl md:text-5xl font-bold text-wrap-balance">
                   Building the Future,
                   <span className="block text-primary">
                     One Algorithm at a Time
@@ -122,7 +130,10 @@ export default function Home() {
                     <Card className="group hover:shadow-lg transition-shadow">
                       <CardContent className="p-6">
                         <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center mb-4">
-                          <IconComponent className="w-6 h-6 text-primary" />
+                          <IconComponent
+                            className="w-6 h-6 text-primary"
+                            aria-hidden="true"
+                          />
                         </div>
                         <h3 className="text-xl font-semibold mb-2">
                           {skill.name}
@@ -144,10 +155,10 @@ export default function Home() {
       <section className="py-20 px-6 bg-muted/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <TypographyH2 className="text-4xl md:text-5xl font-bold mb-6">
+            <TypographyH2 className="text-4xl md:text-5xl font-bold mb-6 text-wrap-balance">
               Services
             </TypographyH2>
-            <TypographyP className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <TypographyP className="text-xl text-muted-foreground max-w-3xl mx-auto text-wrap-pretty">
               From concept to deployment, I handle every aspect of modern
               software development
             </TypographyP>
@@ -197,7 +208,10 @@ export default function Home() {
                   <Card className="group hover:shadow-lg transition-shadow">
                     <CardHeader>
                       <div className="w-16 h-16 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center mb-4">
-                        <IconComponent className="w-8 h-8 text-primary" />
+                        <IconComponent
+                          className="w-8 h-8 text-primary"
+                          aria-hidden="true"
+                        />
                       </div>
                       <CardTitle className="text-xl">{service.title}</CardTitle>
                     </CardHeader>
@@ -228,7 +242,7 @@ export default function Home() {
               { number: '100%', label: 'Client Satisfaction' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
+                <div className="text-5xl md:text-6xl font-bold text-primary mb-2 tabular-nums">
                   {stat.number}
                 </div>
                 <div className="text-muted-foreground font-medium">
@@ -246,12 +260,12 @@ export default function Home() {
           <div>
             <Card className="p-12">
               <div>
-                <TypographyH2 className="text-4xl md:text-5xl font-bold mb-6">
+                <TypographyH2 className="text-4xl md:text-5xl font-bold mb-6 text-wrap-balance">
                   Ready to Get Started?
                 </TypographyH2>
               </div>
               <div>
-                <TypographyP className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <TypographyP className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-wrap-pretty">
                   Let&apos;s turn your vision into reality. I&apos;m here to
                   help you build the next big thing.
                 </TypographyP>
