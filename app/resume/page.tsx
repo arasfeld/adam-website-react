@@ -2,10 +2,8 @@ import type { Metadata } from 'next';
 import {
   Award,
   Briefcase,
-  Building2,
   Calendar,
   Code,
-  CreditCard,
   Database,
   Download,
   Github,
@@ -13,7 +11,6 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Music,
   Phone,
   Smartphone,
   Wrench,
